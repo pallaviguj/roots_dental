@@ -3,27 +3,24 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Roots Dental Speciality Clinic</title>
+	<title>{{site.businessName}}</title>
 	
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href="css/main.css" />
+	
+	<!-- Load Config & Templates -->
+	<script src="js/config.js"></script>
+	<script src="js/template.js"></script>
 </head>
 <body class="theme-dark">
 	<!-- Header -->
 	<header>
 		<nav class="container">
 			<div class="logo">
-				<img
-					src="images/logo.png"
-					alt="Roots Dental Speciality Clinic Logo"
-				/>
+				<img src="images/logo.png" alt="{{site.businessName}} Logo" />
 			</div>
 			<ul class="nav-links">
-				<li><a href="#home">Home</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<li><a href="#gallery">Gallery</a></li>
+				<!-- Dynamically populated by JavaScript -->
 			</ul>
 			<div class="flex items-center gap-4">
 				<button class="btn btn-primary btn-sm btn-pill theme-toggle" onclick="toggleTheme()">
@@ -42,20 +39,14 @@
 			<div class="container">
 				<div class="hero-content">
 					<div class="hero-image">
-						<img src="images/hero_image.png" alt="Dr. Aarti Bohora" />
+						<img src="images/hero_image.png" alt="{{site.doctorName}}" />
 					</div>
 					<div class="hero-text">
-						<h1 id="heroTitle">I get to the <i>Root</i> of the problem.</h1>
-						<p id="heroSubtitle">
-							Professional dental care with a gentle touch in a comfortable
-							environment
-						</p>
-						<a
-							href="#contact"
-							class="btn btn-primary btn-lg cta-button"
-							onclick="openAppointmentBooking(event)"
-							>Book Appointment</a
-						>
+						<h1>I get to the <span class="hero-highlight">Root</span> of the problem.</h1>
+						<p>{{site.heroSubtitle}}</p>
+						<a href="#contact" class="btn btn-primary btn-lg cta-button" onclick="openAppointmentBooking(event)">
+							{{site.heroCta}}
+						</a>
 					</div>
 				</div>
 			</div>
@@ -65,20 +56,9 @@
 		<section class="trust-section">
 			<div class="container">
 				<div class="trust-content">
-					<p class="trust-title">Trusted by patients across Nashik</p>
-					<div class="trust-logos">
-						<span class="trust-badge">
-							<strong>15+</strong> Years Experience
-						</span>
-						<span class="trust-badge">
-							<strong>5000+</strong> Happy Patients
-						</span>
-						<span class="trust-badge">
-							<strong>Ph.D.</strong> Qualified
-						</span>
-						<span class="trust-badge">
-							<strong>Award</strong> Winning
-						</span>
+					<p class="trust-title">{{site.sectionTrust}}</p>
+					<div class="trust-logos" id="trustBadges">
+						<!-- Dynamically populated by JavaScript -->
 					</div>
 				</div>
 			</div>
@@ -87,9 +67,9 @@
 		<!-- Services Section -->
 		<section id="services" class="content-section">
 			<div class="container">
-				<h2>Our Services</h2>
+				<h2>{{site.sectionServices}}</h2>
 				<div class="services-grid" id="servicesGrid">
-					<!-- Services will be populated by JavaScript -->
+					<!-- Dynamically populated by JavaScript -->
 				</div>
 			</div>
 		</section>
@@ -97,30 +77,14 @@
 		<!-- About Section -->
 		<section id="about" class="content-section">
 			<div class="container">
-				<h2>About Us</h2>
+				<h2>{{site.sectionAbout}}</h2>
 				<div class="about-content">
 					<div class="about-text">
-						<p id="aboutText">
-							At Roots Dental Speciality Clinic, your oral health is our top
-							priority. It is led by Dr. Aarti Bohora (BDS, MDS, Ph.D), who
-							brings 15+ years of experience, we provide comprehensive dental
-							care using the latest technology and modern techniques. Our
-							facility is equipped to handle all aspects of dentistry
-							including Cosmetic Dentistry, Root Canal Treatments, Emergency
-							Dentistry, Implantology, Periodontology, Prosthodontics,
-							Orthodontics, and Facial Aesthetic Treatments. Whether you're
-							here for a routine check-up or a complex procedure, we're
-							committed to delivering a sound and soothing experience that
-							prioritizes both your comfort and long-term oral health.
-						</p>
-						<p>
-							Roots dental speciality clinic aims to ensure the natural and
-							beautiful look be the top most priority without anyone noticing
-							the difference.
-						</p>
+						<p>{{site.aboutText}}</p>
+						<p>{{site.aboutTagline}}</p>
 					</div>
 					<div class="about-image">
-						<img src="images/about_us.png" alt="Modern Dental Facility" />
+						<img src="images/about_us.png" alt="{{site.businessName}} - Modern Dental Facility" />
 					</div>
 				</div>
 			</div>
@@ -129,91 +93,11 @@
 		<!-- Expert/Achievements Section -->
 		<section id="expert" class="content-section">
 			<div class="container">
-				<h2>Achievements & Awards</h2>
+				<h2>{{site.sectionAchievements}}</h2>
 				<div class="our-expert">
 					<div class="achievements-section">
-						<ul class="achievements-list">
-							<li>
-								Indian Health Professional Awards, January 2019 –
-								<strong
-									>Winner –
-									<em>Excellence in conservative dentistry & endodontics</em></strong
-								>
-							</li>
-							<li>
-								Indian Dental Divas, February 2019 –
-								<strong
-									>Winner –
-									<em>Best specialist (endodontist) of the year</em></strong
-								>
-							</li>
-							<li>
-								Famdent Dental Awards 2018 –
-								<strong
-									>Nominated – <em>Best Endodontist of the Year</em></strong
-								>
-							</li>
-							<li>
-								Awarded the degree of
-								<strong
-									><em
-										>Ph.D. (Conservative Dentistry and Endodontics)</em
-									></strong
-								>, 2018, Pacific University, Rajasthan
-							</li>
-							<li>
-								Indian Health Professional Awards, December 2017 –
-								<strong
-									>Winner – <em>Excellence in dental research</em></strong
-								>
-							</li>
-							<li>
-								<strong><em>Lifetime Active Member</em></strong> – Indian
-								Endodontic Society (Membership ID: AA42)
-							</li>
-							<li>
-								<strong><em>Member</em></strong> – Indian Association of
-								Conservative Dentistry and Endodontics
-							</li>
-							<li>
-								<strong><em>Chairperson</em></strong> – Vishakha Committee at
-								SMBT IDSR, Dhamangaon, Nasik
-							</li>
-							<li>
-								<strong><em>1st prize in Poster Presentation</em></strong> –
-								23rd FODI & IES National Conference, Chandigarh, 2008
-							</li>
-							<li>
-								<strong><em>1st prize in Paper Presentation</em></strong> –
-								Y.M.T. Dental College PG Convention, 2009
-							</li>
-							<li>
-								<strong>Colgate Scholarship</strong> – Nasik IDA 2007
-							</li>
-							<li>
-								<strong>Overall Topper</strong> – 2006, MGV's K.B.H. Dental
-								College & Hospital, Nasik
-							</li>
-							<li>
-								<strong>"Suresh Gupta Trophy"</strong> – 2006
-							</li>
-							<li>
-								<strong>Gold Medalist</strong> – IDA Conference, Ludhiana, 2003
-								(Sport)
-							</li>
-							<li>
-								<strong>Distinction</strong> – In various B.D.S. subjects
-							</li>
-							<li>
-								<strong>Presented Scientific Papers & Posters</strong> – In
-								National Endodontic Conferences
-							</li>
-							<li>
-								<strong
-									>Attended Multiple National & International Endodontic
-									Conferences</strong
-								>
-							</li>
+						<ul class="achievements-list" id="achievementsList">
+							<!-- Dynamically populated by JavaScript -->
 						</ul>
 					</div>
 				</div>
@@ -223,29 +107,23 @@
 		<!-- Contact Section -->
 		<section id="contact" class="content-section">
 			<div class="container">
-				<h2>Contact Us</h2>
+				<h2>{{site.sectionContact}}</h2>
 				<div class="contact-info">
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.1234567890!2d73.7890123456789!3d20.0123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDAwJzQ0LjQiTiA3M8KwNDcnMjAuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-						width="100%"
-						height="400"
-						style="border: 0; border-radius: 15px"
+						class="contact-map"
 						allowfullscreen=""
 						loading="lazy"
 					></iframe>
 					<div class="contact-card">
-						<h3>Dr. Aarti Bohora<br />(BDS, MDS, Ph.D)</h3>
+						<h3>{{site.doctorName}}<br />({{site.doctorQualifications}})</h3>
 						<p>
-							<strong>Roots Dental Speciality Clinic</strong><br />
-							472, Bohora Bhavan,<br />
-							Opp. Raspco Café & Somani Courier,<br />
-							Raviwar Peth, Nashik, Maharashtra – 422001
+							<strong>{{site.businessName}}</strong><br />
+							<span data-contact="address"></span>
 						</p>
-						<p><strong>Ph: +91 7020054267</strong></p>
-						<p><strong>Email: roots.dentalspecialityclinic@gmail.com</strong></p>
-						<a href="#contact" class="btn btn-primary" onclick="openAppointmentBooking(event)"
-							>Book Appointment</a
-						>
+						<p><strong>{{site.labelPhone}} <span data-contact="phone"></span></strong></p>
+						<p><strong>{{site.labelEmail}} <span data-contact="email"></span></strong></p>
+						<a href="#contact" class="btn btn-primary" onclick="openAppointmentBooking(event)">{{site.btnBookAppointment}}</a>
 					</div>
 				</div>
 			</div>
@@ -254,7 +132,7 @@
 		<!-- Reviews Section -->
 		<div id="reviews" class="content-section">
 			<div class="container">
-				<h2>What Our Patients Say</h2>
+				<h2>{{site.sectionReviews}}</h2>
 				<script
 					src="https://static.elfsight.com/platform/platform.js"
 					data-use-service-core
@@ -270,56 +148,25 @@
 		<!-- Gallery Section -->
 		<div id="gallery" class="content-section">
 			<div class="container">
-				<h2>Our Gallery</h2>
-				<div
-					style="
-						display: grid;
-						grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-						gap: 1.5rem;
-						margin-top: 2rem;
-					"
-				>
-					<figure style="margin: 0">
-						<img
-							src="images/gallery-1.png"
-							alt="Gallery image 1"
-							style="width: 100%; border-radius: 15px"
-						/>
+				<h2>{{site.sectionGallery}}</h2>
+				<div class="gallery-grid">
+					<figure class="gallery-item">
+						<img src="images/gallery-1.png" alt="{{site.businessName}} - Gallery Image 1" class="gallery-image" />
 					</figure>
-					<figure style="margin: 0">
-						<img
-							src="images/gallery-2.png"
-							alt="Gallery image 2"
-							style="width: 100%; border-radius: 15px"
-						/>
+					<figure class="gallery-item">
+						<img src="images/gallery-2.png" alt="{{site.businessName}} - Gallery Image 2" class="gallery-image" />
 					</figure>
-					<figure style="margin: 0">
-						<img
-							src="images/gallery-3.png"
-							alt="Gallery image 3"
-							style="width: 100%; border-radius: 15px"
-						/>
+					<figure class="gallery-item">
+						<img src="images/gallery-3.png" alt="{{site.businessName}} - Gallery Image 3" class="gallery-image" />
 					</figure>
-					<figure style="margin: 0">
-						<img
-							src="images/gallery-4.png"
-							alt="Gallery image 4"
-							style="width: 100%; border-radius: 15px"
-						/>
+					<figure class="gallery-item">
+						<img src="images/gallery-4.png" alt="{{site.businessName}} - Gallery Image 4" class="gallery-image" />
 					</figure>
-					<figure style="margin: 0">
-						<img
-							src="images/gallery-5.png"
-							alt="Gallery image 5"
-							style="width: 100%; border-radius: 15px"
-						/>
+					<figure class="gallery-item">
+						<img src="images/gallery-5.png" alt="{{site.businessName}} - Gallery Image 5" class="gallery-image" />
 					</figure>
-					<figure style="margin: 0">
-						<img
-							src="images/gallery-6.png"
-							alt="Gallery image 6"
-							style="width: 100%; border-radius: 15px"
-						/>
+					<figure class="gallery-item">
+						<img src="images/gallery-6.png" alt="{{site.businessName}} - Gallery Image 6" class="gallery-image" />
 					</figure>
 				</div>
 			</div>
@@ -327,97 +174,55 @@
 	</main>
 
 	<!-- Footer -->
-	<footer style="background: var(--bg-secondary); padding: var(--space-10) 0; border-top: 1px solid var(--border-primary);">
+	<footer>
 		<div class="container">
-			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-8);">
+			<div class="footer-grid">
 				<div>
-					<img src="images/logo.png" alt="Roots Dental Speciality Clinic Logo" style="height: 60px; margin-bottom: var(--space-4);" />
-					<p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-						Gone are the days of sounds of the drill, feeling nauseated in the smelly premises. Book your seat today in a clutter free, soothing and sophisticated experience of turning your fear into glory. Be fearless and let us make your smile brighter.
+					<img src="images/logo.png" alt="{{site.businessName}} Logo" class="footer-logo" />
+					<p id="footerDescription" class="footer-description">
+						<!-- Populated by JavaScript from config.js -->
 					</p>
-					<div style="display: flex; gap: var(--space-4);">
-						<a href="rootsdentalspecialityclinic/facebook" style="width: 40px; height: 40px; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold;">f</a>
-						<a href="rootsdentalspecialityclinic/instagram" style="width: 40px; height: 40px; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold;">i</a>
+					<div class="footer-social">
+						<a href="{{site.social.facebook.url}}" class="social-icon" aria-label="{{site.social.facebook.label}}" target="_blank" rel="noopener noreferrer">f</a>
+						<a href="{{site.social.instagram.url}}" class="social-icon" aria-label="{{site.social.instagram.label}}" target="_blank" rel="noopener noreferrer">i</a>
 					</div>
 				</div>
 				<div>
-					<h3 style="margin-bottom: var(--space-4); color: var(--text-primary);">Quick Links</h3>
-					<ul style="list-style: none;">
-						<li style="margin-bottom: var(--space-2);"><a href="#home" style="color: var(--text-secondary);">Home</a></li>
-						<li style="margin-bottom: var(--space-2);"><a href="#services" style="color: var(--text-secondary);">Our Services</a></li>
-						<li style="margin-bottom: var(--space-2);"><a href="#about" style="color: var(--text-secondary);">About Us</a></li>
-						<li style="margin-bottom: var(--space-2);"><a href="#contact" style="color: var(--text-secondary);">Contact Us</a></li>
-						<li style="margin-bottom: var(--space-2);"><a href="#" style="color: var(--text-secondary);">Book Appointment</a></li>
+					<h3 class="footer-heading">{{site.footerQuickLinksHeading}}</h3>
+					<ul class="footer-list" id="footerQuickLinks">
+						<!-- Dynamically populated by JavaScript -->
 					</ul>
 				</div>
 				<div>
-					<h3 style="margin-bottom: var(--space-4); color: var(--text-primary);">Contact Info</h3>
-					<div style="color: var(--text-secondary);">
-						<p style="margin-bottom: var(--space-3);"><strong>Phone:</strong> <a href="tel:+917020054267" style="color: var(--text-secondary);">+91 7020054267</a></p>
-						<p style="margin-bottom: var(--space-3);"><strong>Email:</strong> <a href="mailto:roots.dentalspecialityclinic@gmail.com" style="color: var(--text-secondary);">roots.dentalspecialityclinic@gmail.com</a></p>
-						<p style="margin-bottom: var(--space-3);"><strong>Address:</strong> <a href="https://maps.app.goo.gl/zoBfu8D4zgYvfPKD6" target="_blank" style="color: var(--text-secondary);">472, Bohora Bhavan, Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier),<br />Raviwar Peth, Nashik, Maharashtra, 422001</a></p>
-						<p><strong>Hours:</strong><br />Mon-Sat: 10am - 1pm | 5pm - 9pm<br />Sun: Closed</p>
+					<h3 class="footer-heading">{{site.footerContactHeading}}</h3>
+					<div class="footer-contact">
+						<p><strong>{{site.labelPhone}}</strong> <a data-contact="phone-link" class="footer-link"></a></p>
+						<p><strong>{{site.labelEmail}}</strong> <a data-contact="email-link" class="footer-link"></a></p>
+						<p><strong>{{site.labelAddress}}</strong> <a data-contact="address-link" target="_blank" class="footer-link"><span data-contact="address"></span></a></p>
+						<p><strong>{{site.labelHours}}</strong><br /><span data-contact="hours"></span></p>
 					</div>
 				</div>
 			</div>
-			<p style="text-align: center; margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--border-primary); color: var(--text-tertiary);">
-				© 2026 Roots Dental. All rights reserved. | 
-				<a href="#" style="color: var(--text-tertiary);">Privacy Policy</a> | 
-				<a href="#" style="color: var(--text-tertiary);">Terms of Service</a>
+			<p id="copyright" class="footer-copyright">
+				<!-- Populated by JavaScript from config.js -->
 			</p>
 		</div>
 	</footer>
 
+	<!-- WhatsApp Floating Button -->
+	<a href="#" 
+	   id="whatsappBtn"
+	   class="whatsapp-float" 
+	   target="_blank" 
+	   rel="noopener noreferrer"
+	   aria-label="Chat on WhatsApp">
+		<svg class="whatsapp-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+			<path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.194-2.116c2.366 1.288 5.040 1.978 7.806 1.978 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.246 1.354 1.401-5.208-0.321-0.525c-1.362-2.229-2.083-4.792-2.083-7.413 0-7.72 6.28-14 14-14s14 6.28 14 14-6.28 14-14 14zM21.804 18.613c-0.397-0.199-2.348-1.158-2.713-1.29-0.365-0.132-0.631-0.199-0.896 0.199s-1.028 1.29-1.261 1.556c-0.232 0.265-0.464 0.298-0.861 0.099s-1.68-0.619-3.199-1.973c-1.182-1.054-1.98-2.357-2.212-2.754s-0.025-0.611 0.174-0.809c0.179-0.178 0.397-0.464 0.596-0.696s0.265-0.397 0.397-0.662c0.132-0.265 0.066-0.497-0.033-0.696s-0.896-2.159-1.228-2.956c-0.322-0.776-0.65-0.671-0.896-0.684-0.232-0.012-0.497-0.015-0.762-0.015s-0.696 0.099-1.061 0.497c-0.365 0.397-1.394 1.362-1.394 3.321s1.427 3.852 1.625 4.117c0.199 0.265 2.807 4.285 6.796 6.009 0.95 0.411 1.691 0.656 2.269 0.839 0.955 0.303 1.824 0.26 2.512 0.158 0.766-0.114 2.348-0.96 2.679-1.888s0.331-1.723 0.232-1.888c-0.099-0.166-0.364-0.265-0.761-0.464z"/>
+		</svg>
+	</a>
+
 	<!-- JavaScript Files -->
+	<script src="js/main.js"></script>
 	<script src="js/theme.js"></script>
-	<script>
-		// Simplified inline scripts for now
-		// The full CMS and appointment booking system would be in separate JS files
-		// For this refactored version, we're keeping the core functionality
-		
-		// Initialize site
-		window.addEventListener('DOMContentLoaded', function() {
-			// Populate services
-			const services = [
-				{
-					name: 'Microscopic Dentistry',
-					description: 'Advanced diagnostics and precision treatment using cutting-edge dental microscopes.'
-				},
-				{
-					name: 'Root Canal Treatments',
-					description: 'Expert care to save natural teeth and eliminate pain with minimally invasive techniques.'
-				},
-				{
-					name: 'Restorative Dentistry',
-					description: 'Rebuilding and strengthening damaged teeth for lasting function and aesthetics.'
-				},
-				{
-					name: 'Cosmetic Dentistry',
-					description: 'Enhancing your smile with personalized, natural-looking aesthetic treatments.'
-				}
-			];
-			
-			const servicesGrid = document.getElementById('servicesGrid');
-			services.forEach(service => {
-				const card = document.createElement('div');
-				card.className = 'service-card';
-				card.innerHTML = `
-					<h3>${service.name}</h3>
-					<p>${service.description}</p>
-				`;
-				servicesGrid.appendChild(card);
-			});
-		});
-		
-		// Placeholder functions for appointment booking and CMS
-		function openAppointmentBooking(event) {
-			event.preventDefault();
-			alert('Appointment booking system - Full implementation in separate JS file');
-		}
-		
-		function openCMS() {
-			alert('CMS system - Full implementation in separate JS file');
-		}
-	</script>
 </body>
 </html>

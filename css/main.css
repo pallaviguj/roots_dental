@@ -15,15 +15,15 @@
 /* 4. Layout System */
 @import 'layout.css';
 
-/* 5. Components */
+/* 5. Reusable Components */
 @import 'components/buttons.css';
 @import 'components/cards.css';
 @import 'components/header.css';
-@import 'components/hero.css';
-@import 'components/sections.css';
+/* 6. Page-Specific Components (One-off) */
+@import 'page-components.css';
 
-/* 6. Utilities */
+/* 7. Utilities */
 @import 'utilities.css';
 
-/* 7. Responsive (Media Queries) - Must be last */
+/* 8. Responsive (Media Queries) - Must be last */
 @import 'responsive.css';

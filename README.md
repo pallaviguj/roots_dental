@@ -27,6 +27,8 @@ roots_dental/
 │       └── sections.css  # Content sections
 │
 ├── js/                    # JavaScript files
+│   ├── config.js         # Site data & configuration (SINGLE SOURCE OF TRUTH)
+│   ├── main.js           # Main application script (content manager)
 │   └── theme.js          # Theme switching functionality
 │
 └── images/               # Image assets
@@ -119,8 +121,31 @@ The CSS follows a modular architecture:
 All CSS files are imported via `main.css` using `@import`.
 
 #### JavaScript Structure
+- **config.js** - Centralized data configuration (phone, email, services, etc.)
+- **main.js** - Main application script (populates site content from config data)
 - **theme.js** - Theme switching with localStorage persistence
-- Additional JS functionality (CMS, appointments) can be added as separate modules
+
+### Data-Driven Architecture
+
+All site content is managed through `js/config.js`:
+
+**To change phone number:**
+```javascript
+// js/config.js
+contact: {
+  phone: {
+    display: '+91 7020054267',  // Change here only!
+    raw: '917020054267'
+  }
+}
+```
+
+**Benefits:**
+- ✅ Single source of truth for all data
+- ✅ Easy to update (one place)
+- ✅ CMS-ready architecture
+- ✅ No hardcoded values in HTML
+- ✅ Separation of content and presentation
 
 ## 📱 Responsive Design
 
@@ -143,6 +168,59 @@ The site is fully responsive with breakpoints:
 - ✅ Service cards with hover effects
 - ✅ Smooth animations and transitions
 - ✅ Accessibility-friendly
+
+## 📝 Updating Site Content
+
+### How to Change Phone Number, Email, Address
+
+**ALL site data is in ONE file: `js/config.js`**
+
+```javascript
+// js/config.js
+const siteConfig = {
+  contact: {
+    phone: {
+      display: '+91 7020054267',  // ← Change here!
+      raw: '917020054267'
+    },
+    email: 'roots.dentalspecialityclinic@gmail.com',  // ← Change here!
+    address: {
+      full: '472, Bohora Bhavan...',  // ← Change here!
+      mapUrl: 'https://maps.app.goo.gl/...'
+    }
+  }
+}
+```
+
+**One change updates:**
+- ✅ Contact section
+- ✅ Footer
+- ✅ WhatsApp button
+- ✅ All phone/email links
+- ✅ Everywhere it appears!
+
+### How to Update Services
+
+```javascript
+// js/config.js
+services: [
+  {
+    name: 'Your Service Name',
+    description: 'Service description'
+  }
+  // Add more services...
+]
+```
+
+### How to Change Hero Text
+
+```javascript
+// js/config.js
+hero: {
+  title: 'Your new title',
+  subtitle: 'Your new subtitle'
+}
+```
 
 ## 🔧 Customization
 

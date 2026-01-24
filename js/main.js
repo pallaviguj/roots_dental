@@ -5,13 +5,14 @@
 
 // Initialize site on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-	populateNavigation();
-	populateTrustIndicators();
-	populateServices();
-	populateAchievements();
-	populateContact();
-	populateFooter();
-	initializeWhatsApp();
+    populateNavigation();
+    populateTrustIndicators();
+    populateServices();
+    populateAchievements();
+    populateContact();
+    populateFooter();
+    initializeWhatsApp();
+    initializeAppointmentForm();
 });
 
 // Helper: Create element with attributes
@@ -24,13 +25,13 @@ const createElement = (tag, attrs = {}, text = '') => {
 
 // Helper: Set contact attributes for multiple elements
 const setContact = (selector, attrs) => {
-	document.querySelectorAll(selector).forEach(el => {
-		Object.entries(attrs).forEach(([key, val]) => {
-			key === 'text' ? el.textContent = val : 
-			key === 'html' ? el.innerHTML = val : 
-			el[key] = val;
-		});
-	});
+    document.querySelectorAll(selector).forEach(el => {
+        Object.entries(attrs).forEach(([key, val]) => {
+            key === 'text' ? el.textContent = val :
+                key === 'html' ? el.innerHTML = val :
+                    el[key] = val;
+        });
+    });
 };
 
 // Populate Navigation Links
@@ -100,7 +101,7 @@ const populateAchievements = () => {
             }
         }
         ul.appendChild(li);
-	});
+    });
 };
 
 // Populate Contact Information
@@ -132,7 +133,8 @@ const populateFooter = () => {
     if (ul) {
         data.footerQuickLinks.forEach(link => {
             const li = createElement('li', { className: 'footer-list-item' });
-            const a = createElement('a', { href: '#' + link.href, className: 'footer-link' }, link.text);
+            const href = link.href === '#' ? '#' : '#' + link.href;
+            const a = createElement('a', { href, className: 'footer-link' }, link.text);
             if (link.onclick) a.setAttribute('onclick', link.onclick);
             li.appendChild(a);
             ul.appendChild(li);
@@ -140,20 +142,54 @@ const populateFooter = () => {
     }
 };
 
-// Initialize WhatsApp Button
-const initializeWhatsApp = () => {
-	const btn = document.getElementById('whatsappBtn');
-	if (btn) {
-		btn.href = `https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.whatsappMessage + ' at ' + site.businessName)}`;
-        btn.setAttribute('data-tooltip', site.whatsappTooltip);
-	}
+// Initialize Google Calendar Scheduling iframe
+const initializeAppointmentForm = () => {
+    const iframe = document.getElementById('googleCalendarScheduling');
+    if (iframe && site.googleCalendarSchedulingUrl) {
+        iframe.src = site.googleCalendarSchedulingUrl;
+    }
 };
 
-// Appointment Booking
-const openAppointmentBooking = e => {
-	e.preventDefault();
-    window.open(`https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.appointmentMessage + ' ' + site.businessName + '.')}`, '_blank');
+// Initialize WhatsApp Button
+const initializeWhatsApp = () => {
+    const btn = document.getElementById('whatsappBtn');
+    if (btn) {
+        btn.href = `https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.whatsappMessage + ' at ' + site.businessName)}`;
+        btn.setAttribute('data-tooltip', site.whatsappTooltip);
+    }
 };
+
+// Modal Controls
+const openAppointmentModal = () => {
+    const modal = document.getElementById('appointmentModal');
+    if (modal) modal.classList.add('active');
+};
+
+const closeAppointmentModal = () => {
+    const modal = document.getElementById('appointmentModal');
+    if (modal) {
+        modal.classList.remove('active');
+        // Reset form if it exists
+        const form = document.getElementById('bookingForm');
+        if (form) form.reset();
+        // Clear time slots
+        const slots = document.getElementById('timeSlots');
+        if (slots) slots.innerHTML = '<p class="helper-text">Please select a date to see available time slots</p>';
+        // Disable submit button
+        const submitBtn = document.getElementById('bookingSubmitBtn');
+        if (submitBtn) submitBtn.disabled = true;
+    }
+};
+
+// Close modal on outside click and Escape key
+window.onclick = e => {
+    const modal = document.getElementById('appointmentModal');
+    if (e.target === modal) closeAppointmentModal();
+};
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAppointmentModal();
+});
 
 // CMS Placeholder
 const openCMS = () => alert(site.cmsPlaceholder);

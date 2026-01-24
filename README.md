@@ -29,7 +29,15 @@ roots_dental/
 ├── js/                    # JavaScript files
 │   ├── config.js         # Site data & configuration (SINGLE SOURCE OF TRUTH)
 │   ├── main.js           # Main application script (content manager)
-│   └── theme.js          # Theme switching functionality
+│   ├── theme.js          # Theme switching functionality
+│   ├── template.js       # Template engine for variable replacement
+│   └── booking.js        # Booking form logic & API integration
+│
+├── server/                # Backend API (Node.js + Express)
+│   ├── server.js         # Express server with Google Calendar API
+│   ├── config.js         # Server configuration
+│   ├── package.json      # Dependencies
+│   └── service-account-key.json  # Google service account (DO NOT COMMIT)
 │
 └── images/               # Image assets
     ├── logo.png
@@ -268,10 +276,36 @@ All spacing uses the design token system. Adjust the scale in `css/variables.css
 
 © 2026 Roots Dental Speciality Clinic. All rights reserved.
 
+## 📅 Appointment Booking System
+
+This site includes a custom booking system with real-time availability checking.
+
+### Features
+- ✅ Custom form with treatment selection
+- ✅ Real-time availability via Google Calendar API
+- ✅ 30-minute time slots (9 AM - 6 PM)
+- ✅ Automatic calendar event creation
+- ✅ Double-booking prevention
+- ✅ Email reminders to clinic owner
+
+### Setup
+See `BOOKING_SETUP.md` for detailed setup instructions.
+
+**Quick Start:**
+```bash
+# Backend
+cd server
+npm install
+npm start
+
+# Frontend
+python3 -m http.server 8000
+```
+
 ## 👨‍💻 Development
 
 For questions or support, contact the development team.
 
 ---
 
-**Note**: The original `roots_dental.html` file is kept for reference and includes the full CMS and appointment booking system. The new `index.html` provides a cleaner, more maintainable structure with the same visual design.
+**Built with ❤️ for Roots Dental Speciality Clinic**

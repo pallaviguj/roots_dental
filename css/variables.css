@@ -98,6 +98,8 @@ body.theme-dark {
 	--color-white: #ffffff;
 	--color-blue-light: #B8D4F1;
 	--color-gray: #8BA8C7;
+    --color-whatsapp: #25D366;
+    --color-whatsapp-dark: #128C7E;
 	
 	/* Semantic Colors - Use base colors */
 	--bg-primary: var(--color-navy);

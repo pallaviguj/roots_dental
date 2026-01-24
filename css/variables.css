@@ -74,87 +74,93 @@
 }
 
 /* ========================================
-   THEME COLORS - DARK THEME (Default)
+   BRAND COLORS (Theme-Independent)
    ======================================== */
 
-body.theme-dark {
-	/* Brand Colors */
+:root {
+	/* Brand Colors - Used across all themes */
 	--color-primary: #1565C0;
 	--color-primary-hover: #0D47A1;
 	--color-accent: #00b2d4;
 	--color-accent-light: #4FC3F7;
 	--color-success: #7cb518;
+}
+
+/* ========================================
+   DARK THEME (Default)
+   ======================================== */
+
+body.theme-dark {
+	/* Base Colors */
+	--color-navy: #022043;
+	--color-navy-light: #0b2a4f;
+	--color-navy-lighter: #163a61;
+	--color-white: #ffffff;
+	--color-blue-light: #B8D4F1;
+	--color-gray: #8BA8C7;
 	
-	/* Background Colors */
-	--bg-primary: #022043;
-	--bg-secondary: #0b2a4f;
-	--bg-tertiary: #163a61;
-	--bg-elevated: #1a4068;
+	/* Semantic Colors - Use base colors */
+	--bg-primary: var(--color-navy);
+	--bg-secondary: var(--color-navy-light);
+	--bg-tertiary: var(--color-navy-lighter);
 	
-	/* Text Colors */
-	--text-primary: #ffffff;
-	--text-secondary: #B8D4F1;
-	--text-tertiary: #8BA8C7;
-	--text-inverse: #022043;
+	--text-primary: var(--color-white);
+	--text-secondary: var(--color-blue-light);
+	--text-tertiary: var(--color-gray);
+	--text-inverse: var(--color-navy);
 	
-	/* Border Colors */
 	--border-primary: rgba(255, 255, 255, 0.1);
 	--border-secondary: rgba(255, 255, 255, 0.05);
 	--border-focus: var(--color-accent);
 	
-	/* Component Colors */
-	--card-bg: #0b2a4f;
+	/* Component Aliases */
+	--card-bg: var(--bg-secondary);
 	--card-border: var(--border-primary);
-	--header-bg: #ffffff;
-	--header-text: #022043;
+	--header-bg: var(--color-white);
+	--header-text: var(--color-navy);
 	
 	/* Interactive States */
-	--hover-overlay: rgba(255, 255, 255, 0.05);
-	--active-overlay: rgba(255, 255, 255, 0.1);
-	
-	/* Shadows */
+	--hover-overlay: var(--border-secondary);
+	--active-overlay: var(--border-primary);
 	--shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 /* ========================================
-   THEME COLORS - LIGHT THEME
+   LIGHT THEME
    ======================================== */
 
 body.theme-light {
-	/* Brand Colors */
-	--color-primary: #1565C0;
-	--color-primary-hover: #0D47A1;
-	--color-accent: #00b2d4;
-	--color-accent-light: #4FC3F7;
-	--color-success: #7cb518;
+	/* Base Colors */
+	--color-white: #ffffff;
+	--color-gray-100: #f8f9fa;
+	--color-gray-200: #e9ecef;
+	--color-gray-300: #dee2e6;
+	--color-black: #1a1a1a;
+	--color-gray-dark: #4a4a4a;
+	--color-gray-medium: #6c757d;
 	
-	/* Background Colors */
-	--bg-primary: #ffffff;
-	--bg-secondary: #f8f9fa;
-	--bg-tertiary: #e9ecef;
-	--bg-elevated: #ffffff;
+	/* Semantic Colors - Use base colors */
+	--bg-primary: var(--color-white);
+	--bg-secondary: var(--color-gray-100);
+	--bg-tertiary: var(--color-gray-200);
 	
-	/* Text Colors */
-	--text-primary: #1a1a1a;
-	--text-secondary: #4a4a4a;
-	--text-tertiary: #6c757d;
-	--text-inverse: #ffffff;
+	--text-primary: var(--color-black);
+	--text-secondary: var(--color-gray-dark);
+	--text-tertiary: var(--color-gray-medium);
+	--text-inverse: var(--color-white);
 	
-	/* Border Colors */
-	--border-primary: #dee2e6;
-	--border-secondary: #e9ecef;
+	--border-primary: var(--color-gray-300);
+	--border-secondary: var(--color-gray-200);
 	--border-focus: var(--color-accent);
 	
-	/* Component Colors */
-	--card-bg: #ffffff;
+	/* Component Aliases */
+	--card-bg: var(--bg-primary);
 	--card-border: var(--border-primary);
-	--header-bg: #ffffff;
-	--header-text: #1a1a1a;
+	--header-bg: var(--bg-primary);
+	--header-text: var(--text-primary);
 	
 	/* Interactive States */
 	--hover-overlay: rgba(0, 0, 0, 0.02);
 	--active-overlay: rgba(0, 0, 0, 0.05);
-	
-	/* Shadows */
 	--shadow-color: rgba(0, 0, 0, 0.1);
 }

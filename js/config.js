@@ -63,7 +63,10 @@ const site = {
 	footerDescription: 'Gone are the days of sounds of the drill, feeling nauseated in the smelly premises. Book your seat today in a clutter free, soothing and sophisticated experience of turning your fear into glory. Be fearless and let us make your smile brighter.',
 	footerQuickLinksHeading: 'Quick Links',
 	footerContactHeading: 'Contact Info',
-	copyrightYear: '2026',
+    copyrightYear: '© 2026',
+    copyrightText: 'All rights reserved.',
+    linkPrivacyPolicy: 'Privacy Policy',
+    linkTermsOfService: 'Terms of Service',
 	
 	// Contact Labels
 	labelPhone: 'Phone:',
@@ -86,7 +89,12 @@ const site = {
 	},
 	
 	// WhatsApp
-	whatsappMessage: 'Hello, I would like to book an appointment.'
+    whatsappMessage: 'Hello, I would like to book an appointment.',
+    whatsappTooltip: 'Chat with us on WhatsApp',
+    appointmentMessage: 'I would like to book an appointment at',
+
+    // CMS
+    cmsPlaceholder: 'CMS system - Full implementation coming soon'
 };
 
 // ========================================

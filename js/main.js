@@ -1,6 +1,6 @@
 /**
  * Main Application Script
- * Minimal DOM manipulation - only for dynamic lists/arrays
+ * Traditional approach - HTML has structure, JS populates data
  */
 
 // Initialize site on DOM load
@@ -14,15 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	initializeWhatsApp();
 });
 
-// Helper: Populate list with HTML template
-const populateList = (selector, items, template) => {
-	const container = document.querySelector(selector) || document.getElementById(selector);
-	if (!container) return;
-	container.innerHTML = items.map(template).join('');
+// Helper: Create element with attributes
+const createElement = (tag, attrs = {}, text = '') => {
+    const el = document.createElement(tag);
+    Object.entries(attrs).forEach(([key, val]) => el[key] = val);
+    if (text) el.textContent = text;
+    return el;
 };
 
-// Helper: Set attributes for multiple elements
-const setMultiple = (selector, attrs) => {
+// Helper: Set contact attributes for multiple elements
+const setContact = (selector, attrs) => {
 	document.querySelectorAll(selector).forEach(el => {
 		Object.entries(attrs).forEach(([key, val]) => {
 			key === 'text' ? el.textContent = val : 
@@ -33,73 +34,126 @@ const setMultiple = (selector, attrs) => {
 };
 
 // Populate Navigation Links
-const populateNavigation = () => populateList('.nav-links', data.navLinks, 
-	link => `<li><a href="#${link.href}">${link.text}</a></li>`
-);
+const populateNavigation = () => {
+    const ul = document.querySelector('.nav-links');
+    if (!ul) return;
+    data.navLinks.forEach(link => {
+        const li = createElement('li');
+        const a = createElement('a', { href: '#' + link.href }, link.text);
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
+};
 
 // Populate Trust Indicators
-const populateTrustIndicators = () => populateList('trustBadges', data.trustIndicators,
-	ind => `<span class="trust-badge"><strong>${ind.value}</strong> ${ind.label}</span>`
-);
+const populateTrustIndicators = () => {
+    const container = document.getElementById('trustBadges');
+    if (!container) return;
+    data.trustIndicators.forEach(item => {
+        const span = createElement('span', { className: 'trust-badge' });
+        const strong = createElement('strong', {}, item.value);
+        span.appendChild(strong);
+        span.appendChild(document.createTextNode(' ' + item.label));
+        container.appendChild(span);
+    });
+};
 
 // Populate Services
-const populateServices = () => populateList('servicesGrid', data.services,
-	s => `<div class="service-card"><h3>${s.name}</h3><p>${s.description}</p></div>`
-);
+const populateServices = () => {
+    const grid = document.getElementById('servicesGrid');
+    if (!grid) return;
+    data.services.forEach(service => {
+        const card = createElement('div', { className: 'service-card' });
+        const h3 = createElement('h3', {}, service.name);
+        const p = createElement('p', {}, service.description);
+        card.appendChild(h3);
+        card.appendChild(p);
+        grid.appendChild(card);
+    });
+};
 
 // Populate Achievements
-function populateAchievements() {
-	const templates = {
-		eventAward: a => `${a.event} – <span class="achievement-award">${a.award}</span>${a.category ? ` – <span class="achievement-category">${a.category}</span>` : ''}`,
-		awardEvent: a => `<span class="achievement-award">${a.award}</span> – ${a.event}`,
-		titleDetails: a => `<span class="achievement-title">${a.title}</span>${a.details ? ` – ${a.details}` : ''}`,
-	};
-	
-	populateList('achievementsList', data.achievements, a => {
-		const html = a.event && a.award ? templates.eventAward(a) :
-					 a.award && a.event ? templates.awardEvent(a) :
-					 a.title ? templates.titleDetails(a) : '';
-		return `<li>${html}</li>`;
+const populateAchievements = () => {
+    const ul = document.getElementById('achievementsList');
+    if (!ul) return;
+    data.achievements.forEach(item => {
+        const li = createElement('li');
+
+        if (item.event && item.award) {
+            li.textContent = item.event + ' – ';
+            const award = createElement('span', { className: 'achievement-award' }, item.award);
+            li.appendChild(award);
+            if (item.category) {
+                li.appendChild(document.createTextNode(' – '));
+                const category = createElement('span', { className: 'achievement-category' }, item.category);
+                li.appendChild(category);
+            }
+        } else if (item.award && item.event) {
+            const award = createElement('span', { className: 'achievement-award' }, item.award);
+            li.appendChild(award);
+            li.appendChild(document.createTextNode(' – ' + item.event));
+        } else if (item.title) {
+            const title = createElement('span', { className: 'achievement-title' }, item.title);
+            li.appendChild(title);
+            if (item.details) {
+                li.appendChild(document.createTextNode(' – ' + item.details));
+            }
+        }
+        ul.appendChild(li);
 	});
-}
+};
 
 // Populate Contact Information
 const populateContact = () => {
-	setMultiple('[data-contact="phone"]', { text: site.phoneDisplay });
-	setMultiple('[data-contact="phone-link"]', { href: `tel:${site.phoneRaw}`, text: site.phoneDisplay });
-	setMultiple('[data-contact="email"]', { text: site.email });
-	setMultiple('[data-contact="email-link"]', { href: `mailto:${site.email}`, text: site.email });
-	setMultiple('[data-contact="address"]', { html: site.addressFull });
-	setMultiple('[data-contact="address-link"]', { href: site.mapUrl });
-	setMultiple('[data-contact="hours"]', { html: `${site.hoursWeekdays}<br>${site.hoursWeekend}` });
+    setContact('[data-contact="phone"]', { text: site.phoneDisplay });
+    setContact('[data-contact="phone-link"]', { href: `tel:${site.phoneRaw}`, text: site.phoneDisplay });
+    setContact('[data-contact="email"]', { text: site.email });
+    setContact('[data-contact="email-link"]', { href: `mailto:${site.email}`, text: site.email });
+    setContact('[data-contact="address"]', { html: site.addressFull });
+    setContact('[data-contact="address-link"]', { href: site.mapUrl });
+    setContact('[data-contact="hours"]', { html: `${site.hoursWeekdays}<br>${site.hoursWeekend}` });
 };
 
 // Populate Footer
-function populateFooter() {
-	setMultiple('#footerDescription', { text: site.footerDescription });
-	setMultiple('#copyright', { 
-		html: `© ${site.copyrightYear} ${site.businessName}. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a>`
-	});
-	
-	populateList('footerQuickLinks', data.footerQuickLinks, link =>
-		`<li class="footer-list-item"><a href="#${link.href}" class="footer-link" ${link.onclick ? `onclick="${link.onclick}"` : ''}>${link.text}</a></li>`
-	);
-}
+const populateFooter = () => {
+    setContact('#footerDescription', { text: site.footerDescription });
+
+    const copyright = document.getElementById('copyright');
+    if (copyright) {
+        copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText} | `;
+        const privacy = createElement('a', { href: '#', className: 'footer-link' }, site.linkPrivacyPolicy);
+        copyright.appendChild(privacy);
+        copyright.appendChild(document.createTextNode(' | '));
+        const terms = createElement('a', { href: '#', className: 'footer-link' }, site.linkTermsOfService);
+        copyright.appendChild(terms);
+    }
+
+    const ul = document.getElementById('footerQuickLinks');
+    if (ul) {
+        data.footerQuickLinks.forEach(link => {
+            const li = createElement('li', { className: 'footer-list-item' });
+            const a = createElement('a', { href: '#' + link.href, className: 'footer-link' }, link.text);
+            if (link.onclick) a.setAttribute('onclick', link.onclick);
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+    }
+};
 
 // Initialize WhatsApp Button
 const initializeWhatsApp = () => {
 	const btn = document.getElementById('whatsappBtn');
 	if (btn) {
 		btn.href = `https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.whatsappMessage + ' at ' + site.businessName)}`;
-		btn.setAttribute('data-tooltip', 'Chat with us on WhatsApp');
+        btn.setAttribute('data-tooltip', site.whatsappTooltip);
 	}
 };
 
 // Appointment Booking
 const openAppointmentBooking = e => {
 	e.preventDefault();
-	window.open(`https://wa.me/${site.phoneRaw}?text=${encodeURIComponent('I would like to book an appointment at ' + site.businessName + '.')}`, '_blank');
+    window.open(`https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.appointmentMessage + ' ' + site.businessName + '.')}`, '_blank');
 };
 
 // CMS Placeholder
-const openCMS = () => alert('CMS system - Full implementation coming soon');
+const openCMS = () => alert(site.cmsPlaceholder);

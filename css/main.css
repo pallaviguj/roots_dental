@@ -1,0 +1,29 @@
+/* ========================================
+   ROOTS DENTAL SPECIALTY CLINIC
+   Main Stylesheet - Imports all modular CSS
+   ======================================== */
+
+/* 1. Design Tokens (Variables) - Must be first */
+@import 'variables.css';
+
+/* 2. Global Styles (Reset & Base) */
+@import 'global.css';
+
+/* 3. Typography System */
+@import 'typography.css';
+
+/* 4. Layout System */
+@import 'layout.css';
+
+/* 5. Components */
+@import 'components/buttons.css';
+@import 'components/cards.css';
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/sections.css';
+
+/* 6. Utilities */
+@import 'utilities.css';
+
+/* 7. Responsive (Media Queries) - Must be last */
+@import 'responsive.css';

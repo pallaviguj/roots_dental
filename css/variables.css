@@ -1,0 +1,160 @@
+/* ========================================
+   DESIGN TOKENS - CSS VARIABLES
+   ======================================== */
+
+/* Base Design Tokens (Theme-Independent) */
+:root {
+	/* Spacing Scale (8px base) */
+	--space-1: 0.25rem;  /* 4px */
+	--space-2: 0.5rem;   /* 8px */
+	--space-3: 0.75rem;  /* 12px */
+	--space-4: 1rem;     /* 16px */
+	--space-5: 1.5rem;   /* 24px */
+	--space-6: 2rem;     /* 32px */
+	--space-7: 2.5rem;   /* 40px */
+	--space-8: 3rem;     /* 48px */
+	--space-9: 4rem;     /* 64px */
+	--space-10: 5rem;    /* 80px */
+	--space-12: 6rem;    /* 96px */
+	
+	/* Typography Scale */
+	--font-size-xs: 0.75rem;    /* 12px */
+	--font-size-sm: 0.875rem;   /* 14px */
+	--font-size-base: 1rem;     /* 16px */
+	--font-size-lg: 1.125rem;   /* 18px */
+	--font-size-xl: 1.25rem;    /* 20px */
+	--font-size-2xl: 1.5rem;    /* 24px */
+	--font-size-3xl: 1.875rem;  /* 30px */
+	--font-size-4xl: 2.25rem;   /* 36px */
+	--font-size-5xl: 3rem;      /* 48px */
+	--font-size-6xl: 3.75rem;   /* 60px */
+	
+	/* Font Weights */
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	--font-weight-extrabold: 800;
+	
+	/* Line Heights */
+	--line-height-tight: 1.25;
+	--line-height-snug: 1.375;
+	--line-height-normal: 1.5;
+	--line-height-relaxed: 1.625;
+	--line-height-loose: 2;
+	
+	/* Border Radius */
+	--radius-sm: 0.25rem;   /* 4px */
+	--radius-md: 0.5rem;    /* 8px */
+	--radius-lg: 0.75rem;   /* 12px */
+	--radius-xl: 1rem;      /* 16px */
+	--radius-2xl: 1.5rem;   /* 24px */
+	--radius-full: 9999px;
+	
+	/* Shadows */
+	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+	--shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	
+	/* Transitions */
+	--transition-fast: 150ms ease;
+	--transition-base: 200ms ease;
+	--transition-slow: 300ms ease;
+	
+	/* Z-Index Scale */
+	--z-dropdown: 1000;
+	--z-sticky: 1020;
+	--z-fixed: 1030;
+	--z-modal-backdrop: 1040;
+	--z-modal: 1050;
+	--z-popover: 1060;
+	--z-tooltip: 1070;
+}
+
+/* ========================================
+   THEME COLORS - DARK THEME (Default)
+   ======================================== */
+
+body.theme-dark {
+	/* Brand Colors */
+	--color-primary: #1565C0;
+	--color-primary-hover: #0D47A1;
+	--color-accent: #00b2d4;
+	--color-accent-light: #4FC3F7;
+	--color-success: #7cb518;
+	
+	/* Background Colors */
+	--bg-primary: #022043;
+	--bg-secondary: #0b2a4f;
+	--bg-tertiary: #163a61;
+	--bg-elevated: #1a4068;
+	
+	/* Text Colors */
+	--text-primary: #ffffff;
+	--text-secondary: #B8D4F1;
+	--text-tertiary: #8BA8C7;
+	--text-inverse: #022043;
+	
+	/* Border Colors */
+	--border-primary: rgba(255, 255, 255, 0.1);
+	--border-secondary: rgba(255, 255, 255, 0.05);
+	--border-focus: var(--color-accent);
+	
+	/* Component Colors */
+	--card-bg: #0b2a4f;
+	--card-border: var(--border-primary);
+	--header-bg: #ffffff;
+	--header-text: #022043;
+	
+	/* Interactive States */
+	--hover-overlay: rgba(255, 255, 255, 0.05);
+	--active-overlay: rgba(255, 255, 255, 0.1);
+	
+	/* Shadows */
+	--shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   THEME COLORS - LIGHT THEME
+   ======================================== */
+
+body.theme-light {
+	/* Brand Colors */
+	--color-primary: #1565C0;
+	--color-primary-hover: #0D47A1;
+	--color-accent: #00b2d4;
+	--color-accent-light: #4FC3F7;
+	--color-success: #7cb518;
+	
+	/* Background Colors */
+	--bg-primary: #ffffff;
+	--bg-secondary: #f8f9fa;
+	--bg-tertiary: #e9ecef;
+	--bg-elevated: #ffffff;
+	
+	/* Text Colors */
+	--text-primary: #1a1a1a;
+	--text-secondary: #4a4a4a;
+	--text-tertiary: #6c757d;
+	--text-inverse: #ffffff;
+	
+	/* Border Colors */
+	--border-primary: #dee2e6;
+	--border-secondary: #e9ecef;
+	--border-focus: var(--color-accent);
+	
+	/* Component Colors */
+	--card-bg: #ffffff;
+	--card-border: var(--border-primary);
+	--header-bg: #ffffff;
+	--header-text: #1a1a1a;
+	
+	/* Interactive States */
+	--hover-overlay: rgba(0, 0, 0, 0.02);
+	--active-overlay: rgba(0, 0, 0, 0.05);
+	
+	/* Shadows */
+	--shadow-color: rgba(0, 0, 0, 0.1);
+}

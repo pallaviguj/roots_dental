@@ -1,0 +1,65 @@
+/* ========================================
+   LAYOUT SYSTEM
+   ======================================== */
+
+/* Container Widths */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--space-5);
+}
+
+.container-wide {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 var(--space-5);
+}
+
+.container-narrow {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 var(--space-5);
+}
+
+/* Grid Layouts */
+.grid-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-8);
+}
+
+.grid-3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--space-6);
+}
+
+.grid-4 {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: var(--space-5);
+}
+
+.grid-auto {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: var(--space-6);
+}
+
+/* Main Layout */
+main {
+	margin-top: 72px;
+}
+
+/* Section Spacing */
+.content-section {
+	padding: var(--space-12) 0;
+}
+
+.section-subtitle {
+	text-align: center;
+	font-size: var(--font-size-lg);
+	color: var(--text-secondary);
+	max-width: 600px;
+	margin: 0 auto var(--space-10);
+}

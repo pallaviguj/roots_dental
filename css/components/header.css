@@ -1,0 +1,88 @@
+/* ========================================
+   HEADER COMPONENT
+   ======================================== */
+
+header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: var(--z-fixed);
+	background: var(--header-bg);
+	border-bottom: 1px solid var(--border-primary);
+	backdrop-filter: blur(10px);
+	box-shadow: var(--shadow-sm);
+	transition: all var(--transition-base);
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--space-4) 0;
+	min-height: 72px;
+}
+
+/* Logo */
+.logo img {
+	height: 60px;
+	padding: var(--space-1) 0;
+}
+
+/* Navigation Links */
+.nav-links {
+	display: flex;
+	list-style: none;
+	gap: var(--space-6);
+}
+
+.nav-links a {
+	text-decoration: none;
+	color: var(--header-text);
+	font-weight: var(--font-weight-semibold);
+	font-size: var(--font-size-base);
+	transition: color var(--transition-fast);
+	position: relative;
+}
+
+.nav-links a:hover {
+	color: var(--color-primary);
+}
+
+.nav-links a::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: var(--color-primary);
+	transition: width var(--transition-base);
+}
+
+.nav-links a:hover::after {
+	width: 100%;
+}
+
+/* Navigation Actions */
+.nav-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-4);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	font-size: var(--font-size-sm);
+}
+
+.theme-icon {
+	font-size: var(--font-size-lg);
+}
+
+/* Admin Button */
+.admin-btn {
+	display: none;
+}

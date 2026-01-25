@@ -175,6 +175,9 @@
         min-height: auto;
     }
 
+        .contact-info {
+            grid-template-columns: 1fr;
+        }
     .content-section {
         padding: var(--space-10) 0;
     }

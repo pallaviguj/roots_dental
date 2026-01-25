@@ -83,7 +83,7 @@
 }
 
 body.theme-dark .service-card h3 {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .service-card p {
@@ -95,7 +95,7 @@ body.theme-dark .service-card h3 {
 /* Contact Cards */
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-6);
     margin-top: var(--space-8);
 }
@@ -104,7 +104,6 @@ body.theme-dark .service-card h3 {
     background: var(--card-bg);
     padding: var(--space-6);
     border-radius: var(--radius-xl);
-    border: 1px solid var(--card-border);
     text-align: left;
 }
 
@@ -115,7 +114,7 @@ body.theme-dark .service-card h3 {
 }
 
 body.theme-dark .contact-card h3 {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .contact-card .contact-link {
@@ -127,4 +126,9 @@ body.theme-dark .contact-card h3 {
 .contact-card .contact-link:hover {
     color: var(--color-primary);
     text-decoration: underline;
+}
+.contact-landmark {
+    display: block;
+    margin-top: var(--space-2);
+    color: var(--text-primary);
 }

@@ -53,7 +53,7 @@
 }
 
 body.theme-dark .btn-primary {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .btn-secondary {

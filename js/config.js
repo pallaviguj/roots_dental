@@ -43,7 +43,7 @@ const site = {
             label: 'Instagram'
         },
         linkedin: {
-            url: 'https://linkedin.com/company/rootsdentalspecialityclinic',
+            url: 'https://linkedin.com/in/dr-aarti-bohora-59b51b68/',
             label: 'LinkedIn'
         }
     },
@@ -226,11 +226,11 @@ const data = {
             details: 'Vishakha Committee at SMBT IDSR, Dhamangaon, Nasik'
         },
         {
-            award: '1st prize in Poster Presentation',
+            award: '🥇 1st prize in Poster Presentation',
             event: '23rd FODI & IES National Conference, Chandigarh, 2008'
         },
         {
-            award: '1st prize in Paper Presentation',
+            award: '🥇 1st prize in Paper Presentation',
             event: 'Y.M.T. Dental College PG Convention, 2009'
         },
         {
@@ -246,12 +246,8 @@ const data = {
             event: '2006'
         },
         {
-            award: 'Gold Medalist',
+            award: '🥇 Gold Medalist',
             event: 'IDA Conference, Ludhiana, 2003 (Sport)'
-        },
-        {
-            title: 'Distinction',
-            details: 'In various B.D.S. subjects'
         },
         {
             title: 'Presented Scientific Papers & Posters',

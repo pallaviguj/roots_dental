@@ -57,7 +57,7 @@
 .hero-highlight {
     color: var(--color-success);
     position: relative;
-        display: inline-block;
+    display: inline-block;
     }
     
     .hero-highlight::after {
@@ -68,7 +68,12 @@
         width: 0;
         height: 5px;
         background: var(--color-success);
-        animation: underlineGrow 1s ease-out 1s forwards;
+    /* Animation removed - now triggered by class */
+    }
+    
+    /* Animation triggered when hero is in viewport */
+    .hero-highlight.animate::after {
+        animation: underlineGrow 1s ease-out 0.5s forwards;
     }
     
     @keyframes underlineGrow {

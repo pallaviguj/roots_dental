@@ -241,6 +241,10 @@
     font-size: 28px;
 }
 
+/* Hide decorative logos on very small screens */
+.hero-logo-decor {
+    display: none;
+}
 .trust-badge strong {
     font-size: var(--font-size-xl);
 }

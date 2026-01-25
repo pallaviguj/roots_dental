@@ -22,7 +22,7 @@
 
 /* Button Sizes */
 .btn-sm {
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-3) var(--space-4);
     font-size: var(--font-size-sm);
 }
 

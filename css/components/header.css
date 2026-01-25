@@ -3,15 +3,36 @@
    ======================================== */
 
 header {
-    position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
     z-index: var(--z-fixed);
     background: var(--header-bg);
     border-bottom: 1px solid var(--border-primary);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-base);
+    box-shadow: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+}
+
+header.scrolled {
+    position: fixed;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-primary);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-lg);
+    animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 nav {

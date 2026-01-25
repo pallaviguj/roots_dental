@@ -191,12 +191,12 @@ const data = {
     achievements: [
         {
             event: 'Indian Health Professional Awards, January 2019',
-            award: 'Winner',
+            award: '🏆 Winner',
             category: 'Excellence in conservative dentistry & endodontics'
         },
         {
             event: 'Indian Dental Divas, February 2019',
-            award: 'Winner',
+            award: '🏆 Winner',
             category: 'Best specialist (endodontist) of the year'
         },
         {
@@ -210,7 +210,7 @@ const data = {
         },
         {
             event: 'Indian Health Professional Awards, December 2017',
-            award: 'Winner',
+            award: '🏆 Winner',
             category: 'Excellence in dental research'
         },
         {

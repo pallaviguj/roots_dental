@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeAppointmentForm();
     initializeReviewsWidget();
     initializeHeroAnimation();
+    initializeScrollHeader();
 });
 
 // Helper: Create element with attributes
@@ -349,3 +350,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Initialize Scroll-Based Header
+const initializeScrollHeader = () => {
+    const header = document.querySelector('header');
+    const trustSection = document.querySelector('.trust-section');
+    
+    if (!header || !trustSection) return;
+    
+    let lastScrollY = window.scrollY;
+    
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+        const trustSectionTop = trustSection.offsetTop;
+        const trustSectionBottom = trustSectionTop + trustSection.offsetHeight;
+        
+        // Add scrolled class when user scrolls past trust badge section
+        if (scrollY >= trustSectionBottom) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollY = scrollY;
+    };
+    
+    // Throttle scroll events for better performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+};

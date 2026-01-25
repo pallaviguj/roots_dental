@@ -62,7 +62,7 @@ main {
 
 /* Section Spacing */
 .content-section {
-    padding: var(--space-8) 0;
+    padding: var(--space-6) 0;
 }
 
 .content-section h2 {

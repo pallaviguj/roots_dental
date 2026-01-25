@@ -270,7 +270,7 @@ body.theme-light .trust-badge:hover {
     max-width: 650px;
     width: 100%;
     display: flex;
-        justify-content: center;
+    justify-content: center;
         align-items: center;
 }
 
@@ -356,28 +356,276 @@ body.theme-light .doctor-name {
 }
 
 /* ========================================
-   NEW ABOUT US SECTION (with Gallery)
+   NEW ABOUT US SECTION (with Grid + Featured Carousel)
    ======================================== */
 
 .about-gallery-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-10);
-    align-items: start;
+    align-items: center;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .about-gallery-left {
     position: relative;
+    display: flex;
+        align-items: center;
+        justify-content: center;
 }
 
+/* Gallery Grid */
 .gallery-grid-about {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
 
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-base);
+    cursor: pointer;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   FEATURED IMAGE CAROUSEL (Large & Prominent)
+   ======================================== */
+
+.featured-carousel-section {
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+    padding: var(--space-4) 0 var(--space-2) 0;
+}
+
+.featured-carousel-section {
+    text-align: center;
+}
+
+.featured-carousel-section h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--space-3);
+    padding: 0 var(--space-4);
+}
+
+.gallery-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+.gallery-carousel-large {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Multi-image carousel (square images) */
+.gallery-carousel-multi {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.gallery-carousel-multi .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.gallery-carousel-multi .carousel-track {
+    display: flex;
+    gap: var(--space-4);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    padding: 0;
+    margin: 0;
+}
+
+.gallery-carousel-multi .carousel-slide {
+    flex: 0 0 500px;
+    min-width: 500px;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.gallery-carousel-multi .carousel-slide img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-carousel-multi .carousel-slide:hover img {
+    transform: scale(1.15);
+}
+
+/* Single image fallback */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+}
+
+.gallery-carousel:hover .carousel-btn {
+    opacity: 1;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.carousel-btn-prev {
+    left: 16px;
+}
+
+.carousel-btn-next {
+    right: 16px;
+}
+
+.carousel-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Carousel Indicators (Dots) */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--space-6);
+    position: relative;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    padding: 0;
+}
+
+.carousel-indicator:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.1);
+}
+
+.carousel-indicator.active {
+    background: rgba(255, 255, 255, 1);
+    width: 32px;
+    height: 6px;
+    border-radius: 3px;
+}
+
+/* Light Theme Carousel Styles - buttons same as dark theme */
+
+body.theme-light .carousel-indicator {
+    background: rgba(0, 0, 0, 0.3);
+    /* Black 30% */
+}
+
+body.theme-light .carousel-indicator:hover {
+    background: rgba(0, 0, 0, 0.6);
+    /* Black 60% */
+}
+
+body.theme-light .carousel-indicator.active {
+    background: rgba(0, 0, 0, 1);
+    /* Black 100% */
+}
+
+/* About Us Right Content */
 .about-gallery-right {
     font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
@@ -405,6 +653,130 @@ body.theme-light .doctor-name {
     .about-gallery-content {
         grid-template-columns: 1fr;
         gap: var(--space-6);
+    }
+.gallery-grid-about {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.featured-carousel-section {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: var(--space-3) 0 var(--space-1) 0;
+}
+
+.featured-carousel-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-2);
+}
+
+/* Mobile adjustments */
+.gallery-carousel-multi .carousel-slide {
+    flex: 0 0 280px;
+    min-width: 280px;
+    width: 280px;
+    height: 280px;
+}
+
+.gallery-carousel-multi .carousel-slide img {
+    width: 280px;
+    height: 280px;
+}
+
+.gallery-carousel-multi .carousel-track {
+    gap: var(--space-3);
+}
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+    /* Always visible on mobile */
+}
+
+.carousel-btn-prev {
+    left: 12px;
+}
+
+.carousel-btn-next {
+    right: 12px;
+}
+
+.carousel-indicators {
+    margin-top: var(--space-2);
+}
+
+.carousel-indicator {
+    width: 8px;
+    height: 8px;
+}
+
+.carousel-indicator.active {
+    width: 20px;
+    height: 5px;
+}
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .gallery-carousel-multi .carousel-slide {
+        flex: 0 0 350px;
+        min-width: 350px;
+        width: 350px;
+        height: 350px;
+    }
+
+    .gallery-carousel-multi .carousel-slide img {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+/* Small tablet adjustments */
+@media (max-width: 768px) and (min-width: 481px) {
+    .gallery-carousel-multi .carousel-slide {
+        flex: 0 0 300px;
+        min-width: 300px;
+        width: 300px;
+        height: 300px;
+    }
+
+    .gallery-carousel-multi .carousel-slide img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid-about {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .featured-carousel-section {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: var(--space-2) 0 var(--space-1) 0;
+    }
+
+    /* Smaller breakout on mobile */
+    .featured-carousel-breakout {
+        margin-left: calc(-1 * var(--space-3));
+        margin-right: calc(-1 * var(--space-3));
+        padding: 0 var(--space-3);
+    }
+
+    /* Small mobile adjustments */
+    .gallery-carousel-multi .carousel-slide {
+        flex: 0 0 240px;
+        min-width: 240px;
+        width: 240px;
+        height: 240px;
+    }
+
+    .gallery-carousel-multi .carousel-slide img {
+        width: 240px;
+        height: 240px;
     }
 }
 
@@ -572,7 +944,6 @@ body.theme-light .doctor-name {
 footer {
     background: var(--bg-secondary);
     padding: var(--space-10) 0 var(--space-6) 0;
-    border-top: 1px solid var(--border-primary);
 }
 
 .footer-grid {
@@ -605,14 +976,15 @@ footer {
     transition: all var(--transition-base);
 }
 
-.social-icon svg {
+.social-icon svg,
+.social-icon img {
     width: 36px;
     height: 36px;
     border-radius: 4px;
 }
 .social-icon:hover {
     opacity: 0.85;
-        transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .footer-heading {

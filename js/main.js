@@ -114,20 +114,30 @@ const populateServices = () => {
     });
 };
 
-// Populate About Us Gallery
+// Populate About Us Gallery (Grid + Carousel)
 const populateAboutUsGallery = () => {
+    // Separate arrays for grid and carousel
+    const gridImages = site.aboutUsGalleryImages;
+    const carouselImages = site.facilityCarouselImages;
+
+    // Populate Grid
     const gallery = document.getElementById('aboutUsGallery');
-    if (!gallery) return;
-    site.aboutUsGalleryImages.forEach(image => {
-        const figure = createElement('figure', { className: 'gallery-item' });
-        const img = createElement('img', {
-            className: 'gallery-image',
-            src: image.src,
-            alt: `${site.businessName} - ${image.alt}`
+    if (gallery) {
+        gridImages.forEach(image => {
+            const figure = createElement('figure', { className: 'gallery-item' });
+            const img = createElement('img', {
+                className: 'gallery-image',
+                src: image.src,
+                alt: `${site.businessName} - ${image.alt}`,
+                loading: 'lazy'
+            });
+            figure.appendChild(img);
+            gallery.appendChild(figure);
         });
-        figure.appendChild(img);
-        gallery.appendChild(figure);
-    });
+    }
+
+    // Initialize Carousel (handled by carousel.js)
+    initializeCarousel(carouselImages, createElement);
 };
 
 // Populate Achievements

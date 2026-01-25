@@ -1,0 +1,201 @@
+/**
+ * Carousel Module - Infinite Loop Image Carousel
+ * Handles the facility carousel with seamless infinite scrolling
+ */
+
+const initializeCarousel = (carouselImages, createElement) => {
+    const track = document.getElementById('carouselTrack');
+    const indicators = document.getElementById('carouselIndicators');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+
+    if (!track || !indicators) return;
+
+    let currentIndex = 0;
+    let autoplayInterval;
+    let isTransitioning = false;
+
+    // Create slides with clones for seamless infinite loop
+    const createSlides = () => {
+        track.innerHTML = '';
+
+        // Add all original images
+        carouselImages.forEach((image, index) => {
+            const slide = createElement('div', { className: 'carousel-slide' });
+            const img = createElement('img', {
+                src: image.src,
+                alt: `${site.businessName} - ${image.alt}`,
+                loading: index < 3 ? 'eager' : 'lazy'
+            });
+            slide.appendChild(img);
+            track.appendChild(slide);
+        });
+
+        // Clone first 4 images at the end for seamless loop (ensures no white space)
+        for (let i = 0; i < Math.min(4, carouselImages.length); i++) {
+            const slide = createElement('div', { className: 'carousel-slide' });
+            const img = createElement('img', {
+                src: carouselImages[i].src,
+                alt: `${site.businessName} - ${carouselImages[i].alt}`,
+                loading: 'eager'
+            });
+            slide.appendChild(img);
+            track.appendChild(slide);
+        }
+    };
+
+    createSlides();
+
+    // Create indicators
+    carouselImages.forEach((image, index) => {
+        const indicator = createElement('button', {
+            className: index === 0 ? 'carousel-indicator active' : 'carousel-indicator',
+            ariaLabel: `Go to slide ${index + 1}`
+        });
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicators.appendChild(indicator);
+    });
+
+    const updateCarousel = (animate = true) => {
+        const slideWidth = 500;
+        const gap = 24;
+        const moveAmount = slideWidth + gap;
+
+        // Clamp currentIndex to prevent going too far (safety check)
+        const maxIndex = carouselImages.length + 3; // Original + 4 clones - 1
+        currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+
+        track.style.transition = animate 
+            ? 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' 
+            : 'none';
+
+        track.style.transform = `translateX(-${currentIndex * moveAmount}px)`;
+
+        // Update indicators
+        const allIndicators = indicators.querySelectorAll('.carousel-indicator');
+        const indicatorIndex = currentIndex % carouselImages.length;
+        allIndicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === indicatorIndex);
+        });
+
+        // Arrows always enabled for infinite loop
+        if (prevBtn) prevBtn.disabled = false;
+        if (nextBtn) nextBtn.disabled = false;
+
+        if (!animate) void track.offsetWidth; // Force reflow
+    };
+
+    const goToSlide = (index) => {
+        if (index >= 0 && index < carouselImages.length) {
+            currentIndex = index;
+            updateCarousel(true);
+            resetAutoplay();
+        }
+    };
+
+    const nextSlide = () => {
+        if (isTransitioning) return;
+
+        currentIndex++;
+        updateCarousel(true);
+
+        // Reset to beginning after showing clones
+        if (currentIndex >= carouselImages.length) {
+            isTransitioning = true;
+            setTimeout(() => {
+                currentIndex = 0;
+                updateCarousel(false);
+                isTransitioning = false;
+            }, 600); // Match transition duration exactly
+        }
+    };
+
+    const prevSlide = () => {
+        if (isTransitioning) return;
+
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel(true);
+        } else {
+            // Jump to end, then animate back
+            isTransitioning = true;
+            currentIndex = carouselImages.length;
+            updateCarousel(false);
+
+            setTimeout(() => {
+                currentIndex--;
+                updateCarousel(true);
+                isTransitioning = false;
+            }, 50);
+        }
+    };
+
+    const startAutoplay = () => {
+        autoplayInterval = setInterval(nextSlide, 4000);
+    };
+
+    const stopAutoplay = () => {
+        clearInterval(autoplayInterval);
+    };
+
+    const resetAutoplay = () => {
+        stopAutoplay();
+        startAutoplay();
+    };
+
+    // Event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoplay();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoplay();
+        });
+    }
+
+    // Pause on hover
+    const carousel = document.getElementById('aboutUsCarousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        const swipeThreshold = 50;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            diff > 0 ? nextSlide() : prevSlide();
+            resetAutoplay();
+        }
+    }, { passive: true });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            resetAutoplay();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            resetAutoplay();
+        }
+    });
+
+    // Initialize
+    updateCarousel();
+    startAutoplay();
+};

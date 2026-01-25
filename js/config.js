@@ -51,11 +51,12 @@ const site = {
     // Section Titles
     sectionTrust: 'Trusted by patients across Nashik',
     sectionServices: 'Our Services',
-    sectionExpert: 'Meet our Expert',
+    sectionFacility: 'Explore Our Facility',
     sectionAbout: 'About Us',
+    sectionReviews: 'What Our Patients Say',
+    sectionExpert: 'Meet our Expert',
     sectionAchievements: 'Achievements & Awards',
     sectionContact: 'Contact Us',
-    sectionReviews: 'What Our Patients Say',
 
     // Reviews Widget
     elfsightWidgetId: '952e9a06-e58c-4631-9306-d3393f926a09', // Your Elfsight Google Reviews widget ID
@@ -66,12 +67,12 @@ const site = {
     heroSubtitle: 'Modern dental care, made simple',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
-    heroCustomersText: 'Trusted by 5000+ happy patients',
+    heroCustomersText: 'Trusted by 5000+ happy & satisfied patients',
     heroCustomerImages: [
         { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
         { src: 'images/gallery-1.png', alt: 'Happy patient 1' },
         { src: 'images/gallery-2.png', alt: 'Happy patient 2' },
-        { src: 'images/gallery-3.png', alt: 'Happy patient 3' },
+        { src: 'images/image_doctor.png', alt: 'Dr. Aarti Bohora' },
         { src: 'images/gallery-4.png', alt: 'Happy patient 4' }
     ],
 
@@ -82,18 +83,27 @@ const site = {
     // About Us (New section with gallery)
     aboutUsTitle1: 'What sets us apart',
     aboutUsText1: `Roots dental speciality clinic is designed with modern interiors and equipped with technologically advanced dental equipment to deliver exceptional dental care for patient's satisfaction.`,
-    aboutUsText2: `Your oral health is our top priority! Our facility is equipped to handle all aspects of dentistry including Cosmetic Dentistry, Root Canal Treatments, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial Aesthetic Treatments. Whether you're here for a routine check-up or a complex procedure, we're committed to delivering a sound and soothing experience that prioritizes both your comfort and long-term oral health. `,
+    aboutUsText2: `Our facility is equipped to handle all aspects of dentistry including Cosmetic Dentistry, Root Canal Treatments, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial Aesthetic Treatments. `,
     aboutUsTitle2: 'Our commitment',
     aboutUsText3: 'Keep your fears at a back seat now, Roots dental speciality clinic is here for providing you a sound and soothing experience in dentistry. Gone are the days of sounds of the drill, feeling nauseated in the smelly premises. Be fearless and let Roots dental speciality clinic make your smile brighter.',
 
     // About Us Gallery Images
+    // About Us Grid Images (4 images)
     aboutUsGalleryImages: [
-        { src: 'images/gallery-3.png', alt: 'Clinic Interior' },
+        { src: 'images/image_doctor.png', alt: 'Dr. Aarti Bohora' },
+        { src: 'images/about_us.png', alt: 'About Us' },
+        { src: 'images/gallery-5.png', alt: 'Treatment Room' },
+        { src: 'images/gallery-6.png', alt: 'Dental Equipment' }
+    ],
+
+    // Facility Carousel Images (6 images)
+    facilityCarouselImages: [
+        { src: 'images/image_doctor.png', alt: 'Dr. Aarti Bohora' },
         { src: 'images/about_us.png', alt: 'About Us' },
         { src: 'images/gallery-5.png', alt: 'Treatment Room' },
         { src: 'images/gallery-6.png', alt: 'Dental Equipment' },
-        { src: 'images/gallery-1.png', alt: 'Reception Area' },
-        { src: 'images/gallery-2.png', alt: 'Consultation Room' }
+        { src: 'images/gallery-1.png', alt: 'Dental Facility' },
+        { src: 'images/gallery-4.png', alt: 'Modern Equipment' }
     ],
 
     // Footer
@@ -145,6 +155,7 @@ const data = {
         { text: 'Home', href: 'home' },
         { text: 'Services', href: 'services' },
         { text: 'About', href: 'about' },
+        { text: 'Facility', href: 'facility' },
         { text: 'Reviews', href: 'reviews' },
         { text: 'Expert', href: 'expert-intro' },
         { text: 'Contact', href: 'contact' }

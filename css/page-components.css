@@ -1393,7 +1393,7 @@ footer {
     border-radius: var(--radius-md);
     background: var(--bg-primary);
     color: var(--text-primary);
-    font-size: var(--font-size-base);
+    font-size: 14px;
     font-weight: var(--font-weight-medium);
     cursor: pointer;
     transition: all var(--transition-fast);

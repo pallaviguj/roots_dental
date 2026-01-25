@@ -58,6 +58,15 @@ async function handleDateChange(e) {
 	}
 }
 
+// Convert 24-hour time to 12-hour am/pm format
+function formatTime12Hour(time24) {
+	const [hours, minutes] = time24.split(':');
+	const hour = parseInt(hours);
+	const ampm = hour >= 12 ? 'pm' : 'am';
+	const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+	return `${displayHour}:${minutes} ${ampm}`;
+}
+
 // Render time slots
 function renderTimeSlots(slots) {
 	const container = document.getElementById('timeSlots');
@@ -71,7 +80,7 @@ function renderTimeSlots(slots) {
 		const button = createElement('button', {
 			type: 'button',
 			className: 'time-slot-btn',
-			textContent: slot.display
+			textContent: formatTime12Hour(slot.display)
 		});
 		
 		button.addEventListener('click', () => selectTimeSlot(slot, button));
@@ -172,21 +181,26 @@ function showBookingSuccess(data) {
 	const modal = document.getElementById('appointmentModal');
 	const modalContent = modal.querySelector('.modal-content');
 	
+	// Format date from YYYY-MM-DD to DD-MM-YYYY
+	const [year, month, day] = selectedDate.split('-');
+	const formattedDate = `${day}-${month}-${year}`;
+
+	// Format time to 12-hour AM/PM
+	const formattedTime = formatTime12Hour(selectedSlot.display);
+
 	modalContent.innerHTML = `
 		<button class="modal-close" onclick="closeAppointmentModal()">&times;</button>
 		<div class="booking-success">
 			<div class="success-icon">✓</div>
 			<h2>Appointment Booked!</h2>
 			<p>Your appointment has been successfully scheduled.</p>
-			<div class="booking-details">
-				<p><strong>Name:</strong> ${data.name}</p>
-				<p><strong>Date:</strong> ${selectedDate}</p>
-				<p><strong>Time:</strong> ${selectedSlot.display}</p>
-				<p><strong>Treatment:</strong> ${data.treatment}</p>
-			</div>
-			<p class="confirmation-note">You will receive a confirmation email at <strong>${data.email}</strong> with all the details.</p>
-			<button onclick="closeAppointmentModal()" class="btn btn-primary">Close</button>
+		<div class="booking-details">
+			<p><strong>Name:</strong> ${data.name}</p>
+			<p><strong>Date:</strong> ${formattedDate}</p>
+			<p><strong>Time:</strong> ${formattedTime}</p>
+			<p><strong>Treatment:</strong> ${data.treatment}</p>
 		</div>
+	</div>
 	`;
 }
 

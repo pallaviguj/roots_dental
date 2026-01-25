@@ -66,7 +66,7 @@
         bottom: 4px;
         left: 0;
         width: 0;
-        height: 3px;
+        height: 5px;
         background: var(--color-success);
         animation: underlineGrow 1s ease-out 1s forwards;
     }
@@ -98,6 +98,9 @@ body.theme-light .hero p {
     color: rgba(0, 0, 0, 0.85);
 }
 
+body.theme-dark .hero-call-text {
+    color: #ffffff;
+}
 /* Hero CTA Row */
 .hero-cta-row {
     display: flex;
@@ -203,6 +206,7 @@ body.theme-light .trust-title {
     padding: var(--space-4) var(--space-6);
     font-size: var(--font-size-sm);
     color: rgba(255, 255, 255, 0.9);
+    border-radius: 14px;
     transition: all var(--transition-base);
 }
 
@@ -288,6 +292,40 @@ body.theme-light .trust-badge:hover {
     white-space: nowrap;
 }
 
+/* Doctor Quote */
+.doctor-quote {
+    margin: var(--space-6) 0;
+    padding-left: var(--space-3);
+    border-left: 3px solid var(--color-success);
+    font-style: italic;
+    position: relative;
+}
+
+.doctor-quote p {
+    font-size: 32px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: var(--font-weight-medium);
+}
+
+.doctor-quote p::before {
+    content: '"';
+    margin-right: 4px;
+}
+
+.doctor-quote p::after {
+    content: '"';
+    margin-left: 4px;
+}
+
+body.theme-light .doctor-quote {
+    border-left-color: var(--color-success);
+}
+
+body.theme-light .doctor-quote p {
+    color: rgba(0, 0, 0, 0.7);
+}
 /* Enhanced contrast for doctor name in dark theme */
 body.theme-dark .doctor-name {
     color: #ffffff;
@@ -366,6 +404,7 @@ body.theme-light .doctor-name {
         url('../images/expert_bg.png') center/cover no-repeat;
     background-attachment: fixed;
     padding: var(--space-12) 0;
+    margin: var(--space-6) 0;
     color: white;
 }
 

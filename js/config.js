@@ -16,6 +16,7 @@ const site = {
     // Doctor
     doctorName: 'Dr. Aarti Bohora',
     doctorQualifications: 'BDS, MDS, Ph.D',
+    doctorQuote: 'Everybody does root canal, doing it gracefully is my expertise©',
     doctorExperience: '15+',
     doctorSpecialization: 'Conservative Dentistry & Endodontics',
 
@@ -69,15 +70,15 @@ const site = {
     ],
 
     // About (Meet Our Expert section)
-    aboutText: `Your oral health is our top priority. Led by an experienced team with 15+ years of expertise, we provide comprehensive dental care using the latest technology and modern techniques. Our facility is equipped to handle all aspects of dentistry including Cosmetic Dentistry, Root Canal Treatments, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial Aesthetic Treatments. Whether you're here for a routine check-up or a complex procedure, we're committed to delivering a sound and soothing experience that prioritizes both your comfort and long-term oral health.`,
-    aboutTagline: 'We aim to ensure the natural and beautiful look be the top most priority without anyone noticing the difference.',
+    aboutText: `"Form follows function". Esthetics should complement and enhance functionality. Our motto is to provide modern microscopic dentistry with personalized care in a calm and relaxed environment. Saving what is natural because teeth have feelings too! As distinctive as you are, we are committed to dental excellence for you.`,
+    aboutTagline: 'We promise aesthetic excellence with results that appear completely natural.',
 
     // About Us (New section with gallery)
     aboutUsTitle1: 'What sets us apart',
-    aboutUsText1: 'Keep your fears at a back seat now, Roots dental speciality clinic is here for providing you a sound and soothing experience in dentistry.  We treats all facets of dentistry such as Cosmetic Dentistry, Root Canal Treatment, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics and Facial Cosmetics.',
-    aboutUsText2: 'Gone are the days of sounds of the drill, feeling nauseated in the smelly premises.Book your seat today in a clutter free, soothing and sophisticated experience of turning your fear into glory. Be fearless and let Roots dental speciality clinic make your smile brighter.',
+    aboutUsText1: `Roots dental speciality clinic is designed with modern interiors and equipped with technologically advanced dental equipment to deliver exceptional dental care for patient's satisfaction.`,
+    aboutUsText2: `Your oral health is our top priority! Our facility is equipped to handle all aspects of dentistry including Cosmetic Dentistry, Root Canal Treatments, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial Aesthetic Treatments. Whether you're here for a routine check-up or a complex procedure, we're committed to delivering a sound and soothing experience that prioritizes both your comfort and long-term oral health. `,
     aboutUsTitle2: 'Our commitment',
-    aboutUsText3: 'Roots dental speciality clinic is designed with modern interiors and equipped with technologically advanced dental equipment to deliver exceptional dental care for patient’s satisfaction.',
+    aboutUsText3: 'Keep your fears at a back seat now, Roots dental speciality clinic is here for providing you a sound and soothing experience in dentistry. Gone are the days of sounds of the drill, feeling nauseated in the smelly premises. Be fearless and let Roots dental speciality clinic make your smile brighter.',
 
     // About Us Gallery Images
     aboutUsGalleryImages: [
@@ -145,9 +146,10 @@ const data = {
 
     trustIndicators: [
         { value: '15+', label: 'Years Experience' },
-        { value: '5000+', label: 'Happy Patients' },
         { value: 'Ph.D.', label: 'Qualified' },
-        { value: 'Award', label: 'Winning' }
+        { value: 'Award', label: 'Winning' },
+        { value: 'Advanced', label: 'Painless Dentistry' },
+
     ],
 
     services: [

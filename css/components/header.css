@@ -3,91 +3,116 @@
    ======================================== */
 
 header {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	z-index: var(--z-fixed);
-	background: var(--header-bg);
-	border-bottom: 1px solid var(--border-primary);
-	backdrop-filter: blur(10px);
-	box-shadow: var(--shadow-sm);
-	transition: all var(--transition-base);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: var(--z-fixed);
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-primary);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
 }
 
 nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: var(--space-4) 0;
-	min-height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) 0;
+    min-height: 72px;
 }
 
 /* Logo */
 .logo img {
-	height: 60px;
-	padding: var(--space-1) 0;
+    height: 60px;
+    padding: var(--space-1) 0;
 }
 
 /* Navigation Right Container */
 .nav-right {
     display: flex;
     align-items: center;
-    gap: var(--space-8);
+    gap: var(--space-5);
     flex: 1;
     justify-content: flex-end;
     margin-left: auto;
 }
+
 /* Navigation Links */
 .nav-links {
-	display: flex;
-	list-style: none;
-	gap: var(--space-6);
+    display: flex;
+    list-style: none;
+    gap: var(--space-5);
 }
 
 .nav-links a {
-	text-decoration: none;
-	color: var(--header-text);
-	font-weight: var(--font-weight-semibold);
-	font-size: var(--font-size-base);
-	transition: color var(--transition-fast);
-	position: relative;
+    text-decoration: none;
+    color: var(--header-text);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    transition: color var(--transition-fast);
+    position: relative;
 }
 
 .nav-links a:hover {
-	color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .nav-links a::after {
-	content: '';
-	position: absolute;
-	bottom: -4px;
-	left: 0;
-	width: 0;
-	height: 2px;
-	background: var(--color-primary);
-	transition: width var(--transition-base);
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition-base);
 }
 
 .nav-links a:hover::after {
-	width: 100%;
+    width: 100%;
 }
 
-/* Theme Toggle */
-.theme-toggle {
-	display: flex;
-	align-items: center;
-	gap: var(--space-2);
-	font-size: var(--font-size-sm);
+/* Nav CTA Button */
+.nav-cta-btn {
+    white-space: nowrap;
 }
 
-.theme-icon {
-	font-size: var(--font-size-lg);
+/* Theme Toggle Floating Button */
+.theme-toggle-float {
+    position: fixed;
+    bottom: 90px;
+    right: var(--space-5);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    z-index: var(--z-fixed);
+    opacity: 0.7;
+}
+
+.theme-toggle-float:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+.theme-toggle-float .theme-icon {
+    font-size: 24px;
 }
 
 /* Admin Button */
 .admin-btn {
-	display: none;
+    display: none;
 }
+
 /* Hamburger Menu */
 .hamburger {
     display: none;

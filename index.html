@@ -31,10 +31,9 @@
 				<ul class="nav-links">
 					<!-- Dynamically populated by JavaScript -->
 				</ul>
-				<button class="btn btn-primary btn-sm btn-pill theme-toggle" onclick="toggleTheme()">
-					<span class="theme-icon">🌙</span>
-					<span class="theme-text">Dark</span>
-				</button>
+				<a href="#" class="btn btn-primary btn-sm nav-cta-btn" onclick="openAppointmentModal(); return false;">
+					Book Appointment
+				</a>
 			</div>
 			<button class="btn btn-ghost btn-sm admin-btn" onclick="openCMS()">Admin</button>
 		</nav>
@@ -145,6 +144,9 @@
 					</div>
 					<div class="about-text">
 						<h3 class="doctor-name">{{site.doctorName}} <span class="doctor-qualifications">({{site.doctorQualifications}})</span></h3>
+						<blockquote class="doctor-quote">
+							<p>{{site.doctorQuote}}</p>
+						</blockquote>
 						<p>{{site.aboutText}}</p>
 						<p>{{site.aboutTagline}}</p>
 					</div>
@@ -181,10 +183,10 @@
 						<h3>{{site.doctorName}}<br />({{site.doctorQualifications}})</h3>
 						<p>
 							<strong>{{site.businessName}}</strong><br />
-							<span data-contact="address"></span>
+							<a data-contact="address-link" target="_blank" class="contact-link"><span data-contact="address"></span></a>
 						</p>
-						<p><strong>{{site.labelPhone}} <span data-contact="phone"></span></strong></p>
-						<p><strong>{{site.labelEmail}} <span data-contact="email"></span></strong></p>
+						<p><strong>{{site.labelPhone}} <a data-contact="phone-link" class="contact-link"><span data-contact="phone"></span></a></strong></p>
+						<p><strong>{{site.labelEmail}} <a data-contact="email-link" class="contact-link"><span data-contact="email"></span></a></strong></p>
 						<a href="#" class="btn btn-primary btn-md cta-button" onclick="openAppointmentModal(); return false;">{{site.btnBookAppointment}}</a>
 					</div>
 				</div>
@@ -236,6 +238,11 @@
 			<path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.194-2.116c2.366 1.288 5.040 1.978 7.806 1.978 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.246 1.354 1.401-5.208-0.321-0.525c-1.362-2.229-2.083-4.792-2.083-7.413 0-7.72 6.28-14 14-14s14 6.28 14 14-6.28 14-14 14zM21.804 18.613c-0.397-0.199-2.348-1.158-2.713-1.29-0.365-0.132-0.631-0.199-0.896 0.199s-1.028 1.29-1.261 1.556c-0.232 0.265-0.464 0.298-0.861 0.099s-1.68-0.619-3.199-1.973c-1.182-1.054-1.98-2.357-2.212-2.754s-0.025-0.611 0.174-0.809c0.179-0.178 0.397-0.464 0.596-0.696s0.265-0.397 0.397-0.662c0.132-0.265 0.066-0.497-0.033-0.696s-0.896-2.159-1.228-2.956c-0.322-0.776-0.65-0.671-0.896-0.684-0.232-0.012-0.497-0.015-0.762-0.015s-0.696 0.099-1.061 0.497c-0.365 0.397-1.394 1.362-1.394 3.321s1.427 3.852 1.625 4.117c0.199 0.265 2.807 4.285 6.796 6.009 0.95 0.411 1.691 0.656 2.269 0.839 0.955 0.303 1.824 0.26 2.512 0.158 0.766-0.114 2.348-0.96 2.679-1.888s0.331-1.723 0.232-1.888c-0.099-0.166-0.364-0.265-0.761-0.464z"/>
 		</svg>
 	</a>
+
+	<!-- Theme Toggle Button (Bottom Right) -->
+	<button class="theme-toggle-float" onclick="toggleTheme()" aria-label="Toggle theme">
+		<span class="theme-icon">🌙</span>
+	</button>
 
 
 	<!-- Appointment Modal -->

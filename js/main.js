@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeReviewsWidget();
     initializeHeroAnimation();
     initializeScrollHeader();
+    initializeSmoothScroll();
 });
 
 // Helper: Create element with attributes
@@ -389,4 +390,35 @@ const initializeScrollHeader = () => {
 
     // Initial check
     handleScroll();
+};
+
+// Initialize Smooth Scroll with Offset
+const initializeSmoothScroll = () => {
+    // Handle all anchor links (nav links and footer links)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+
+            // Skip if it's just "#" or modal triggers
+            if (href === '#' || this.hasAttribute('onclick')) {
+                return;
+            }
+
+            e.preventDefault();
+
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                const offset = 50; // 50px offset from top
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 };

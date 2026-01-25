@@ -58,7 +58,7 @@
 
 .service-card {
     background: var(--card-bg);
-    padding: var(--space-6) var(--space-5);
+    padding: var(--space-5);
     border-radius: var(--radius-xl);
     border: 1px solid var(--card-border);
     box-shadow: var(--shadow-md);

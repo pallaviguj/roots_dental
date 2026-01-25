@@ -30,7 +30,7 @@ const site = {
     landmark: 'From Ashok stambh to ravivar karanja- first right turn and then first left turn',
     mapUrl: 'https://maps.app.goo.gl/zoBfu8D4zgYvfPKD6',
     hoursWeekdays: 'Mon-Sat: 10am - 1pm | 5pm - 9pm',
-    hoursWeekend: 'Sun: Closed',
+    hoursWeekend: 'Sun: <strong>Closed</strong>',
 
     // Social Media
     social: {
@@ -67,7 +67,7 @@ const site = {
     heroSubtitle: 'Modern dental care, made simple',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
-    heroCustomersText: 'Trusted by 5000+ happy & satisfied patients',
+    heroCustomersText: 'Trusted by happy & satisfied patients',
     heroCustomerImages: [
         { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
         { src: 'images/gallery-1.png', alt: 'Happy patient 1' },
@@ -165,7 +165,7 @@ const data = {
         { value: '15+', label: 'Years Experience' },
         { value: 'Ph.D.', label: 'Qualified' },
         { value: 'Award', label: 'Winning' },
-        { value: 'Advanced', label: 'Painless Dentistry' },
+        { value: '5000+', label: 'Patients' },
 
     ],
 

@@ -63,7 +63,7 @@
 	border: 1px solid var(--card-border);
 	box-shadow: var(--shadow-md);
 	transition: all var(--transition-base);
-    text-align: center;
+    text-align: left;
 }
 
 .service-card:hover {

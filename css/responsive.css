@@ -126,6 +126,9 @@
         text-align: center;
     }
 
+        .hero-cta-row {
+            justify-content: center;
+        }
     .hero-image {
         order: -1;
     }

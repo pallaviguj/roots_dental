@@ -5,6 +5,7 @@
 
 // Initialize site on DOM load
 document.addEventListener('DOMContentLoaded', () => {
+    replaceTemplatePlaceholders();
     populateNavigation();
     populateTrustIndicators();
     populateServices();
@@ -31,6 +32,43 @@ const setContact = (selector, attrs) => {
             key === 'text' ? el.textContent = val :
                 key === 'html' ? el.innerHTML = val :
                     el[key] = val;
+        });
+    });
+};
+
+// Replace template placeholders {{site.*}}
+const replaceTemplatePlaceholders = () => {
+    const placeholderRegex = /\{\{site\.(\w+)\}\}/g;
+    const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+
+    const nodesToReplace = [];
+    while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (placeholderRegex.test(node.textContent)) {
+            nodesToReplace.push(node);
+        }
+        placeholderRegex.lastIndex = 0;
+    }
+
+    nodesToReplace.forEach(node => {
+        node.textContent = node.textContent.replace(placeholderRegex, (match, key) => {
+            return site[key] !== undefined ? site[key] : match;
+        });
+    });
+
+    // Also replace in attributes (like alt, title, src)
+    document.querySelectorAll('[alt*="{{site."], [title*="{{site."], [src*="{{site."]').forEach(el => {
+        ['alt', 'title', 'src'].forEach(attr => {
+            if (el.hasAttribute(attr)) {
+                el.setAttribute(attr, el.getAttribute(attr).replace(placeholderRegex, (match, key) => {
+                    return site[key] !== undefined ? site[key] : match;
+                }));
+            }
         });
     });
 };

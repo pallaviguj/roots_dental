@@ -47,7 +47,7 @@
 .hero h1 {
     color: white;
     font-size: 64px;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: var(--space-6);
     font-weight: var(--font-weight-bold);
     opacity: 0;
@@ -56,6 +56,25 @@
 
 .hero-highlight {
     color: var(--color-success);
+    position: relative;
+        display: inline-block;
+    }
+    
+    .hero-highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--color-success);
+        animation: underlineGrow 1s ease-out 1s forwards;
+    }
+    
+    @keyframes underlineGrow {
+        to {
+            width: 100%;
+        }
 }
 
 .hero p {
@@ -79,6 +98,42 @@ body.theme-light .hero p {
     color: rgba(0, 0, 0, 0.85);
 }
 
+/* Hero CTA Row */
+.hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Hero Call Text & Phone Link */
+.hero-call-text {
+    margin: 0 !important;
+    white-space: nowrap;
+    font-size: var(--font-size-lg);
+}
+
+.hero-phone-link {
+    color: #3b82f6;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    font-weight: var(--font-weight-semibold);
+    transition: color var(--transition-fast);
+}
+
+.hero-phone-link:hover {
+    color: #2563eb;
+}
+
+body.theme-light .hero-phone-link {
+    color: #2563eb;
+}
+
+body.theme-light .hero-phone-link:hover {
+    color: #1d4ed8;
+}
 /* Dark theme overrides for CTA button */
 body.theme-dark .cta-button {
     color: white;

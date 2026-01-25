@@ -22,8 +22,9 @@ const site = {
     // Contact
     phoneDisplay: '+91 7020054267',
     phoneRaw: '917020054267',
-    email: 'pallavi.gujrati@gmail.com',
-    ownerEmail: 'pallavi.gujrati@gmail.com', // Calendar invites sent here
+    email: 'rootsdentalspeciality@gmail.com', // Display email (shown on website)
+    bookingEmail: 'pallavi.gujrati@gmail.com', // Booking/Calendar email only
+    ownerEmail: 'pallavi.gujrati@gmail.com', // Calendar invites sent here (same as bookingEmail)
     addressFull: '472, Bohora Bhavan, Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier), Raviwar Peth, Nashik, Maharashtra, 422001',
     mapUrl: 'https://maps.app.goo.gl/zoBfu8D4zgYvfPKD6',
     hoursWeekdays: 'Mon-Sat: 10am - 1pm | 5pm - 9pm',
@@ -44,24 +45,50 @@ const site = {
     // Section Titles
     sectionTrust: 'Trusted by patients across Nashik',
     sectionServices: 'Our Services',
+    sectionExpert: 'Meet our Expert',
     sectionAbout: 'About Us',
     sectionAchievements: 'Achievements & Awards',
     sectionContact: 'Contact Us',
     sectionReviews: 'What Our Patients Say',
-    sectionGallery: 'Our Gallery',
+    reviewsPlaceholder: 'Reviews widget will be displayed here.',
+    reviewsPlaceholderNote: 'Configure Elfsight widget or implement Google Places API',
 
     // Hero
-    heroTitle: 'I get to the Root of the problem.',
+    heroTitle: 'We get to the Root of the problem.',
     heroHighlightWord: 'Root',
-    heroSubtitle: 'Professional dental care with a gentle touch in a comfortable environment',
+    heroSubtitle: 'Modern dental care, made simple',
     heroCta: 'Book Appointment',
+    heroCustomersText: 'Trusted by 5000+ happy patients',
+    heroCustomerImages: [
+        { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
+        { src: 'images/gallery-1.png', alt: 'Happy patient 1' },
+        { src: 'images/gallery-2.png', alt: 'Happy patient 2' },
+        { src: 'images/gallery-3.png', alt: 'Happy patient 3' },
+        { src: 'images/gallery-4.png', alt: 'Happy patient 4' }
+    ],
 
-    // About
+    // About (Meet Our Expert section)
     aboutText: `Your oral health is our top priority. Led by an experienced team with 15+ years of expertise, we provide comprehensive dental care using the latest technology and modern techniques. Our facility is equipped to handle all aspects of dentistry including Cosmetic Dentistry, Root Canal Treatments, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial Aesthetic Treatments. Whether you're here for a routine check-up or a complex procedure, we're committed to delivering a sound and soothing experience that prioritizes both your comfort and long-term oral health.`,
     aboutTagline: 'We aim to ensure the natural and beautiful look be the top most priority without anyone noticing the difference.',
 
+    // About Us (New section with gallery)
+    aboutUsTitle1: 'What Sets Us Apart',
+    aboutUsText1: 'Keep your fears at a back seat now, Roots dental speciality clinic is here for providing you a sound and soothing experience in dentistry.  We treats all facets of dentistry such as Cosmetic Dentistry, Root Canal Treatment, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics and Facial Cosmetics.',
+aboutUsText2: 'Gone are the days of sounds of the drill, feeling nauseated in the smelly premises.Book your seat today in a clutter free, soothing and sophisticated experience of turning your fear into glory. Be fearless and let Roots dental speciality clinic make your smile brighter.',
+    aboutUsTitle2: 'Our Commitment',
+    aboutUsText3: 'Roots dental speciality clinic is designed with modern interiors and equipped with technologically advanced dental equipment to deliver exceptional dental care for patient’s satisfaction.',
+
+    // About Us Gallery Images
+    aboutUsGalleryImages: [
+        { src: 'images/gallery-3.png', alt: 'Clinic Interior' },
+        { src: 'images/about_us.png', alt: 'About Us' },
+        { src: 'images/gallery-5.png', alt: 'Treatment Room' },
+        { src: 'images/gallery-6.png', alt: 'Dental Equipment' },
+        { src: 'images/gallery-1.png', alt: 'Reception Area' },
+        { src: 'images/gallery-2.png', alt: 'Consultation Room' }
+    ],
+
     // Footer
-    footerDescription: 'Gone are the days of sounds of the drill, feeling nauseated in the smelly premises. Book your seat today in a clutter free, soothing and sophisticated experience of turning your fear into glory. Be fearless and let us make your smile brighter.',
     footerQuickLinksHeading: 'Quick Links',
     footerContactHeading: 'Contact Info',
     copyrightYear: '© 2026',
@@ -110,8 +137,9 @@ const data = {
         { text: 'Home', href: 'home' },
         { text: 'Services', href: 'services' },
         { text: 'About', href: 'about' },
-        { text: 'Contact', href: 'contact' },
-        { text: 'Gallery', href: 'gallery' }
+        { text: 'Reviews', href: 'reviews' },
+        { text: 'Expert', href: 'expert-intro' },
+        { text: 'Contact', href: 'contact' }
     ],
 
     trustIndicators: [
@@ -218,6 +246,8 @@ const data = {
         { text: 'Home', href: 'home' },
         { text: 'Our Services', href: 'services' },
         { text: 'About Us', href: 'about' },
+        { text: 'Reviews', href: 'reviews' },
+        { text: 'Meet our Expert', href: 'expert-intro' },
         { text: 'Contact Us', href: 'contact' },
         { text: 'Book Appointment', href: '#', onclick: 'openAppointmentModal()' }
     ]

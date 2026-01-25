@@ -19,16 +19,16 @@
 			<div class="logo">
 				<img src="images/logo.png" alt="{{site.businessName}} Logo" />
 			</div>
-			<ul class="nav-links">
-				<!-- Dynamically populated by JavaScript -->
-			</ul>
-			<div class="flex items-center gap-4">
+			<div class="nav-right">
+				<ul class="nav-links">
+					<!-- Dynamically populated by JavaScript -->
+				</ul>
 				<button class="btn btn-primary btn-sm btn-pill theme-toggle" onclick="toggleTheme()">
 					<span class="theme-icon">🌙</span>
 					<span class="theme-text">Dark</span>
 				</button>
-				<button class="btn btn-ghost btn-sm admin-btn" onclick="openCMS()">Admin</button>
 			</div>
+			<button class="btn btn-ghost btn-sm admin-btn" onclick="openCMS()">Admin</button>
 		</nav>
 	</header>
 
@@ -37,18 +37,20 @@
 		<!-- Hero Section -->
 		<section id="home" class="hero">
 			<div class="container">
-				<div class="hero-content">
-					<div class="hero-image">
-						<img src="images/hero_image.png" alt="{{site.doctorName}}" />
-					</div>
-					<div class="hero-text">
-						<h1>I get to the <span class="hero-highlight">Root</span> of the problem.</h1>
-						<p>{{site.heroSubtitle}}</p>
-						<a href="#" class="btn btn-primary btn-lg cta-button" onclick="openAppointmentModal(); return false;">
-							{{site.heroCta}}
-						</a>
-					</div>
+			<div class="hero-content">
+				<!-- Image commented out for cleaner, Zendesk-style hero
+				<div class="hero-image">
+					<img src="images/hero_image.png" alt="{{site.doctorName}}" />
 				</div>
+				-->
+				<div class="hero-text">
+					<h1>We get to the <span class="hero-highlight">Root</span> of the problem.</h1>
+					<p>{{site.heroSubtitle}}</p>
+					<a href="#" class="btn btn-primary btn-lg cta-button" onclick="openAppointmentModal(); return false;">
+						{{site.heroCta}}
+					</a>
+				</div>
+			</div>
 			</div>
 		</section>
 
@@ -56,7 +58,7 @@
 		<section class="trust-section">
 			<div class="container">
 				<div class="trust-content">
-					<p class="trust-title">{{site.sectionTrust}}</p>
+					<p class="trust-title">{{site.heroCustomersText}}</p>
 					<div class="trust-logos" id="trustBadges">
 						<!-- Dynamically populated by JavaScript -->
 					</div>
@@ -74,17 +76,64 @@
 			</div>
 		</section>
 
-		<!-- About Section -->
+		<!-- About Us Section (NEW - with Gallery) -->
 		<section id="about" class="content-section">
 			<div class="container">
 				<h2>{{site.sectionAbout}}</h2>
+				<div class="about-gallery-content">
+					<div class="about-gallery-left">
+						<div class="gallery-grid-about" id="aboutUsGallery">
+							<!-- Dynamically populated by JavaScript -->
+						</div>
+					</div>
+					<div class="about-gallery-right">
+						<h3>{{site.aboutUsTitle1}}</h3>
+						<p>{{site.aboutUsText1}}</p>
+						<p>{{site.aboutUsText2}}</p>
+						<h3>{{site.aboutUsTitle2}}</h3>
+						<p>{{site.aboutUsText3}}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Reviews Section -->
+		<!-- TODO: Replace with Google Places API implementation or update Elfsight widget ID -->
+		<div id="reviews" class="content-section">
+			<div class="container">
+				<h2>{{site.sectionReviews}}</h2>
+				<div class="reviews-placeholder">
+					<p style="text-align: center; padding: var(--space-8); color: var(--text-secondary);">
+						{{site.reviewsPlaceholder}}<br />
+						<small>{{site.reviewsPlaceholderNote}}</small>
+					</p>
+				</div>
+				<!-- 
+				<script
+					src="https://static.elfsight.com/platform/platform.js"
+					data-use-service-core
+					defer
+				></script>
+				<div
+					class="elfsight-app-YOUR-WIDGET-ID-HERE"
+					data-elfsight-app-lazy
+				></div>
+				-->
+			</div>
+		</div>
+
+		<!-- Meet our Expert Section -->
+		<section id="expert-intro" class="content-section">
+			<div class="container">
+				<h2>{{site.sectionExpert}}</h2>
 				<div class="about-content">
+					<div class="about-image">
+						<img src="images/hero_image.png" alt="{{site.businessName}} - Modern Dental Facility" />
+					</div>
 					<div class="about-text">
+						<h3 class="doctor-name">{{site.doctorName}} <span class="doctor-qualifications">({{site.doctorQualifications}})</span></h3>
 						<p>{{site.aboutText}}</p>
 						<p>{{site.aboutTagline}}</p>
-					</div>
-					<div class="about-image">
-						<img src="images/about_us.png" alt="{{site.businessName}} - Modern Dental Facility" />
 					</div>
 				</div>
 			</div>
@@ -123,54 +172,11 @@
 						</p>
 						<p><strong>{{site.labelPhone}} <span data-contact="phone"></span></strong></p>
 						<p><strong>{{site.labelEmail}} <span data-contact="email"></span></strong></p>
-						<a href="#" class="btn btn-primary" onclick="openAppointmentModal(); return false;">{{site.btnBookAppointment}}</a>
+						<a href="#" class="btn btn-primary btn-md cta-button" onclick="openAppointmentModal(); return false;">{{site.btnBookAppointment}}</a>
 					</div>
 				</div>
 			</div>
 		</section>
-
-		<!-- Reviews Section -->
-		<div id="reviews" class="content-section">
-			<div class="container">
-				<h2>{{site.sectionReviews}}</h2>
-				<script
-					src="https://static.elfsight.com/platform/platform.js"
-					data-use-service-core
-					defer
-				></script>
-				<div
-					class="elfsight-app-9e123456-7890-1234-5678-901234567890"
-					data-elfsight-app-lazy
-				></div>
-			</div>
-		</div>
-
-		<!-- Gallery Section -->
-		<div id="gallery" class="content-section">
-			<div class="container">
-				<h2>{{site.sectionGallery}}</h2>
-				<div class="gallery-grid">
-					<figure class="gallery-item">
-						<img src="images/gallery-1.png" alt="{{site.businessName}} - Gallery Image 1" class="gallery-image" />
-					</figure>
-					<figure class="gallery-item">
-						<img src="images/gallery-2.png" alt="{{site.businessName}} - Gallery Image 2" class="gallery-image" />
-					</figure>
-					<figure class="gallery-item">
-						<img src="images/gallery-3.png" alt="{{site.businessName}} - Gallery Image 3" class="gallery-image" />
-					</figure>
-					<figure class="gallery-item">
-						<img src="images/gallery-4.png" alt="{{site.businessName}} - Gallery Image 4" class="gallery-image" />
-					</figure>
-					<figure class="gallery-item">
-						<img src="images/gallery-5.png" alt="{{site.businessName}} - Gallery Image 5" class="gallery-image" />
-					</figure>
-					<figure class="gallery-item">
-						<img src="images/gallery-6.png" alt="{{site.businessName}} - Gallery Image 6" class="gallery-image" />
-					</figure>
-				</div>
-			</div>
-		</div>
 	</main>
 
 	<!-- Footer -->
@@ -179,9 +185,6 @@
 			<div class="footer-grid">
 				<div>
 					<img src="images/logo.png" alt="{{site.businessName}} Logo" class="footer-logo" />
-					<p id="footerDescription" class="footer-description">
-						<!-- Populated by JavaScript from config.js -->
-					</p>
 					<div class="footer-social">
 						<a href="{{site.social.facebook.url}}" class="social-icon" aria-label="{{site.social.facebook.label}}" target="_blank" rel="noopener noreferrer">f</a>
 						<a href="{{site.social.instagram.url}}" class="social-icon" aria-label="{{site.social.instagram.label}}" target="_blank" rel="noopener noreferrer">i</a>

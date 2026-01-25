@@ -6,21 +6,30 @@
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 var(--space-5);
+    padding: 0 24px;
 }
 
 .container-wide {
 	max-width: 1400px;
 	margin: 0 auto;
-	padding: 0 var(--space-5);
+    padding: 0 24px;
 }
 
 .container-narrow {
 	max-width: 800px;
 	margin: 0 auto;
-	padding: 0 var(--space-5);
+    padding: 0 24px;
 }
 
+/* Desktop Container Padding (1200px+) */
+@media (min-width: 1200px) {
+
+    .container,
+    .container-wide,
+    .container-narrow {
+        padding: 0 48px;
+    }
+}
 /* Grid Layouts */
 .grid-2 {
 	display: grid;
@@ -53,9 +62,13 @@ main {
 
 /* Section Spacing */
 .content-section {
-	padding: var(--space-12) 0;
+    padding: var(--space-8) 0;
 }
 
+.content-section h2 {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
 .section-subtitle {
 	text-align: center;
 	font-size: var(--font-size-lg);

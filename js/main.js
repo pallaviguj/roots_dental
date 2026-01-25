@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateNavigation();
     populateTrustIndicators();
     populateServices();
+    populateAboutUsGallery();
     populateAchievements();
     populateContact();
     populateFooter();
@@ -73,6 +74,22 @@ const populateServices = () => {
     });
 };
 
+// Populate About Us Gallery
+const populateAboutUsGallery = () => {
+    const gallery = document.getElementById('aboutUsGallery');
+    if (!gallery) return;
+    site.aboutUsGalleryImages.forEach(image => {
+        const figure = createElement('figure', { className: 'gallery-item' });
+        const img = createElement('img', {
+            className: 'gallery-image',
+            src: image.src,
+            alt: `${site.businessName} - ${image.alt}`
+        });
+        figure.appendChild(img);
+        gallery.appendChild(figure);
+    });
+};
+
 // Populate Achievements
 const populateAchievements = () => {
     const ul = document.getElementById('achievementsList');
@@ -117,8 +134,6 @@ const populateContact = () => {
 
 // Populate Footer
 const populateFooter = () => {
-    setContact('#footerDescription', { text: site.footerDescription });
-
     const copyright = document.getElementById('copyright');
     if (copyright) {
         copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText} | `;

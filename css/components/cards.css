@@ -48,18 +48,22 @@
 /* Service Cards */
 .services-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: var(--space-6);
+    grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-5);
 	margin-top: var(--space-8);
+    max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
 }
 
 .service-card {
 	background: var(--card-bg);
-	padding: var(--space-6);
+    padding: var(--space-5);
 	border-radius: var(--radius-xl);
 	border: 1px solid var(--card-border);
 	box-shadow: var(--shadow-md);
 	transition: all var(--transition-base);
+    text-align: center;
 }
 
 .service-card:hover {

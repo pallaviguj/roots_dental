@@ -363,10 +363,9 @@ const initializeScrollHeader = () => {
     const handleScroll = () => {
         const scrollY = window.scrollY;
         const trustSectionTop = trustSection.offsetTop;
-        const trustSectionBottom = trustSectionTop + trustSection.offsetHeight;
 
-        // Add scrolled class when user scrolls past trust badge section
-        if (scrollY >= trustSectionBottom) {
+        // Add scrolled class when user scrolls past the start of trust section
+        if (scrollY >= trustSectionTop) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');

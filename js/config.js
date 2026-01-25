@@ -72,10 +72,10 @@ const site = {
     aboutTagline: 'We aim to ensure the natural and beautiful look be the top most priority without anyone noticing the difference.',
 
     // About Us (New section with gallery)
-    aboutUsTitle1: 'What Sets Us Apart',
+    aboutUsTitle1: 'What sets us apart',
     aboutUsText1: 'Keep your fears at a back seat now, Roots dental speciality clinic is here for providing you a sound and soothing experience in dentistry.  We treats all facets of dentistry such as Cosmetic Dentistry, Root Canal Treatment, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics and Facial Cosmetics.',
-aboutUsText2: 'Gone are the days of sounds of the drill, feeling nauseated in the smelly premises.Book your seat today in a clutter free, soothing and sophisticated experience of turning your fear into glory. Be fearless and let Roots dental speciality clinic make your smile brighter.',
-    aboutUsTitle2: 'Our Commitment',
+    aboutUsText2: 'Gone are the days of sounds of the drill, feeling nauseated in the smelly premises.Book your seat today in a clutter free, soothing and sophisticated experience of turning your fear into glory. Be fearless and let Roots dental speciality clinic make your smile brighter.',
+    aboutUsTitle2: 'Our commitment',
     aboutUsText3: 'Roots dental speciality clinic is designed with modern interiors and equipped with technologically advanced dental equipment to deliver exceptional dental care for patient’s satisfaction.',
 
     // About Us Gallery Images

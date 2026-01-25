@@ -220,6 +220,9 @@ body.theme-light .trust-title {
     color: rgba(255, 255, 255, 0.9);
     border-radius: 14px;
     transition: all var(--transition-base);
+    /* Dark theme default: has background and shadow (was hover state) */
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: var(--shadow-md);
 }
 
 .trust-badge strong {
@@ -232,8 +235,8 @@ body.theme-light .trust-title {
 
 .trust-badge:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: var(--shadow-md);
+    background: rgba(255, 255, 255, 0.2);
+        box-shadow: var(--shadow-lg);
 }
 
 body.theme-light .trust-badge {
@@ -244,6 +247,7 @@ body.theme-light .trust-badge {
 
 body.theme-light .trust-badge:hover {
     background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 /* ========================================

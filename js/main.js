@@ -189,10 +189,10 @@ const populateFooter = () => {
     const copyright = document.getElementById('copyright');
     if (copyright) {
         copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText} | `;
-        const privacy = createElement('a', { href: '#', className: 'footer-link' }, site.linkPrivacyPolicy);
+        const privacy = createElement('a', { href: 'privacy-policy.html', className: 'footer-link' }, site.linkPrivacyPolicy);
         copyright.appendChild(privacy);
         copyright.appendChild(document.createTextNode(' | '));
-        const terms = createElement('a', { href: '#', className: 'footer-link' }, site.linkTermsOfService);
+        const terms = createElement('a', { href: 'terms-of-service.html', className: 'footer-link' }, site.linkTermsOfService);
         copyright.appendChild(terms);
     }
 

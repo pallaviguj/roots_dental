@@ -421,6 +421,7 @@ body.theme-light .doctor-name {
 .about-text p {
     margin-bottom: var(--space-5);
     color: var(--text-secondary);
+    max-width: 600px;
 }
 
 /* ========================================
@@ -1019,11 +1020,11 @@ footer {
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-8);
+    gap: var(--space-4);
 }
 
 .footer-logo {
-    height: 60px;
+    height: 40px;
     margin-bottom: var(--space-4);
 }
 

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateFooter();
     initializeWhatsApp();
     initializeAppointmentForm();
+    initializeReviewsWidget();
 });
 
 // Helper: Create element with attributes
@@ -210,6 +211,27 @@ const initializeWhatsApp = () => {
         btn.href = `https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.whatsappMessage + ' at ' + site.businessName)}`;
         btn.setAttribute('data-tooltip', site.whatsappTooltip);
     }
+};
+
+// Initialize Reviews Widget (Elfsight)
+const initializeReviewsWidget = () => {
+    const container = document.getElementById('reviewsWidgetContainer');
+    if (!container || !site.elfsightWidgetId) return;
+
+    // Load Elfsight script
+    const script = createElement('script', {
+        src: 'https://static.elfsight.com/platform/platform.js',
+        defer: true
+    });
+    script.setAttribute('data-use-service-core', '');
+    document.head.appendChild(script);
+
+    // Create widget div with dynamic ID from config
+    const widgetDiv = createElement('div', {
+        className: `elfsight-app-${site.elfsightWidgetId}`
+    });
+    widgetDiv.setAttribute('data-elfsight-app-lazy', '');
+    container.appendChild(widgetDiv);
 };
 
 // Modal Controls

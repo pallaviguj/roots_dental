@@ -56,8 +56,9 @@ const site = {
     sectionAchievements: 'Achievements & Awards',
     sectionContact: 'Contact Us',
     sectionReviews: 'What Our Patients Say',
-    reviewsPlaceholder: 'Reviews widget will be displayed here.',
-    reviewsPlaceholderNote: 'Configure Elfsight widget or implement Google Places API',
+
+    // Reviews Widget
+    elfsightWidgetId: '952e9a06-e58c-4631-9306-d3393f926a09', // Your Elfsight Google Reviews widget ID
 
     // Hero
     heroTitle: 'We get to the Root of the problem.',

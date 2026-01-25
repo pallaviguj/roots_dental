@@ -109,30 +109,17 @@
 			</div>
 		</section>
 
-		<!-- Reviews Section -->
-		<!-- TODO: Replace with Google Places API implementation or update Elfsight widget ID -->
-		<div id="reviews" class="content-section">
-			<div class="container">
-				<h2>{{site.sectionReviews}}</h2>
-				<div class="reviews-placeholder">
-					<p style="text-align: center; padding: var(--space-8); color: var(--text-secondary);">
-						{{site.reviewsPlaceholder}}<br />
-						<small>{{site.reviewsPlaceholderNote}}</small>
-					</p>
-				</div>
-				<!-- 
-				<script
-					src="https://static.elfsight.com/platform/platform.js"
-					data-use-service-core
-					defer
-				></script>
-				<div
-					class="elfsight-app-YOUR-WIDGET-ID-HERE"
-					data-elfsight-app-lazy
-				></div>
-				-->
-			</div>
+	<!-- Reviews Section -->
+	<section id="reviews" class="content-section reviews-section">
+		<div class="container">
+		<h2>{{site.sectionReviews}}</h2>
+		
+		<!-- Elfsight Google Reviews Widget - Dynamically loaded from config.js -->
+		<div id="reviewsWidgetContainer">
+			<!-- Widget will be injected here by JavaScript -->
 		</div>
+		</div>
+	</section>
 
 		<!-- Meet our Expert Section -->
 		<section id="expert-intro" class="content-section">

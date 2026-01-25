@@ -27,7 +27,7 @@ const site = {
     bookingEmail: 'pallavi.gujrati@gmail.com', // Booking/Calendar email only
     ownerEmail: 'pallavi.gujrati@gmail.com', // Calendar invites sent here (same as bookingEmail)
     addressFull: '472, Bohora Bhavan, Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier), Raviwar Peth, Nashik, Maharashtra, 422001',
-    landmark: 'From Ashok stambh to ravivar karanja- first right turn and then first left turn',
+    landmark: 'From Ashok stambh to ravivar karanja - First right turn and then first left turn',
     mapUrl: 'https://maps.app.goo.gl/zoBfu8D4zgYvfPKD6',
     hoursWeekdays: 'Mon-Sat: 10am - 1pm | 5pm - 9pm',
     hoursWeekend: 'Sun: <strong>Closed</strong>',

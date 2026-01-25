@@ -180,6 +180,9 @@ body.theme-dark .hero-call-text {
     justify-content: center;
 }
 
+#contact .hero-cta-row {
+    justify-content: flex-start;
+}
 /* Hero Call Text & Phone Link */
 .hero-call-text {
     margin: 0 !important;

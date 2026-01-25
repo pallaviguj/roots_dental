@@ -200,11 +200,14 @@
 						<p>
 							<strong>{{site.businessName}}</strong><br />
 							<a data-contact="address-link" target="_blank" class="contact-link"><span data-contact="address"></span></a><br /><br />
-							<strong>Landmark:</strong> <span class="contact-landmark">{{site.landmark}}</span>
-						</p>
-						<p><strong>{{site.labelPhone}} <a data-contact="phone-link" class="contact-link"><span data-contact="phone"></span></a></strong></p>
-						<p><strong>{{site.labelEmail}} <a data-contact="email-link" class="contact-link"><span data-contact="email"></span></a></strong></p>
-						<a href="#" class="btn btn-primary btn-md cta-button" onclick="openAppointmentModal(); return false;">{{site.btnBookAppointment}}</a>
+					<strong>Landmark:</strong> <span class="contact-landmark">{{site.landmark}}</span>
+				</p>
+				<div class="hero-cta-row">
+					<p class="hero-call-text">
+						<a data-contact="phone-link" class="hero-phone-link"><span data-contact="phone-text"></span></a> or
+					</p>
+					<a href="#" class="btn btn-primary btn-md cta-button" onclick="openAppointmentModal(); return false;">{{site.btnBookAppointment}}</a>
+				</div>
 					</div>
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.1234567890!2d73.7890123456789!3d20.0123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDAwJzQ0LjQiTiA3M8KwNDcnMjAuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
@@ -249,8 +252,8 @@
 				<div>
 					<h3 class="footer-heading">{{site.footerContactHeading}}</h3>
 					<div class="footer-contact">
-						<p><strong>{{site.labelPhone}}</strong> <a data-contact="phone-link" class="footer-link"></a></p>
-						<p><strong>{{site.labelEmail}}</strong> <a data-contact="email-link" class="footer-link"></a></p>
+						<p><strong>{{site.labelPhone}}</strong> <a data-contact="phone-link" class="footer-link"><span data-contact="phone"></span></a></p>
+						<p><strong>{{site.labelEmail}}</strong> <a data-contact="email-link" class="footer-link"><span data-contact="email"></span></a></p>
 						<p><strong>{{site.labelAddress}}</strong> <a data-contact="address-link" target="_blank" class="footer-link"><span data-contact="address"></span></a></p>
 						<p><strong>{{site.labelHours}}</strong><br /><span data-contact="hours"></span></p>
 					</div>

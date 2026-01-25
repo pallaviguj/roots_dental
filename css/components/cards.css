@@ -101,9 +101,7 @@ body.theme-dark .service-card h3 {
 }
 
 .contact-card {
-    background: var(--card-bg);
     padding: var(--space-6);
-    border-radius: var(--radius-xl);
     text-align: left;
 }
 

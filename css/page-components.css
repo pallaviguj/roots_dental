@@ -960,7 +960,7 @@ body.theme-light .carousel-indicator.active {
     content: 'Chat with us on WhatsApp';
     position: absolute;
     right: 70px;
-    background: var(--color-navy-light, #0b2a4f);
+    background: var(--color-primary);
     color: var(--color-white);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-lg);
@@ -1301,7 +1301,7 @@ footer {
 }
 
 .modal-wide {
-    max-width: 1200px;
+    max-width: 750px;
     padding: var(--space-6);
 }
 

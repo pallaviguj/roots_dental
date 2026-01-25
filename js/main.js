@@ -358,20 +358,21 @@ const initializeScrollHeader = () => {
 
     if (!header || !trustSection) return;
 
-    let lastScrollY = window.scrollY;
+    let isScrolled = false;
+    const buffer = 50; // Add buffer to prevent flickering
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
         const trustSectionTop = trustSection.offsetTop;
 
-        // Add scrolled class when user scrolls past the start of trust section
-        if (scrollY >= trustSectionTop) {
+        // Add hysteresis to prevent rapid toggling
+        if (!isScrolled && scrollY >= trustSectionTop - buffer) {
             header.classList.add('scrolled');
-        } else {
+            isScrolled = true;
+        } else if (isScrolled && scrollY < trustSectionTop - buffer - 50) {
             header.classList.remove('scrolled');
+            isScrolled = false;
         }
-
-        lastScrollY = scrollY;
     };
 
     // Throttle scroll events for better performance
@@ -385,4 +386,7 @@ const initializeScrollHeader = () => {
             ticking = true;
         }
     });
+
+    // Initial check
+    handleScroll();
 };

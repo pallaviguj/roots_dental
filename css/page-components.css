@@ -1294,6 +1294,7 @@ footer {
 
     .hero-highlight::after {
         bottom: 0;
+        height: 4px;
     }
 
     /* Decorative logo - smaller on mobile */

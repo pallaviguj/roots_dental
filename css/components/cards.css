@@ -60,16 +60,34 @@
     background: var(--card-bg);
     padding: var(--space-5);
     border-radius: var(--radius-xl);
-    border: 1px solid var(--card-border);
+    border: 1px solid transparent;
+        background-image:
+            linear-gradient(var(--card-bg), var(--card-bg)),
+            linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success), var(--color-primary));
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        background-size: 100% 100%, 200% 200%;
     box-shadow: var(--shadow-md);
-    transition: all var(--transition-base);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
     text-align: left;
+    animation: gradientFlow 4s ease infinite;
+    }
+    
+    @keyframes gradientFlow {
+    
+        0%,
+        100% {
+            background-position: 0% 0%, 0% 50%;
+        }
+    
+        50% {
+            background-position: 0% 0%, 100% 50%;
+        }
 }
 
 .service-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-xl);
-    border-color: var(--color-accent-light);
 }
 
 .service-card h3 {
@@ -105,13 +123,20 @@ body.theme-dark .service-card h3 {
 }
 
 .contact-card h3 {
-    color: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-4);
     font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
 }
 
 body.theme-dark .contact-card h3 {
-    color: var(--color-white);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 }
 
 .contact-card .contact-link {

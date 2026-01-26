@@ -12,7 +12,7 @@ function renderHeader() {
         <nav class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="${site.businessName} Logo" />
+                    <img src="images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" />
                 </a>
             </div>
             <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
@@ -67,7 +67,7 @@ function renderFooter() {
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="images/logo.png" alt="${site.businessName} Logo" class="footer-logo" />
+                    <img src="images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" class="footer-logo" />
                     <div class="footer-social">
                         <a href="https://linkedin.com/in/dr-aarti-bohora-59b51b68/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

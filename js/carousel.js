@@ -31,8 +31,8 @@ const initializeCarousel = (carouselImages, createElement) => {
             track.appendChild(slide);
         });
 
-        // Clone first 4 images at the end for seamless loop (ensures no white space)
-        for (let i = 0; i < Math.min(4, carouselImages.length); i++) {
+        // Clone first 6 images at the end for seamless loop (ensures no white space on bigger screens)
+        for (let i = 0; i < Math.min(6, carouselImages.length); i++) {
             const slide = createElement('div', { className: 'carousel-slide' });
             const img = createElement('img', {
                 src: carouselImages[i].src,
@@ -62,7 +62,7 @@ const initializeCarousel = (carouselImages, createElement) => {
         const moveAmount = slideWidth + gap;
 
         // Clamp currentIndex to prevent going too far (safety check)
-        const maxIndex = carouselImages.length + 3; // Original + 4 clones - 1
+        const maxIndex = carouselImages.length + 5; // Original + 6 clones - 1
         currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
 
         track.style.transition = animate 

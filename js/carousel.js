@@ -57,8 +57,17 @@ const initializeCarousel = (carouselImages, createElement) => {
     });
 
     const updateCarousel = (animate = true) => {
-        const slideWidth = 500;
-        const gap = 24;
+        // Get actual slide width dynamically (works for both desktop and mobile)
+        const slides = track.querySelectorAll('.carousel-slide');
+        if (!slides.length) return;
+        
+        const firstSlide = slides[0];
+        const slideWidth = firstSlide.offsetWidth;
+        
+        // Get gap from computed style
+        const trackStyle = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyle.gap) || 0;
+        
         const moveAmount = slideWidth + gap;
 
         // Clamp currentIndex to prevent going too far (safety check)
@@ -193,6 +202,15 @@ const initializeCarousel = (carouselImages, createElement) => {
             nextSlide();
             resetAutoplay();
         }
+    });
+
+    // Handle window resize to recalculate slide widths
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            updateCarousel(false); // Update without animation on resize
+        }, 100);
     });
 
     // Initialize

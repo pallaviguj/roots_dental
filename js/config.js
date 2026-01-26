@@ -89,7 +89,7 @@ const site = {
     // About Us Gallery Images
     // About Us Grid Images (4 images)
     aboutUsGalleryImages: [
-        { src: 'images/image_doctor.png', alt: 'Dr. Aarti Bohora' },
+        { src: 'images/expert_bg.png', alt: 'Dr. Aarti Bohora' },
         { src: 'images/about_us.png', alt: 'About Us' },
         { src: 'images/gallery-5.png', alt: 'Treatment Room' },
         { src: 'images/gallery-6.png', alt: 'Dental Equipment' }

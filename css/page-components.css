@@ -1093,12 +1093,33 @@ footer {
     margin-bottom: var(--space-3);
 }
 
-.footer-copyright {
+.footer-bottom {
     text-align: center;
     margin-top: var(--space-8);
     padding-top: var(--space-6);
     border-top: 1px solid var(--border-primary);
+}
+
+.footer-legal-links {
+    margin-bottom: var(--space-2);
+}
+
+.footer-legal-links a {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-legal-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-copyright {
     color: var(--text-tertiary);
+    font-size: 0.875rem;
+        /* 14px - Smaller copyright text */
+        margin: 0;
 }
 
 /* ========================================

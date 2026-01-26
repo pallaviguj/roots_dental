@@ -175,14 +175,20 @@ const populateContact = () => {
 
 // Populate Footer
 const populateFooter = () => {
+    // Populate footer legal links (Privacy & Terms)
+    const footerLinks = document.getElementById('footerLinks');
+    if (footerLinks) {
+        const privacy = createElement('a', { href: 'privacy-policy.html', className: 'footer-link' }, site.linkPrivacyPolicy);
+        footerLinks.appendChild(privacy);
+        footerLinks.appendChild(document.createTextNode(' | '));
+        const terms = createElement('a', { href: 'terms-of-service.html', className: 'footer-link' }, site.linkTermsOfService);
+        footerLinks.appendChild(terms);
+    }
+
+    // Populate copyright text (below links)
     const copyright = document.getElementById('copyright');
     if (copyright) {
-        copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText} | `;
-        const privacy = createElement('a', { href: 'privacy-policy.html', className: 'footer-link' }, site.linkPrivacyPolicy);
-        copyright.appendChild(privacy);
-        copyright.appendChild(document.createTextNode(' | '));
-        const terms = createElement('a', { href: 'terms-of-service.html', className: 'footer-link' }, site.linkTermsOfService);
-        copyright.appendChild(terms);
+        copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText}`;
     }
 };
 

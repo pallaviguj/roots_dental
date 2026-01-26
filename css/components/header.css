@@ -43,9 +43,21 @@ nav {
 }
 
 /* Logo */
+.logo {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
 .logo img {
     height: 60px;
     padding: var(--space-1) 0;
+    display: block;
 }
 
 /* Navigation Right Container */

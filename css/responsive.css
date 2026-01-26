@@ -110,6 +110,8 @@
         margin-left: 0;
         width: 100%;
         justify-content: center;
+        font-size: var(--font-size-base) !important;
+        padding: var(--space-4) var(--space-6) !important;
     }
 
     .theme-toggle-float {

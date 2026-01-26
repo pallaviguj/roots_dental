@@ -757,11 +757,18 @@ body.theme-light .carousel-indicator.active {
 
     .gallery-grid-about {
         display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     /* Show only the first image in about us gallery on mobile/tablet */
     .gallery-grid-about .gallery-item:not(:first-child) {
         display: none;
+    }
+
+    .gallery-grid-about .gallery-item:first-child {
+        width: 100%;
+        max-width: 400px;
     }
 
     .featured-carousel-section {

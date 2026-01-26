@@ -108,7 +108,7 @@ nav {
     border-radius: 50%;
     background: var(--bg-secondary);
     border: 1px solid var(--border-primary);
-    display: flex;
+    display: none; /* TEMPORARILY HIDDEN - Can be re-enabled later */
     align-items: center;
     justify-content: center;
     cursor: pointer;

@@ -1,0 +1,16 @@
+# Robots.txt for Roots Dental Speciality Clinic
+# This file tells search engines which pages they can crawl
+
+# Allow all bots to access all content
+User-agent: *
+Allow: /
+
+# Block server/admin directories
+Disallow: /server/
+Disallow: /node_modules/
+
+# Block booking API endpoint
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://rootsdentalspeciality.com/sitemap.xml

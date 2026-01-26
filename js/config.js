@@ -35,7 +35,7 @@ const site = {
     // Social Media
     social: {
         facebook: {
-            url: 'https://facebook.com/rootsdentalspecialityclinic',
+            url: 'https://facebook.com/draartibohora/',
             label: 'Facebook'
         },
         instagram: {

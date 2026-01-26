@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Roots Dental Speciality Clinic – Best advanced dental clinic in Nashik</title>
+	<title>Dr. Aarti Bohora | Roots Dental Speciality Clinic | Best advanced dental clinic in Nashik</title>
 	<meta name="description" content="Trusted dental care clinic in Nashik. Cosmetic, Root Canal Treatments, Emergency, Periodontology, Prosthodontics, Orthodontics, Implants & painless dentistry. Book an appointment." />
 	<link rel="canonical" href="https://rootsdentalspeciality.com/" />
 	
@@ -89,7 +89,12 @@
 			</button>
 			<div class="nav-right" id="navRight">
 				<ul class="nav-links">
-					<!-- Dynamically populated by JavaScript -->
+					<li><a href="#services">Services</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#facility">Facility</a></li>
+					<li><a href="#reviews">Reviews</a></li>
+					<li><a href="#expert">Expert</a></li>
+					<li><a href="#contact">Contact</a></li>
 				</ul>
 				<a href="#" class="btn btn-primary btn-sm nav-cta-btn" onclick="openAppointmentModal(); return false;">
 					Book Appointment
@@ -212,7 +217,7 @@
 	</section>
 
 		<!-- Meet our Expert Section -->
-		<section id="expert-intro" class="content-section">
+		<section id="expert" class="content-section">
 			<div class="container">
 				<h2>{{site.sectionExpert}}</h2>
 				<div class="about-content">
@@ -231,10 +236,10 @@
 			</div>
 		</section>
 
-		<!-- Expert/Achievements Section -->
-		<section id="expert" class="content-section">
-			<div class="container">
-				<h2>{{site.sectionAchievements}}</h2>
+	<!-- Expert/Achievements Section -->
+	<section id="expert-awards" class="content-section">
+		<div class="container">
+			<h2>{{site.sectionAchievements}}</h2>
 				<div class="our-expert">
 					<div class="achievements-section">
 						<ul class="achievements-list" id="achievementsList">
@@ -299,10 +304,16 @@
 					</div>
 				</div>
 				<div>
-					<h3 class="footer-heading">{{site.footerQuickLinksHeading}}</h3>
-					<ul class="footer-list" id="footerQuickLinks">
-						<!-- Dynamically populated by JavaScript -->
-					</ul>
+				<h3 class="footer-heading">Quick Links</h3>
+				<ul class="footer-list">
+					<li class="footer-list-item"><a href="#home" class="footer-link">Home</a></li>
+					<li class="footer-list-item"><a href="#services" class="footer-link">Services</a></li>
+					<li class="footer-list-item"><a href="#about" class="footer-link">About us</a></li>
+					<li class="footer-list-item"><a href="#reviews" class="footer-link">Reviews</a></li>
+					<li class="footer-list-item"><a href="#expert" class="footer-link">Expert</a></li>
+					<li class="footer-list-item"><a href="#contact" class="footer-link">Contact us</a></li>
+					<li class="footer-list-item"><a href="#" onclick="openAppointmentModal()" class="footer-link">Book Appointment</a></li>
+				</ul>
 				</div>
 				<div>
 					<h3 class="footer-heading">{{site.footerContactHeading}}</h3>

@@ -25,7 +25,12 @@ function renderHeader() {
             </button>
             <div class="nav-right" id="navRight">
                 <ul class="nav-links">
-                    <!-- Dynamically populated below -->
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#facility">Facility</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li><a href="index.html#expert">Expert</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
                 <a href="index.html#book" class="btn btn-primary btn-sm nav-cta-btn">
                     Book Appointment
@@ -34,19 +39,6 @@ function renderHeader() {
             <button class="btn btn-ghost btn-sm admin-btn" onclick="openCMS()">Admin</button>
         </nav>
     `;
-
-    // Populate navigation links
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks && data.navLinks) {
-        data.navLinks.forEach(link => {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = `index.html#${link.href}`;
-            a.textContent = link.text;
-            li.appendChild(a);
-            navLinks.appendChild(li);
-        });
-    }
 }
 
 // Mobile Menu Toggle Function
@@ -94,9 +86,14 @@ function renderFooter() {
                     </div>
                 </div>
                 <div>
-                    <h3 class="footer-heading">${site.footerQuickLinksHeading}</h3>
-                    <ul class="footer-list" id="footerQuickLinks">
-                        <!-- Dynamically populated below -->
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="index.html#home" class="footer-link">Home</a></li>
+                        <li class="footer-list-item"><a href="index.html#services" class="footer-link">Our Services</a></li>
+                        <li class="footer-list-item"><a href="index.html#about" class="footer-link">About Us</a></li>
+                        <li class="footer-list-item"><a href="index.html#reviews" class="footer-link">Reviews</a></li>
+                        <li class="footer-list-item"><a href="index.html#expert" class="footer-link">Meet our Expert</a></li>
+                        <li class="footer-list-item"><a href="index.html#contact" class="footer-link">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>
@@ -114,25 +111,6 @@ function renderFooter() {
             </p>
         </div>
     `;
-
-    // Populate Quick Links
-    const quickLinksContainer = document.getElementById('footerQuickLinks');
-    if (quickLinksContainer && data.footerQuickLinks) {
-        data.footerQuickLinks.forEach(link => {
-            const li = document.createElement('li');
-            li.className = 'footer-list-item';
-            const a = document.createElement('a');
-            a.href = link.href === '#' ? 'index.html' : `index.html${link.href}`;
-            a.className = 'footer-link';
-            a.textContent = link.text;
-            if (link.onclick) {
-                a.setAttribute('onclick', link.onclick);
-                a.href = '#';
-            }
-            li.appendChild(a);
-            quickLinksContainer.appendChild(li);
-        });
-    }
 
     // Populate Copyright
     const copyright = document.getElementById('copyright');

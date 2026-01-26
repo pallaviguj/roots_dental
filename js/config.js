@@ -107,7 +107,6 @@ const site = {
     ],
 
     // Footer
-    footerQuickLinksHeading: 'Quick Links',
     footerContactHeading: 'Contact Info',
     copyrightYear: '© 2026',
     copyrightText: 'All rights reserved.',
@@ -151,16 +150,6 @@ const site = {
 
 const data = {
     // Navigation Links
-    navLinks: [
-        { text: 'Home', href: 'home' },
-        { text: 'Services', href: 'services' },
-        { text: 'About', href: 'about' },
-        { text: 'Facility', href: 'facility' },
-        { text: 'Reviews', href: 'reviews' },
-        { text: 'Expert', href: 'expert-intro' },
-        { text: 'Contact', href: 'contact' }
-    ],
-
     trustIndicators: [
         { value: '15+', label: 'Years Experience' },
         { value: 'Ph.D.', label: 'Qualified' },
@@ -258,13 +247,4 @@ const data = {
         }
     ],
 
-    footerQuickLinks: [
-        { text: 'Home', href: 'home' },
-        { text: 'Our Services', href: 'services' },
-        { text: 'About Us', href: 'about' },
-        { text: 'Reviews', href: 'reviews' },
-        { text: 'Meet our Expert', href: 'expert-intro' },
-        { text: 'Contact Us', href: 'contact' },
-        { text: 'Book Appointment', href: '#', onclick: 'openAppointmentModal()' }
-    ]
 };

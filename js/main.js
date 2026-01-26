@@ -285,6 +285,9 @@ const openAppointmentModal = () => {
     const modal = document.getElementById('appointmentModal');
     if (modal) modal.classList.add('active');
     
+    // Prevent background scrolling
+    document.body.classList.add('modal-open');
+
     // Close mobile menu if it's open
     const hamburger = document.getElementById('hamburger');
     const navRight = document.getElementById('navRight');
@@ -299,6 +302,8 @@ const closeAppointmentModal = () => {
     const modal = document.getElementById('appointmentModal');
     if (modal) {
         modal.classList.remove('active');
+        // Allow background scrolling again
+        document.body.classList.remove('modal-open');
         // Reset form if it exists
         const form = document.getElementById('bookingForm');
         if (form) form.reset();

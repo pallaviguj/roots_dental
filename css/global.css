@@ -29,6 +29,14 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent scrolling when modal is open */
+body.modal-open {
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+
 /* Remove default link styling */
 a {
 	color: inherit;

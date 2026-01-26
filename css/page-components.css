@@ -1184,7 +1184,7 @@ footer {
 
     /* Hero Section */
     .hero {
-        padding: var(--space-4) 0;
+        padding: var(--space-8) 0;
         min-height: auto;
     }
 

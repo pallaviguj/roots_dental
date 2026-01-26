@@ -81,10 +81,10 @@ const site = {
 
     // About Us (New section with gallery)
     aboutUsTitle1: 'What sets us apart',
-    aboutUsText1: `Roots dental speciality clinic is designed with modern interiors and equipped with technologically advanced dental equipment to deliver exceptional dental care for patient's satisfaction.`,
-    aboutUsText2: `Our facility is equipped to handle all aspects of dentistry including Cosmetic Dentistry, Root Canal Treatments, Emergency Dentistry, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial Aesthetic Treatments. `,
+    aboutUsText1: `Roots Dental Speciality Clinic is thoughtfully designed with modern interiors and advanced dental equipment to give you the best possible care in a comfortable and welcoming environment.`,
+    aboutUsText2: `We provide complete dental care under one roof, including Cosmetic dentistry, Root canal treatments, Emergency, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial aesthetic treatments.`,
     aboutUsTitle2: 'Our commitment',
-    aboutUsText3: 'Keep your fears at a back seat now, Roots dental speciality clinic is here for providing you a sound and soothing experience in dentistry. Gone are the days of sounds of the drill, feeling nauseated in the smelly premises. Be fearless and let Roots dental speciality clinic make your smile brighter.',
+    aboutUsText3: 'We understand that visiting a dentist can be stressful. At Roots Dental Speciality Clinic, we make sure you feel calm, safe, and cared for from the moment you walk-in. Say goodbye to fear, pain, and discomfort. Trust us with your smile, and let us help you smile brighter with confidence.',
 
     // About Us Gallery Images
     // About Us Grid Images (4 images)

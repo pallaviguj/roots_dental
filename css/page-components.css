@@ -282,9 +282,10 @@ body.theme-light .trust-title {
 }
 
 .trust-badge {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: var(--space-4) var(--space-6);
     font-size: var(--font-size-sm);
     color: rgba(255, 255, 255, 0.9);
@@ -293,6 +294,9 @@ body.theme-light .trust-title {
     /* Dark theme default: has background and shadow (was hover state) */
     background: rgba(255, 255, 255, 0.15);
     box-shadow: var(--shadow-md);
+    min-width: 180px;
+        flex: 1;
+        max-width: 220px;
 }
 
 .trust-badge strong {
@@ -1214,6 +1218,8 @@ footer {
     .trust-badge {
         padding: var(--space-3) var(--space-4);
         font-size: var(--font-size-xs);
+        min-width: unset;
+            max-width: none;
     }
 
     .trust-badge strong {

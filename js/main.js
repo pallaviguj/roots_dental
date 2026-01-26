@@ -233,31 +233,50 @@ const initializeReviewsWidget = () => {
 // Initialize Hero Underline Animation on Scroll
 const initializeHeroAnimation = () => {
     const heroHighlight = document.querySelector('.hero-highlight');
-    if (!heroHighlight) return;
+    const doctorQuote = document.querySelector('.doctor-quote');
 
-    // Create intersection observer to trigger animation when hero is in view
+    if (!heroHighlight && !doctorQuote) return;
+
+    // Create intersection observer to trigger animation when elements are in view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Reset animation by removing and re-adding class
-                heroHighlight.classList.remove('animate');
-                // Force reflow to restart animation
-                void heroHighlight.offsetWidth;
-                heroHighlight.classList.add('animate');
+                if (entry.target.classList.contains('hero')) {
+                    // Hero section animation
+                    if (heroHighlight) {
+                        heroHighlight.classList.remove('animate');
+                        void heroHighlight.offsetWidth;
+                        heroHighlight.classList.add('animate');
+                    }
+                } else if (entry.target.classList.contains('doctor-quote')) {
+                    // Doctor quote animation - reset and retrigger
+                    entry.target.classList.remove('animate');
+                    void entry.target.offsetWidth; // Force reflow
+                    entry.target.classList.add('animate');
+                }
             } else {
                 // Remove animation class when out of view so it can retrigger
-                heroHighlight.classList.remove('animate');
+                if (entry.target.classList.contains('hero') && heroHighlight) {
+                    heroHighlight.classList.remove('animate');
+                } else if (entry.target.classList.contains('doctor-quote')) {
+                    entry.target.classList.remove('animate');
+                }
             }
         });
     }, {
-        threshold: 0.5, // Trigger when 50% of hero is visible
-        rootMargin: '0px' // No margin adjustment
+        threshold: 0.5, // Trigger when 50% of element is visible
+        rootMargin: '0px'
     });
 
     // Observe the hero section
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
         observer.observe(heroSection);
+    }
+
+    // Observe the doctor quote
+    if (doctorQuote) {
+        observer.observe(doctorQuote);
     }
 };
 

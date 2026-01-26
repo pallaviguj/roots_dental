@@ -756,8 +756,7 @@ body.theme-light .carousel-indicator.active {
     }
 
     .gallery-grid-about {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        display: flex;
     }
 
     /* Show only the first image in about us gallery on mobile/tablet */

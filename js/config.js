@@ -10,7 +10,7 @@
 const site = {
     // Business
     businessName: 'Roots Dental Speciality Clinic',
-    tagline: 'Professional dental care with a gentle touch',
+    tagline: 'We get to the Root of the problem.',
     establishedYear: '2008',
 
     // Doctor
@@ -23,7 +23,7 @@ const site = {
     // Contact
     phoneDisplay: '+91 7020054267',
     phoneRaw: '917020054267',
-    email: 'rootsdentalspeciality@gmail.com', // Display email (shown on website)
+    email: 'rootsdentalspeciality@gmail.com', // Display email
     bookingEmail: 'pallavi.gujrati@gmail.com', // Booking/Calendar email only
     ownerEmail: 'pallavi.gujrati@gmail.com', // Calendar invites sent here (same as bookingEmail)
     addressFull: '472, Bohora Bhavan, Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier), Raviwar Peth, Nashik, Maharashtra, 422001',

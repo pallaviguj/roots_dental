@@ -3,7 +3,66 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>{{site.businessName}}</title>
+	<title>Roots Dental Speciality Clinic – Best advanced dental clinic in Nashik</title>
+	<meta name="description" content="Trusted dental care clinic in Nashik. Cosmetic, Root Canal Treatments, Emergency, Periodontology, Prosthodontics, Orthodontics, Implants & painless dentistry. Book an appointment." />
+	
+	<!-- Schema Markup for SEO -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Dentist",
+		"name": "Roots Dental Speciality Clinic",
+		"image": "https://rootsdentalspeciality.com/images/logo.png",
+		"description": "Trusted dental speciality clinic in Nashik offering Cosmetic dentistry, Root Canal Treatments, Emergency care, Periodontology, Prosthodontics, Orthodontics, Implants and painless dentistry.",
+		"url": "https://rootsdentalspeciality.com",
+		"telephone": "+91-7020054267",
+		"email": "rootsdentalspeciality@gmail.com",
+		"priceRange": "$$",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "472, Bohora Bhavan, Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier), Raviwar Peth",
+			"addressLocality": "Nashik",
+			"addressRegion": "Maharashtra",
+			"postalCode": "422001",
+			"addressCountry": "IN"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": "20.0027778",
+			"longitude": "73.7802778"
+		},
+		"openingHoursSpecification": [
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				"opens": "10:00",
+				"closes": "13:00"
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				"opens": "17:00",
+				"closes": "21:00"
+			}
+		],
+		"founder": {
+			"@type": "Person",
+			"name": "Dr. Aarti Bohora",
+			"jobTitle": "Dentist - Conservative Dentistry & Endodontics",
+			"hasCredential": "BDS, MDS, Ph.D"
+		},
+		"sameAs": [
+			"https://facebook.com/rootsdentalspecialityclinic",
+			"https://instagram.com/rootsdentalspecialityclinic",
+			"https://linkedin.com/in/dr-aarti-bohora-59b51b68/"
+		],
+		"aggregateRating": {
+			"@type": "AggregateRating",
+			"ratingValue": "4.9",
+			"reviewCount": "150"
+		}
+	}
+	</script>
 	
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href="css/main.css" />
@@ -17,7 +76,7 @@
 	<header>
 		<nav class="container">
 			<div class="logo">
-				<img src="images/logo.png" alt="{{site.businessName}} Logo" />
+				<img src="images/logo.png" alt="Roots Dental Speciality Clinic Logo" />
 			</div>
 			<button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
 				<svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,11 +108,6 @@
 		</div>
 		<div class="container">
 			<div class="hero-content">
-				<!-- Image commented out for cleaner, Zendesk-style hero
-				<div class="hero-image">
-					<img src="images/hero_image.png" alt="{{site.doctorName}}" />
-				</div>
-				-->
 				<div class="hero-text">
 					<h1>We get to the <span class="hero-highlight">Root</span> of the problem.</h1>
 					<p>{{site.heroSubtitle}}</p>
@@ -162,7 +216,7 @@
 				<h2>{{site.sectionExpert}}</h2>
 				<div class="about-content">
 					<div class="about-image">
-						<img src="images/hero_image.png" alt="{{site.businessName}} - Modern Dental Facility" />
+						<img src="images/hero_image.png" alt="Roots Dental Speciality Clinic - Modern Dental Facility" />
 					</div>
 					<div class="about-text">
 						<h3 class="doctor-name">{{site.doctorName}}<br><span class="doctor-qualifications">({{site.doctorQualifications}})</span></h3>
@@ -225,7 +279,7 @@
 		<div class="container">
 			<div class="footer-grid">
 				<div>
-					<img src="images/logo.png" alt="{{site.businessName}} Logo" class="footer-logo" />
+					<img src="images/logo.png" alt="Roots Dental Speciality Clinic Logo" class="footer-logo" />
 					<div class="footer-social">
                         <a href="{{site.social.linkedin.url}}" class="social-icon" aria-label="{{site.social.linkedin.label}}" target="_blank" rel="noopener noreferrer">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

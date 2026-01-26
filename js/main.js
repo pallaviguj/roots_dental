@@ -165,6 +165,7 @@ const populateAchievements = () => {
 const populateContact = () => {
     setContact('[data-contact="phone"]', { text: site.phoneDisplay });
     setContact('[data-contact="phone-link"]', { href: `tel:${site.phoneRaw}` });
+    setContact('[data-contact="phone-link-hero"]', { href: `tel:${site.phoneRaw}` });
     setContact('[data-contact="phone-text"]', { text: `${site.heroCallText} ${site.phoneDisplay}` });
     setContact('[data-contact="email"]', { text: site.email });
     setContact('[data-contact="email-link"]', { href: `mailto:${site.email}`, text: site.email });

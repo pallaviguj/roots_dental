@@ -126,7 +126,7 @@
     }
 
     .hero {
-        padding: var(--space-10) 0;
+        padding: var(--space-12) 0;
     }
 
     .hero-content {
@@ -161,14 +161,15 @@
         max-width: 100%;
         margin: 0 auto;
         display: flex;
-            justify-content: center;
+        justify-content: center;
     }
 
-        .about-image img {
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto;
-        }
+    .about-image img {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
     .services-grid,
     .grid-2,
     .grid-3,
@@ -184,10 +185,10 @@
         min-height: auto;
     }
 
-        .contact-info {
-            grid-template-columns: 1fr;
-        }
-    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
     .content-section {
         padding: var(--space-6) 0;
     }
@@ -199,8 +200,8 @@
 
     .trust-logos {
         gap: var(--space-4);
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -211,8 +212,8 @@
         --font-size-5xl: 1.75rem;
         --font-size-4xl: 1.5rem;
         --space-8: 2.5rem;
-            --space-10: 3rem;
-            --space-12: 3.5rem;
+        --space-10: 3rem;
+        --space-12: 3.5rem;
     }
 
     .container {
@@ -231,27 +232,28 @@
         padding: var(--space-2) var(--space-3);
         font-size: var(--font-size-xs);
     }
-.hero {
-    padding: var(--space-10) 0;
-}
 
-.content-section {
-    padding: var(--space-5) 0;
-}
+    .hero {
+        padding: var(--space-10) 0;
+    }
 
-.hero h1 {
-    font-size: 28px;
-}
+    .content-section {
+        padding: var(--space-5) 0;
+    }
 
-.trust-badge strong {
-    font-size: var(--font-size-xl);
-}
+    .hero h1 {
+        font-size: 28px;
+    }
 
-.about-image {
-    max-width: 100%;
-}
+    .trust-badge strong {
+        font-size: var(--font-size-xl);
+    }
 
-.about-image img {
-    max-width: 240px;
-}
+    .about-image {
+        max-width: 100%;
+    }
+
+    .about-image img {
+        max-width: 300px;
+    }
 }

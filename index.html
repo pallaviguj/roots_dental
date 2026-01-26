@@ -121,7 +121,7 @@
 					<p>{{site.heroSubtitle}}</p>
 					<div class="hero-cta-row">
 						<p class="hero-call-text">
-							<a href="tel:{{site.phoneRaw}}" class="hero-phone-link">{{site.heroCallText}} {{site.phoneDisplay}}</a> or
+							<a data-contact="phone-link-hero" class="hero-phone-link"><span data-contact="phone-text"></span></a> or
 						</p>
 						<a href="#" class="btn btn-primary btn-lg cta-button" onclick="openAppointmentModal(); return false;">
 							{{site.heroCta}}
@@ -232,7 +232,6 @@
 							<p>{{site.doctorQuote}}</p>
 						</blockquote>
 						<p>{{site.aboutText}}</p>
-						<p>{{site.aboutTagline}}</p>
 					</div>
 				</div>
 			</div>

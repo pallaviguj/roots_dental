@@ -78,7 +78,6 @@ const site = {
 
     // About (Meet Our Expert section)
     aboutText: `"Form follows function". Esthetics should complement and enhance functionality. Our motto is to provide modern microscopic dentistry with personalized care in a calm and relaxed environment. Saving what is natural because teeth have feelings too! As distinctive as you are, we are committed to dental excellence for you.`,
-    aboutTagline: 'We promise aesthetic excellence with results that appear completely natural.',
 
     // About Us (New section with gallery)
     aboutUsTitle1: 'What sets us apart',

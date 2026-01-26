@@ -123,7 +123,7 @@ const site = {
     btnBookAppointment: 'Book Appointment',
 
     // Theme
-    themeDefault: 'dark',
+    themeDefault: 'light',
     themeDark: {
         icon: '🌙',
         label: 'Dark'

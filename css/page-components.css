@@ -1381,11 +1381,19 @@ footer {
 
     /* Mobile form adjustments */
     .form-row {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         gap: var(--space-3);
     }
 
+        .form-group {
+            width: 100%;
+        }
+    
+        .form-group input,
+        .form-group select {
+            width: 100%;
+        }
     .time-slots-grid {
         grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
     }
@@ -1398,7 +1406,7 @@ footer {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: var(--z-modal);
     left: 0;
     top: 0;
     width: 100%;

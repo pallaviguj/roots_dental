@@ -1,0 +1,13 @@
+{
+  "name": "roots-dental-website",
+  "version": "1.0.0",
+  "description": "Production build system for Roots Dental Speciality Clinic website",
+  "scripts": {
+    "build": "node build.js",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "terser": "^5.26.0",
+    "clean-css": "^5.3.3"
+  }
+}

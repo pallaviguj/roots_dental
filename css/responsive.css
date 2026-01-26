@@ -126,7 +126,7 @@
     }
 
     .hero {
-        padding: var(--space-6) 0;
+        padding: var(--space-10) 0;
     }
 
     .hero-content {
@@ -232,7 +232,7 @@
         font-size: var(--font-size-xs);
     }
 .hero {
-    padding: var(--space-6) 0;
+    padding: var(--space-8) 0;
 }
 
 .content-section {

@@ -663,7 +663,8 @@ body.theme-light .doctor-name {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+        opacity: 0.4;
     border: none;
     cursor: pointer;
     transition: all var(--transition-base);
@@ -671,12 +672,13 @@ body.theme-light .doctor-name {
 }
 
 .carousel-indicator:hover {
-    background: rgba(255, 255, 255, 0.7);
+    opacity: 0.7;
     transform: scale(1.1);
 }
 
 .carousel-indicator.active {
-    background: rgba(255, 255, 255, 1);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+        opacity: 1;
     width: 32px;
     height: 6px;
     border-radius: 3px;
@@ -685,18 +687,17 @@ body.theme-light .doctor-name {
 /* Light Theme Carousel Styles - buttons same as dark theme */
 
 body.theme-light .carousel-indicator {
-    background: rgba(0, 0, 0, 0.3);
-    /* Black 30% */
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+        opacity: 0.4;
 }
 
 body.theme-light .carousel-indicator:hover {
-    background: rgba(0, 0, 0, 0.6);
-    /* Black 60% */
+    opacity: 0.7;
 }
 
 body.theme-light .carousel-indicator.active {
-    background: rgba(0, 0, 0, 1);
-    /* Black 100% */
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+        opacity: 1;
 }
 
 /* About Us Right Content */

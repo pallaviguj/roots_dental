@@ -89,8 +89,10 @@
     position: absolute;
     top: 10%;
     right: 45%;
-    width: 460px;
-    height: 460px;
+    width: 280px;
+        height: 280px;
+        max-width: 280px;
+        max-height: 280px;
     opacity: 0.12;
     pointer-events: none;
     z-index: 1;
@@ -889,6 +891,16 @@ body.theme-light .carousel-indicator.active {
         padding: var(--space-2) 0 var(--space-1) 0;
     }
 
+        /* Decorative logo - even smaller on very small screens */
+        .hero-logo-decor {
+            width: 150px;
+            height: 150px;
+            max-width: 150px;
+            max-height: 150px;
+            opacity: 0.08;
+            right: 5%;
+            top: 5%;
+        }
     /* Small mobile adjustments - Single image centered */
     .gallery-carousel-multi {
         max-width: 100%;
@@ -1269,8 +1281,10 @@ footer {
 
     /* Decorative logo - smaller on mobile */
     .hero-logo-decor {
-        width: 350px;
-        height: 350px;
+        width: 200px;
+            height: 200px;
+            max-width: 200px;
+            max-height: 200px;
         opacity: 0.10;
         right: 5%;
         top: 6%;

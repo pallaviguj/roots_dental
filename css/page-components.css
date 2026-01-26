@@ -741,6 +741,10 @@ body.theme-light .carousel-indicator.active {
         gap: 8px;
     }
 
+        /* Show only the first image in about us gallery on mobile/tablet */
+        .gallery-grid-about .gallery-item:not(:first-child) {
+            display: none;
+        }
     .featured-carousel-section {
         margin-top: 0;
         margin-bottom: 0;

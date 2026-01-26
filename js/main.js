@@ -265,6 +265,15 @@ const initializeHeroAnimation = () => {
 const openAppointmentModal = () => {
     const modal = document.getElementById('appointmentModal');
     if (modal) modal.classList.add('active');
+    
+    // Close mobile menu if it's open
+    const hamburger = document.getElementById('hamburger');
+    const navRight = document.getElementById('navRight');
+    if (hamburger && navRight && navRight.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navRight.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
 };
 
 const closeAppointmentModal = () => {

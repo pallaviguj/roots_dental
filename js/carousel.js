@@ -167,11 +167,41 @@ const initializeCarousel = (carouselImages, createElement) => {
         });
     }
 
-    // Pause on hover
+    // IntersectionObserver for viewport-based autoplay
+    let isInViewport = false;
+    let isHovered = false;
+    
     const carousel = document.getElementById('aboutUsCarousel');
     if (carousel) {
-        carousel.addEventListener('mouseenter', stopAutoplay);
-        carousel.addEventListener('mouseleave', startAutoplay);
+        // Observe carousel visibility
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isInViewport = entry.isIntersecting;
+                
+                if (isInViewport && !isHovered) {
+                    startAutoplay();
+                } else {
+                    stopAutoplay();
+                }
+            });
+        }, {
+            threshold: 0.3 // Start autoplay when 30% of carousel is visible
+        });
+        
+        observer.observe(carousel);
+        
+        // Pause on hover (only if in viewport)
+        carousel.addEventListener('mouseenter', () => {
+            isHovered = true;
+            stopAutoplay();
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            isHovered = false;
+            if (isInViewport) {
+                startAutoplay();
+            }
+        });
     }
 
     // Touch/swipe support
@@ -215,5 +245,5 @@ const initializeCarousel = (carouselImages, createElement) => {
 
     // Initialize
     updateCarousel();
-    startAutoplay();
+    // Autoplay will start via IntersectionObserver when carousel enters viewport
 };

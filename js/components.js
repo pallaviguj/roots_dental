@@ -176,6 +176,41 @@ function renderContactBox() {
     `;
 }
 
+// Populate Footer Links and Copyright (for static footer HTML)
+function populateFooterLinks() {
+    // Populate footer legal links (Privacy, Terms & Cookies)
+    const footerLinks = document.getElementById('footerLinks');
+    if (footerLinks) {
+        const privacy = document.createElement('a');
+        privacy.href = 'privacy-policy.html';
+        privacy.className = 'footer-link';
+        privacy.textContent = site.linkPrivacyPolicy;
+        footerLinks.appendChild(privacy);
+
+        footerLinks.appendChild(document.createTextNode(' | '));
+
+        const terms = document.createElement('a');
+        terms.href = 'terms-of-service.html';
+        terms.className = 'footer-link';
+        terms.textContent = site.linkTermsOfService;
+        footerLinks.appendChild(terms);
+
+        footerLinks.appendChild(document.createTextNode(' | '));
+
+        const cookies = document.createElement('a');
+        cookies.href = 'cookie-policy.html';
+        cookies.className = 'footer-link';
+        cookies.textContent = 'Cookie Policy';
+        footerLinks.appendChild(cookies);
+    }
+
+    // Populate copyright text (below links)
+    const copyright = document.getElementById('copyright');
+    if (copyright) {
+        copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText}`;
+    }
+}
+
 // Close mobile menu when clicking on nav links
 function initializeMobileMenuClose() {
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -207,10 +242,21 @@ function initializeMobileMenuClose() {
 
 // Initialize components on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Note: renderHeader() and renderFooter() are commented out 
-    // because we use static HTML to avoid logo animation issues
-    // renderHeader();
-    // renderFooter();
+    // Check if we're on a subpage (not index.html)
+    const isSubPage = !window.location.pathname.endsWith('/') &&
+        !window.location.pathname.endsWith('index.html') &&
+        window.location.pathname !== '/';
+
+    if (isSubPage) {
+        // Subpages: Render header and footer dynamically
+        renderHeader();
+        renderFooter();
+    } else {
+        // Homepage: Only populate footer links (header/footer are static HTML)
+        populateFooterLinks();
+    }
+
+    // Common initializations for all pages
     renderWhatsAppButton();
     renderContactBox();
     initializeMobileMenuClose();

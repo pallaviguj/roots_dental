@@ -174,16 +174,6 @@ All CSS files are imported via `main.css` using `@import`.
 
 ### ES6 Module System
 
-The codebase has been converted to modern ES6 modules with Webpack bundling:
-
-#### 1. Converted to ES6 Modules
-- ✅ **config.js** - Exports `site` and `data` objects
-- ✅ **template.js** - Imports config, initializes templates
-- ✅ **carousel.js** - Exports `initializeCarousel` function
-- ✅ **components.js** - Imports config, exports global functions
-- ✅ **theme.js** - Imports config, exports `toggleTheme`
-- ✅ **main.js** - Main entry point, imports all modules
-
 #### 2. Webpack Configuration
 - **Single entry point**: `main.js`
 - **Single output bundle**: `js/bundle.js` (27.9 KB minified)
@@ -200,23 +190,6 @@ The codebase has been converted to modern ES6 modules with Webpack bundling:
 Before: 7 separate JS files (50.4 KB)
 After:  1 bundled file (27.9 KB) - 45% smaller!
 ```
-
-**Code Cleanup:**
-- ❌ Removed duplicate `replaceTemplatePlaceholders()` (35 lines)
-- ❌ Removed duplicate `initializeScrollHeader()` (35 lines)
-- ✅ Single source of truth for all template replacements
-- ✅ No redundant scroll event listeners
-
-**Benefits:**
-- ✅ **45% smaller bundle** vs original (50.4 KB → 27.9 KB)
-- ✅ Faster page load (single HTTP request)
-- ✅ Better code organization with modules
-- ✅ Automatic dependency resolution
-- ✅ Dead code elimination (tree-shaking)
-- ✅ Production-ready minification with mangling
-- ✅ Removed duplicate template handlers & scroll listeners
-- ✅ Console logs stripped in production
-- ✅ Modern JavaScript features with Babel transpilation
 
 ### Data-Driven Architecture
 

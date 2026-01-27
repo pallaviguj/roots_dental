@@ -207,8 +207,10 @@ function initializeMobileMenuClose() {
 
 // Initialize components on page load
 document.addEventListener('DOMContentLoaded', () => {
-    renderHeader();
-    renderFooter();
+    // Note: renderHeader() and renderFooter() are commented out 
+    // because we use static HTML to avoid logo animation issues
+    // renderHeader();
+    // renderFooter();
     renderWhatsAppButton();
     renderContactBox();
     initializeMobileMenuClose();

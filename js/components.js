@@ -13,7 +13,7 @@ function renderHeader() {
     header.innerHTML = `
         <nav class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <img src="images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" />
                 </a>
             </div>
@@ -27,14 +27,14 @@ function renderHeader() {
             </button>
             <div class="nav-right" id="navRight">
                 <ul class="nav-links">
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#facility">Facility</a></li>
-                    <li><a href="index.html#reviews">Reviews</a></li>
-                    <li><a href="index.html#expert">Expert</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#facility">Facility</a></li>
+                    <li><a href="/#reviews">Reviews</a></li>
+                    <li><a href="/#expert">Expert</a></li>
+                    <li><a href="/#contact">Contact</a></li>
                 </ul>
-                <a href="index.html#book" class="btn btn-primary btn-sm nav-cta-btn">
+                <a href="/#book" class="btn btn-primary btn-sm nav-cta-btn">
                     Book Appointment
                 </a>
             </div>
@@ -90,12 +90,12 @@ function renderFooter() {
                 <div>
                     <h3 class="footer-heading">Quick Links</h3>
                     <ul class="footer-list">
-                        <li class="footer-list-item"><a href="index.html#home" class="footer-link">Home</a></li>
-                        <li class="footer-list-item"><a href="index.html#services" class="footer-link">Our Services</a></li>
-                        <li class="footer-list-item"><a href="index.html#about" class="footer-link">About Us</a></li>
-                        <li class="footer-list-item"><a href="index.html#reviews" class="footer-link">Reviews</a></li>
-                        <li class="footer-list-item"><a href="index.html#expert" class="footer-link">Meet our Expert</a></li>
-                        <li class="footer-list-item"><a href="index.html#contact" class="footer-link">Contact Us</a></li>
+                        <li class="footer-list-item"><a href="/#home" class="footer-link">Home</a></li>
+                        <li class="footer-list-item"><a href="/#services" class="footer-link">Our Services</a></li>
+                        <li class="footer-list-item"><a href="/#about" class="footer-link">About Us</a></li>
+                        <li class="footer-list-item"><a href="/#reviews" class="footer-link">Reviews</a></li>
+                        <li class="footer-list-item"><a href="/#expert" class="footer-link">Meet our Expert</a></li>
+                        <li class="footer-list-item"><a href="/#contact" class="footer-link">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>

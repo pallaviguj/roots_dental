@@ -309,7 +309,6 @@ body.theme-light .trust-title {
     font-size: 42px;
     font-weight: var(--font-weight-bold);
     color: var(--color-white);
-    margin-bottom: var(--space-1);
 }
 
 .trust-badge:hover {

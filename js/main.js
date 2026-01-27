@@ -1,17 +1,21 @@
 /**
  * Main Application Script
- * Traditional approach - HTML has structure, JS populates data
  */
+
+import { site, data } from './config.js';
+import './template.js';
+import { initializeCarousel } from './carousel.js';
+import './components.js';
+import './theme.js';
+import './booking.js';
 
 // Initialize site on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    replaceTemplatePlaceholders();
     populateTrustIndicators();
     populateServices();
     populateAboutUsGallery();
     populateAchievements();
     populateContact();
-    populateFooter();
     initializeWhatsApp();
     initializeAppointmentForm();
     initializeReviewsWidget();
@@ -39,44 +43,6 @@ const setContact = (selector, attrs) => {
     });
 };
 
-// Replace template placeholders {{site.*}}
-const replaceTemplatePlaceholders = () => {
-    const placeholderRegex = /\{\{site\.(\w+)\}\}/g;
-    const walker = document.createTreeWalker(
-        document.body,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-    );
-
-    const nodesToReplace = [];
-    while (walker.nextNode()) {
-        const node = walker.currentNode;
-        if (placeholderRegex.test(node.textContent)) {
-            nodesToReplace.push(node);
-        }
-        placeholderRegex.lastIndex = 0;
-    }
-
-    nodesToReplace.forEach(node => {
-        node.textContent = node.textContent.replace(placeholderRegex, (match, key) => {
-            return site[key] !== undefined ? site[key] : match;
-        });
-    });
-
-    // Also replace in attributes (like alt, title, src)
-    document.querySelectorAll('[alt*="{{site."], [title*="{{site."], [src*="{{site."]').forEach(el => {
-        ['alt', 'title', 'src'].forEach(attr => {
-            if (el.hasAttribute(attr)) {
-                el.setAttribute(attr, el.getAttribute(attr).replace(placeholderRegex, (match, key) => {
-                    return site[key] !== undefined ? site[key] : match;
-                }));
-            }
-        });
-    });
-};
-
-// Populate Navigation Links
 // Populate Trust Indicators
 const populateTrustIndicators = () => {
     const container = document.getElementById('trustBadges');
@@ -175,24 +141,6 @@ const populateContact = () => {
 };
 
 // Populate Footer
-const populateFooter = () => {
-    // Populate footer legal links (Privacy & Terms)
-    const footerLinks = document.getElementById('footerLinks');
-    if (footerLinks) {
-        const privacy = createElement('a', { href: 'privacy-policy.html', className: 'footer-link' }, site.linkPrivacyPolicy);
-        footerLinks.appendChild(privacy);
-        footerLinks.appendChild(document.createTextNode(' | '));
-        const terms = createElement('a', { href: 'terms-of-service.html', className: 'footer-link' }, site.linkTermsOfService);
-        footerLinks.appendChild(terms);
-    }
-
-    // Populate copyright text (below links)
-    const copyright = document.getElementById('copyright');
-    if (copyright) {
-        copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText}`;
-    }
-};
-
 // Initialize Google Calendar Scheduling iframe
 const initializeAppointmentForm = () => {
     const iframe = document.getElementById('googleCalendarScheduling');
@@ -446,3 +394,7 @@ const initializeSmoothScroll = () => {
         });
     });
 };
+
+// Export functions that are called from inline HTML
+window.openAppointmentModal = openAppointmentModal;
+window.closeAppointmentModal = closeAppointmentModal;

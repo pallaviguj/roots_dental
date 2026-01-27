@@ -247,3 +247,6 @@ const data = {
     ],
 
 };
+
+// Export for ES6 modules
+export { site, data };

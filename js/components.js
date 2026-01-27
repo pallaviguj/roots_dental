@@ -3,6 +3,8 @@
  * Header and Footer components for consistent UI across all pages
  */
 
+import { site } from './config.js';
+
 // Render Header Component
 function renderHeader() {
     const header = document.querySelector('header');
@@ -162,43 +164,6 @@ function renderContactBox() {
     `;
 }
 
-// Initialize Scroll-Based Header for sub-pages
-function initializeScrollHeader() {
-    const header = document.querySelector('header');
-    if (!header) return;
-    
-    let isScrolled = false;
-    const buffer = 50;
-    
-    const handleScroll = () => {
-        const scrollY = window.scrollY;
-        
-        // Add scrolled class when user scrolls down
-        if (!isScrolled && scrollY >= 100) {
-            header.classList.add('scrolled');
-            isScrolled = true;
-        } else if (isScrolled && scrollY < 50) {
-            header.classList.remove('scrolled');
-            isScrolled = false;
-        }
-    };
-    
-    // Throttle scroll events for better performance
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                handleScroll();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-    
-    // Initial check
-    handleScroll();
-}
-
 // Close mobile menu when clicking on nav links
 function initializeMobileMenuClose() {
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -234,6 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFooter();
     renderWhatsAppButton();
     renderContactBox();
-    initializeScrollHeader();
     initializeMobileMenuClose();
 });
+
+// Export functions that are called from inline HTML
+export { toggleMobileMenu, openCMS };
+
+// Also expose to window for inline onclick handlers
+window.toggleMobileMenu = toggleMobileMenu;
+window.openCMS = openCMS;

@@ -3,7 +3,9 @@
  * Handles the facility carousel with seamless infinite scrolling
  */
 
-const initializeCarousel = (carouselImages, createElement) => {
+import { site } from './config.js';
+
+export const initializeCarousel = (carouselImages, createElement) => {
     const track = document.getElementById('carouselTrack');
     const indicators = document.getElementById('carouselIndicators');
     const prevBtn = document.getElementById('carouselPrev');

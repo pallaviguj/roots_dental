@@ -7,8 +7,16 @@ A modern, responsive website for Roots Dental Speciality Clinic with a modular d
 ```
 roots_dental/
 ├── index.html              # Main HTML file (clean, semantic)
-├── roots_dental.html       # Original file (kept for reference)
 ├── README.md              # Project documentation
+├── package.json           # NPM dependencies & build scripts
+├── webpack.config.js      # Webpack configuration
+├── build.js               # Legacy build script (backup)
+│
+├── dist/                  # Production build output (generated)
+│   ├── index.html
+│   ├── js/bundle.js       # Bundled & minified JavaScript
+│   ├── css/               # Copied CSS files
+│   └── images/            # Optimized images
 │
 ├── css/                   # Modular CSS files
 │   ├── main.css          # Main CSS file (imports all others)
@@ -103,15 +111,40 @@ toggleTheme()
 
 ## 🚀 Getting Started
 
+### Production Build
+
+This project uses **Webpack** for modern ES6 module bundling and optimization.
+
+**Build for production:**
+```bash
+npm install
+npm run build
+```
+
+**Development with hot reload:**
+```bash
+npm run dev
+```
+
+**Watch mode:**
+```bash
+npm run watch
+```
+
 ### Local Development
 
 1. Clone or download the repository
 2. Open a terminal in the project directory
-3. Start a local server:
+3. Build the project:
+   ```bash
+   npm install
+   npm run build
+   ```
+4. Start a local server:
    ```bash
    python3 -m http.server 8000
    ```
-4. Open your browser to `http://localhost:8000`
+5. Open your browser to `http://localhost:8000`
 
 ### File Organization
 
@@ -128,10 +161,62 @@ The CSS follows a modular architecture:
 
 All CSS files are imported via `main.css` using `@import`.
 
-#### JavaScript Structure
+#### JavaScript Structure (ES6 Modules)
 - **config.js** - Centralized data configuration (phone, email, services, etc.)
 - **main.js** - Main application script (populates site content from config data)
 - **theme.js** - Theme switching with localStorage persistence
+- **carousel.js** - Infinite carousel functionality
+- **components.js** - Reusable UI components
+- **template.js** - Template engine for variable replacement
+- **booking.js** - Booking form logic
+
+## ⚡ Build Optimization
+
+### ES6 Module System
+
+The codebase has been converted to modern ES6 modules with Webpack bundling:
+
+#### 1. Converted to ES6 Modules
+- ✅ **config.js** - Exports `site` and `data` objects
+- ✅ **template.js** - Imports config, initializes templates
+- ✅ **carousel.js** - Exports `initializeCarousel` function
+- ✅ **components.js** - Imports config, exports global functions
+- ✅ **theme.js** - Imports config, exports `toggleTheme`
+- ✅ **main.js** - Main entry point, imports all modules
+
+#### 2. Webpack Configuration
+- **Single entry point**: `main.js`
+- **Single output bundle**: `js/bundle.js` (27.9 KB minified)
+- **Auto-injects script** with `defer` attribute
+- **Proper module tree-shaking** and optimization
+- **Scope hoisting**: Module concatenation for smaller size
+- **Mangling enabled**: Variable/function name shortening
+- **Dead code elimination**: Unused code removed
+- **Console logs stripped** in production
+- **Source maps** in development mode
+
+#### 3. Build Results
+```
+Before: 7 separate JS files (50.4 KB)
+After:  1 bundled file (27.9 KB) - 45% smaller!
+```
+
+**Code Cleanup:**
+- ❌ Removed duplicate `replaceTemplatePlaceholders()` (35 lines)
+- ❌ Removed duplicate `initializeScrollHeader()` (35 lines)
+- ✅ Single source of truth for all template replacements
+- ✅ No redundant scroll event listeners
+
+**Benefits:**
+- ✅ **45% smaller bundle** vs original (50.4 KB → 27.9 KB)
+- ✅ Faster page load (single HTTP request)
+- ✅ Better code organization with modules
+- ✅ Automatic dependency resolution
+- ✅ Dead code elimination (tree-shaking)
+- ✅ Production-ready minification with mangling
+- ✅ Removed duplicate template handlers & scroll listeners
+- ✅ Console logs stripped in production
+- ✅ Modern JavaScript features with Babel transpilation
 
 ### Data-Driven Architecture
 
@@ -305,6 +390,32 @@ python3 -m http.server 8000
 ## 👨‍💻 Development
 
 For questions or support, contact the development team.
+
+---
+
+## 🚀 Deployment
+
+### Deploy to Surge
+
+The site is deployed using [Surge](https://surge.sh) for quick and easy hosting:
+
+```bash
+# Build the project
+npm run build
+
+# Deploy to Surge
+npx surge dist rootsdental-source.surge.sh
+```
+
+**Live Site:** https://rootsdental-source.surge.sh
+
+### Deploy to Other Platforms
+
+The `dist/` folder contains the production-ready build. Upload its contents to:
+- **cPanel**: Upload to `public_html/`
+- **Netlify**: Drag & drop the `dist/` folder
+- **Vercel**: Connect GitHub repo or use CLI
+- **GitHub Pages**: Push `dist/` to `gh-pages` branch
 
 ---
 

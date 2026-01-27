@@ -2,7 +2,9 @@
  * Template Engine
  */
 
-// Expose to window
+import { site, data } from './config.js';
+
+// Expose to window for inline script access
 window.site = site;
 window.data = data;
 

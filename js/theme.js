@@ -3,6 +3,8 @@
  * Handles dark/light theme toggle and persistence
  */
 
+import { site } from './config.js';
+
 const toggleTheme = () => {
     const newTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
     applyTheme(newTheme);
@@ -23,3 +25,7 @@ const loadThemePreference = () => applyTheme(localStorage.getItem('theme') || si
 
 // Initialize theme on page load
 document.addEventListener('DOMContentLoaded', loadThemePreference);
+
+// Export for inline HTML
+export { toggleTheme };
+window.toggleTheme = toggleTheme;

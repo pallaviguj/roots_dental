@@ -1222,7 +1222,7 @@ footer {
 }
 
 .footer-copyright {
-    color: var(--text-tertiary);
+    color: var(--text-secondary);
     font-size: 0.875rem;
     /* 14px - Smaller copyright text */
     margin: 0;

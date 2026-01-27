@@ -68,47 +68,6 @@ The design system is built on a foundation of design tokens defined in `css/vari
 - **Shadows**: 5 levels (sm, md, lg, xl, 2xl)
 - **Z-Index Scale**: Organized layers for UI elements
 
-### Component System
-
-#### Buttons
-```html
-<!-- Sizes -->
-<button class="btn btn-sm">Small</button>
-<button class="btn btn-md">Medium</button>
-<button class="btn btn-lg">Large</button>
-
-<!-- Variants -->
-<button class="btn btn-primary">Primary</button>
-<button class="btn btn-secondary">Secondary</button>
-<button class="btn btn-outline">Outline</button>
-<button class="btn btn-ghost">Ghost</button>
-
-<!-- Modifiers -->
-<button class="btn btn-primary btn-pill">Pill Shape</button>
-```
-
-#### Cards
-```html
-<div class="card card-hover">
-  <h3 class="card-title">Title</h3>
-  <p class="card-description">Description</p>
-</div>
-```
-
-### Theme System
-
-The site supports dark and light themes:
-
-- **Dark Theme** (default): Navy backgrounds with white text
-- **Light Theme**: White/gray backgrounds with dark text
-- Theme preference is saved in localStorage
-- Smooth transitions between themes
-
-Toggle theme:
-```javascript
-toggleTheme()
-```
-
 ## 🚀 Getting Started
 
 ### Production Build
@@ -170,11 +129,8 @@ All CSS files are imported via `main.css` using `@import`.
 - **template.js** - Template engine for variable replacement
 - **booking.js** - Booking form logic
 
-## ⚡ Build Optimization
 
-### ES6 Module System
-
-#### 2. Webpack Configuration
+### Webpack Configuration
 - **Single entry point**: `main.js`
 - **Single output bundle**: `js/bundle.js` (27.9 KB minified)
 - **Auto-injects script** with `defer` attribute
@@ -185,7 +141,7 @@ All CSS files are imported via `main.css` using `@import`.
 - **Console logs stripped** in production
 - **Source maps** in development mode
 
-#### 3. Build Results
+### Build Results
 ```
 Before: 7 separate JS files (50.4 KB)
 After:  1 bundled file (27.9 KB) - 45% smaller!
@@ -205,13 +161,6 @@ contact: {
   }
 }
 ```
-
-**Benefits:**
-- ✅ Single source of truth for all data
-- ✅ Easy to update (one place)
-- ✅ CMS-ready architecture
-- ✅ No hardcoded values in HTML
-- ✅ Separation of content and presentation
 
 ## 📱 Responsive Design
 

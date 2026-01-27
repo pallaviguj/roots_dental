@@ -63,6 +63,7 @@ main {
 /* Section Spacing */
 .content-section {
     padding: var(--space-8) 0;
+    scroll-margin-top: 72px; /* Offset for fixed header */
 }
 
 .content-section h2 {

@@ -112,14 +112,15 @@ function selectTimeSlot(slot, buttonElement) {
 async function handleBookingSubmit(e) {
 	e.preventDefault();
 	
-	if (!selectedDate || !selectedSlot) {
-		alert('Please select a date and time slot');
-		return;
-	}
-	
 	const form = e.target;
 	const submitBtn = document.getElementById('bookingSubmitBtn');
 	const errorContainer = document.getElementById('bookingError');
+	
+	if (!selectedDate || !selectedSlot) {
+		errorContainer.textContent = 'Please select a date and time slot';
+		errorContainer.style.display = 'block';
+		return;
+	}
 	
 	// Get form data
 	const bookingData = {

@@ -7,6 +7,7 @@ import './template.js';
 import { initializeCarousel } from './carousel.js';
 import './components.js';
 import './theme.js';
+import './cookies.js';
 
 // Polyfill for requestIdleCallback
 window.requestIdleCallback = window.requestIdleCallback || function (cb, options) {
@@ -302,7 +303,7 @@ document.addEventListener('keydown', e => {
 });
 
 // CMS Placeholder
-const openCMS = () => alert(site.cmsPlaceholder);
+const openCMS = () => console.log('CMS feature coming soon');
 
 // Mobile Menu Toggle
 const toggleMobileMenu = () => {

@@ -145,6 +145,19 @@ module.exports = (env, argv) => {
           minifyCSS: true,
         } : false,
       }),
+      new HtmlWebpackPlugin({
+        template: './cookie-policy.html',
+        filename: 'cookie-policy.html',
+        inject: 'body',
+        scriptLoading: 'defer',
+        minify: isProduction ? {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: false,
+          minifyJS: true,
+          minifyCSS: true,
+        } : false,
+      }),
       new CopyWebpackPlugin({
         patterns: [
           // Copy all CSS files

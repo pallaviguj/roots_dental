@@ -57,7 +57,7 @@ function toggleMobileMenu() {
 
 // CMS Placeholder Function
 function openCMS() {
-    alert(site.cmsPlaceholder || 'CMS feature coming soon!');
+    console.log('CMS feature coming soon');
 }
 
 // Render Footer Component
@@ -69,7 +69,9 @@ function renderFooter() {
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" class="footer-logo" />
+                    <a href="/" style="display: inline-block;">
+                        <img src="images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" class="footer-logo" />
+                    </a>
                     <div class="footer-social">
                         <a href="https://linkedin.com/in/dr-aarti-bohora-59b51b68/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -119,7 +121,7 @@ function renderFooter() {
         </div>
     `;
 
-    // Populate footer legal links (Privacy & Terms)
+    // Populate footer legal links (Privacy, Terms & Cookies)
     const footerLinks = document.getElementById('footerLinks');
     if (footerLinks) {
         const privacy = document.createElement('a');
@@ -127,12 +129,22 @@ function renderFooter() {
         privacy.className = 'footer-link';
         privacy.textContent = site.linkPrivacyPolicy;
         footerLinks.appendChild(privacy);
+        
         footerLinks.appendChild(document.createTextNode(' | '));
+        
         const terms = document.createElement('a');
         terms.href = 'terms-of-service.html';
         terms.className = 'footer-link';
         terms.textContent = site.linkTermsOfService;
         footerLinks.appendChild(terms);
+        
+        footerLinks.appendChild(document.createTextNode(' | '));
+        
+        const cookies = document.createElement('a');
+        cookies.href = 'cookie-policy.html';
+        cookies.className = 'footer-link';
+        cookies.textContent = 'Cookie Policy';
+        footerLinks.appendChild(cookies);
     }
 
     // Populate copyright text (below links)

@@ -7,7 +7,17 @@ import './template.js';
 import { initializeCarousel } from './carousel.js';
 import './components.js';
 import './theme.js';
-import './booking.js';
+
+// Polyfill for requestIdleCallback
+window.requestIdleCallback = window.requestIdleCallback || function (cb, options) {
+    const start = Date.now();
+    return setTimeout(() => {
+        cb({
+            didTimeout: false,
+            timeRemaining: () => Math.max(0, 50 - (Date.now() - start))
+        });
+    }, 1);
+};
 
 // Initialize site on DOM load
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,10 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     populateContact();
     initializeWhatsApp();
     initializeAppointmentForm();
-    initializeReviewsWidget();
     initializeHeroAnimation();
     initializeScrollHeader();
     initializeSmoothScroll();
+
+    // Defer non-critical widgets
+    requestIdleCallback(() => {
+        initializeReviewsWidget();
+    }, { timeout: 2000 });
 });
 
 // Helper: Create element with attributes
@@ -229,8 +243,20 @@ const initializeHeroAnimation = () => {
     }
 };
 
+// Lazy load booking module when needed
+let bookingModuleLoaded = false;
+const loadBookingModule = async () => {
+    if (!bookingModuleLoaded) {
+        await import('./booking.js');
+        bookingModuleLoaded = true;
+    }
+};
+
 // Modal Controls
-const openAppointmentModal = () => {
+const openAppointmentModal = async () => {
+    // Lazy load booking module
+    await loadBookingModule();
+
     const modal = document.getElementById('appointmentModal');
     if (modal) modal.classList.add('active');
     
@@ -287,35 +313,6 @@ const toggleMobileMenu = () => {
     navRight.classList.toggle('active');
     document.body.classList.toggle('menu-open');
 };
-
-// Close mobile menu when clicking on a nav link or backdrop
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const hamburger = document.getElementById('hamburger');
-            const navRight = document.getElementById('navRight');
-            if (navRight.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navRight.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-        });
-    });
-
-    // Close menu when clicking outside (on backdrop)
-    document.body.addEventListener('click', (e) => {
-        const navRight = document.getElementById('navRight');
-        const hamburger = document.getElementById('hamburger');
-        if (navRight && navRight.classList.contains('active') &&
-            !navRight.contains(e.target) &&
-            !hamburger.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navRight.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-    });
-});
 
 // Initialize Scroll-Based Header
 const initializeScrollHeader = () => {

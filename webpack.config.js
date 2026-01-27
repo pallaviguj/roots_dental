@@ -16,7 +16,8 @@ module.exports = (env, argv) => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'js/bundle.js',
+      filename: 'js/[name].js',
+      chunkFilename: 'js/[name].chunk.js',
       publicPath: '',
     },
     devtool: isProduction ? false : 'source-map',
@@ -24,6 +25,18 @@ module.exports = (env, argv) => {
       minimize: isProduction,
       usedExports: true, // Tree shaking
       concatenateModules: true, // Module concatenation (scope hoisting)
+      splitChunks: {
+        chunks: 'async', // Only split async chunks
+        minSize: 3000, // Minimum size for a chunk to be generated
+        cacheGroups: {
+          booking: {
+            test: /[\\/]booking\.js$/,
+            name: 'booking',
+            chunks: 'async',
+            priority: 10,
+          },
+        },
+      },
       minimizer: [
         new TerserPlugin({
           terserOptions: {

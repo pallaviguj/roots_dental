@@ -7,38 +7,44 @@ header {
     width: 100%;
     top: 0;
     z-index: var(--z-fixed);
-    background: var(--header-bg);
+    background: transparent;
     border-bottom: 1px solid var(--border-primary);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0px);
     box-shadow: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease,
+            backdrop-filter 0.3s ease,
+            transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
 }
 
-/* Mobile: Always sticky */
+/* Mobile: Always fixed */
 @media (max-width: 768px) {
     header {
         position: fixed;
+        background: var(--header-bg);
+            border-bottom: 1px solid var(--border-primary);
+            backdrop-filter: blur(10px);
         box-shadow: var(--shadow-md);
     }
 }
+
 header.scrolled {
     position: fixed;
     background: var(--header-bg);
     border-bottom: 1px solid var(--border-primary);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-lg);
-    animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideDown 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
-        opacity: 0;
     }
     to {
         transform: translateY(0);
-        opacity: 1;
     }
 }
 

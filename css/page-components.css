@@ -1136,6 +1136,7 @@ footer {
 .footer-logo {
     height: 40px;
     margin-bottom: var(--space-4);
+    animation: fadeIn 0.8s ease-in;
 }
 
 .footer-description {

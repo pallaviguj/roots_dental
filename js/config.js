@@ -67,7 +67,7 @@ const site = {
     heroSubtitle: 'Modern dental care, made simple',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
-    heroCustomersText: 'Trusted by happy & satisfied patients',
+    heroCustomersText: 'Trusted by happy 🦷 satisfied patients',
     heroCustomerImages: [
         { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
         { src: 'images/gallery-1.png', alt: 'Happy patient 1' },

@@ -106,6 +106,12 @@
         display: none;
     }
 
+        .nav-phone-btn {
+            margin-left: 0;
+            width: auto;
+            justify-content: flex-start;
+            font-size: var(--font-size-base) !important;
+        }
     .nav-cta-btn {
         margin-left: 0;
         width: 100%;

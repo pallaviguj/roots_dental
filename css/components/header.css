@@ -99,7 +99,7 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--space-5);
+    gap: var(--space-4);
 }
 
 .nav-links a {
@@ -135,6 +135,28 @@ nav {
     white-space: nowrap;
 }
 
+.nav-phone-btn {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--header-text);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    gap: 0;
+}
+
+.nav-phone-btn:hover {
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.nav-phone-btn svg {
+    flex-shrink: 0;
+}
 /* Theme Toggle Floating Button */
 .theme-toggle-float {
     position: fixed;

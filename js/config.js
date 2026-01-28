@@ -66,7 +66,7 @@ const site = {
     heroHighlightWord: 'Root',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
-    heroCustomersText: 'Trusted by happy 🦷 satisfied patients',
+    heroCustomersText: 'Trusted by 5000+ happy 🦷 satisfied patients',
     heroCustomerImages: [
         { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
         { src: 'images/gallery-1.png', alt: 'Happy patient 1' },
@@ -152,7 +152,7 @@ const data = {
         { value: '15+', label: 'Years Experience' },
         { value: 'Ph.D.', label: 'Qualified' },
         { value: 'Award', label: 'Winning' },
-        { value: '5000+', label: 'Patients' },
+        { value: '5/5', label: 'Google Reviews' },
 
     ],
 

@@ -64,7 +64,6 @@ const site = {
     // Hero
     heroTitle: 'We get to the Root of the problem.',
     heroHighlightWord: 'Root',
-    heroSubtitle: 'Modern dental care, made simple',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
     heroCustomersText: 'Trusted by happy 🦷 satisfied patients',

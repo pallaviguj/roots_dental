@@ -62,6 +62,7 @@ nav {
     text-decoration: none;
     cursor: pointer;
     transition: opacity var(--transition-fast);
+    flex-shrink: 0;
 }
 
 .logo:hover {
@@ -70,6 +71,7 @@ nav {
 
 .logo img {
     height: 60px;
+    width: auto;
     padding: var(--space-1) 0;
     display: block;
     animation: fadeIn 0.8s ease-in;
@@ -95,6 +97,18 @@ nav {
     margin-left: auto;
 }
 
+/* Reduce nav-right gap on smaller screens */
+@media (max-width: 1200px) {
+    .nav-right {
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-right {
+        gap: var(--space-3);
+    }
+}
 /* Navigation Links */
 .nav-links {
     display: flex;
@@ -102,6 +116,18 @@ nav {
     gap: var(--space-4);
 }
 
+/* Reduce gap on smaller screens to prevent logo squish */
+@media (max-width: 1200px) {
+    .nav-links {
+        gap: var(--space-3);
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: var(--space-2);
+    }
+}
 .nav-links a {
     text-decoration: none;
     color: var(--header-text);

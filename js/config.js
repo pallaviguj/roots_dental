@@ -21,7 +21,7 @@ const site = {
     doctorSpecialization: 'Conservative Dentistry & Endodontics',
 
     // Contact
-    phoneDisplay: '+91 7020054267',
+    phoneDisplay: '+91 70200 54267',
     phoneRaw: '917020054267',
     email: 'rootsdentalspeciality@gmail.com', // Display email
     bookingEmail: 'pallavi.gujrati@gmail.com', // Booking/Calendar email only

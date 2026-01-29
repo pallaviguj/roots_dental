@@ -13,6 +13,8 @@ module.exports = (env, argv) => {
     mode: isProduction ? 'production' : 'development',
     entry: {
       main: './js/main.js',
+      blog: './js/blog.js',
+      'blog-post': './js/blog-post.js',
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -142,6 +144,32 @@ module.exports = (env, argv) => {
           minifyCSS: true,
         } : false,
       }),
+      new HtmlWebpackPlugin({
+        template: './blog.html',
+        filename: 'blog.html',
+        inject: false,
+        scriptLoading: 'defer',
+        minify: isProduction ? {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: false,
+          minifyJS: true,
+          minifyCSS: true,
+        } : false,
+      }),
+      new HtmlWebpackPlugin({
+        template: './blog-post.html',
+        filename: 'blog-post.html',
+        inject: false,
+        scriptLoading: 'defer',
+        minify: isProduction ? {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: false,
+          minifyJS: true,
+          minifyCSS: true,
+        } : false,
+      }),
       new CopyWebpackPlugin({
         patterns: [
           // Copy all CSS files
@@ -154,7 +182,40 @@ module.exports = (env, argv) => {
             from: 'images/**/*',
             to: '[path][name][ext]',
           },
-          // Copy SEO files
+          // Copy JS modules for blog pages
+          {
+            from: 'js/sanity-client.js',
+            to: 'js/sanity-client.js',
+          },
+          {
+            from: 'js/blog.js',
+            to: 'js/blog.js',
+          },
+          {
+            from: 'js/blog-post.js',
+            to: 'js/blog-post.js',
+          },
+          {
+            from: 'js/config.js',
+            to: 'js/config.js',
+          },
+          {
+            from: 'js/template.js',
+            to: 'js/template.js',
+          },
+          {
+            from: 'js/components.js',
+            to: 'js/components.js',
+          },
+          {
+            from: 'js/theme.js',
+            to: 'js/theme.js',
+          },
+          {
+            from: 'js/cookies.js',
+            to: 'js/cookies.js',
+          },
+          // Copy SEO and routing files
           {
             from: 'robots.txt',
             to: 'robots.txt',
@@ -175,6 +236,12 @@ module.exports = (env, argv) => {
       hot: true,
       open: true,
       watchFiles: ['**/*.html', '**/*.css', '**/*.js'],
+      historyApiFallback: {
+        rewrites: [
+          { from: /^\/blog\/[^\/]+$/, to: '/blog-post.html' },
+          { from: /^\/blog$/, to: '/blog.html' },
+        ],
+      },
     },
   };
 };

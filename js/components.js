@@ -14,7 +14,7 @@ function renderHeader() {
         <nav class="container">
             <div class="logo">
                 <a href="/">
-                    <img src="images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" />
+                    <img src="/images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" />
                 </a>
             </div>
             <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
@@ -30,8 +30,8 @@ function renderHeader() {
                     <li><a href="/#services">Services</a></li>
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#facility">Facility</a></li>
-                    <li><a href="/#reviews">Reviews</a></li>
                     <li><a href="/#expert">Expert</a></li>
+                    <li><a href="/blog">Blog</a></li>
                     <li><a href="/#contact">Contact</a></li>
                 </ul>
                 <a href="tel:${site.phoneRaw}" class="btn btn-ghost btn-sm nav-phone-btn">
@@ -76,7 +76,7 @@ function renderFooter() {
             <div class="footer-grid">
                 <div>
                     <a href="/" style="display: inline-block;">
-                        <img src="images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" class="footer-logo" />
+                        <img src="/images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" class="footer-logo" />
                     </a>
                     <div class="footer-social">
                         <a href="https://linkedin.com/in/dr-aarti-bohora-59b51b68/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
@@ -91,7 +91,7 @@ function renderFooter() {
                             </svg>
                         </a>
                         <a href="https://instagram.com/rootsdentalspecialityclinic" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                            <img src="images/instagram_logo.png" alt="Instagram" />
+                            <img src="/images/instagram_logo.png" alt="Instagram" />
                         </a>
                     </div>
                 </div>
@@ -103,6 +103,7 @@ function renderFooter() {
                         <li class="footer-list-item"><a href="/#about" class="footer-link">About Us</a></li>
                         <li class="footer-list-item"><a href="/#reviews" class="footer-link">Reviews</a></li>
                         <li class="footer-list-item"><a href="/#expert" class="footer-link">Meet our Expert</a></li>
+                        <li class="footer-list-item"><a href="/blog" class="footer-link">Blog</a></li>
                         <li class="footer-list-item"><a href="/#contact" class="footer-link">Contact Us</a></li>
                     </ul>
                 </div>
@@ -130,8 +131,11 @@ function renderFooter() {
     // Populate footer legal links (Privacy, Terms & Cookies)
     const footerLinks = document.getElementById('footerLinks');
     if (footerLinks) {
+        // Clear existing content to prevent duplication
+        footerLinks.innerHTML = '';
+        
         const privacy = document.createElement('a');
-        privacy.href = 'privacy-policy.html';
+        privacy.href = '/privacy-policy.html';
         privacy.className = 'footer-link';
         privacy.textContent = site.linkPrivacyPolicy;
         footerLinks.appendChild(privacy);
@@ -139,7 +143,7 @@ function renderFooter() {
         footerLinks.appendChild(document.createTextNode(' | '));
         
         const terms = document.createElement('a');
-        terms.href = 'terms-of-service.html';
+        terms.href = '/terms-of-service.html';
         terms.className = 'footer-link';
         terms.textContent = site.linkTermsOfService;
         footerLinks.appendChild(terms);
@@ -147,7 +151,7 @@ function renderFooter() {
         footerLinks.appendChild(document.createTextNode(' | '));
         
         const cookies = document.createElement('a');
-        cookies.href = 'cookie-policy.html';
+        cookies.href = '/cookie-policy.html';
         cookies.className = 'footer-link';
         cookies.textContent = 'Cookie Policy';
         footerLinks.appendChild(cookies);
@@ -187,8 +191,11 @@ function populateFooterLinks() {
     // Populate footer legal links (Privacy, Terms & Cookies)
     const footerLinks = document.getElementById('footerLinks');
     if (footerLinks) {
+        // Clear existing content to prevent duplication
+        footerLinks.innerHTML = '';
+        
         const privacy = document.createElement('a');
-        privacy.href = 'privacy-policy.html';
+        privacy.href = '/privacy-policy.html';
         privacy.className = 'footer-link';
         privacy.textContent = site.linkPrivacyPolicy;
         footerLinks.appendChild(privacy);
@@ -196,7 +203,7 @@ function populateFooterLinks() {
         footerLinks.appendChild(document.createTextNode(' | '));
 
         const terms = document.createElement('a');
-        terms.href = 'terms-of-service.html';
+        terms.href = '/terms-of-service.html';
         terms.className = 'footer-link';
         terms.textContent = site.linkTermsOfService;
         footerLinks.appendChild(terms);
@@ -204,7 +211,7 @@ function populateFooterLinks() {
         footerLinks.appendChild(document.createTextNode(' | '));
 
         const cookies = document.createElement('a');
-        cookies.href = 'cookie-policy.html';
+        cookies.href = '/cookie-policy.html';
         cookies.className = 'footer-link';
         cookies.textContent = 'Cookie Policy';
         footerLinks.appendChild(cookies);

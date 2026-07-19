@@ -28,10 +28,10 @@ function renderHeader() {
             <div class="nav-right" id="navRight">
                 <ul class="nav-links">
                     <li><a href="/#services">Services</a></li>
-                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#about">About us</a></li>
                     <li><a href="/#facility">Facility</a></li>
                     <li><a href="/blog">Blog</a></li>
-                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#contact">Contact us</a></li>
                 </ul>
                 <a href="tel:${site.phoneRaw}" class="btn btn-ghost btn-sm nav-phone-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
@@ -100,9 +100,9 @@ function renderFooter() {
                         <li class="footer-list-item"><a href="/#home" class="footer-link">Home</a></li>
                         <li class="footer-list-item"><a href="/#services" class="footer-link">Our Services</a></li>
                         <li class="footer-list-item"><a href="/#reviews" class="footer-link">Reviews</a></li>
-                        <li class="footer-list-item"><a href="/#about" class="footer-link">About Us</a></li>
+                        <li class="footer-list-item"><a href="/#about" class="footer-link">About us</a></li>
                         <li class="footer-list-item"><a href="/blog" class="footer-link">Blog</a></li>
-                        <li class="footer-list-item"><a href="/#contact" class="footer-link">Contact Us</a></li>
+                        <li class="footer-list-item"><a href="/#contact" class="footer-link">Contact us</a></li>
                     </ul>
                 </div>
                 <div>

@@ -26,7 +26,7 @@ const site = {
     email: 'rootsdentalspeciality@gmail.com', // Display email
     bookingEmail: 'pallavi.gujrati@gmail.com', // Booking/Calendar email only
     ownerEmail: 'pallavi.gujrati@gmail.com', // Calendar invites sent here (same as bookingEmail)
-    addressFull: '472, Bohora Bhavan, Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier), Raviwar Peth, Nashik, Maharashtra, 422001',
+    addressFull: '472, Bohora Bhavan,<br>Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier),<br>Raviwar Peth, Nashik, Maharashtra, 422001',
     landmark: 'From Ashok stambh to ravivar karanja - First right turn and then first left turn',
     mapUrl: 'https://maps.app.goo.gl/zoBfu8D4zgYvfPKD6',
     hoursWeekdays: 'Mon-Sat: 10am - 1pm | 5pm - 9pm',
@@ -52,11 +52,11 @@ const site = {
     sectionTrust: 'Trusted by patients across Nashik',
     sectionServices: 'Our Services',
     sectionFacility: 'Explore Our Facility',
-    sectionAbout: 'About Us',
+    sectionAbout: 'About us',
     sectionReviews: 'What Our Patients Say',
     sectionExpert: 'Meet our Expert',
     sectionAchievements: 'Achievements & Awards',
-    sectionContact: 'Contact Us',
+    sectionContact: 'Contact us',
 
     // Reviews Widget
     elfsightWidgetId: '952e9a06-e58c-4631-9306-d3393f926a09', // Your Elfsight Google Reviews widget ID
@@ -66,6 +66,9 @@ const site = {
     heroHighlightWord: 'Root',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
+    heroYearsExperience: '15+',
+    heroReviewsRating: '5.0',
+    heroPatientsTreated: '5000+',
     heroCustomerImages: [
         { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
         { src: 'images/gallery-1.png', alt: 'Happy patient 1' },
@@ -79,7 +82,7 @@ const site = {
     // About Us (New section with gallery)
     aboutUsTitle1: 'What sets us apart',
     aboutUsText1: `At Roots Dental, we practice modern microscopic dentistry with a simple philosophy: save your natural teeth whenever possible, and treat you with the same care we'd want for our own family. Every treatment is personalized, every environment kept calm and unhurried because good dentistry should feel as good as it looks.`,
-    aboutUsText2: `We provide complete dental care under one roof, including Cosmetic dentistry, Root canal treatments, Emergency, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial aesthetic treatments.`,
+    aboutUsText2: `Dr. Aarti Bohora is an endodontist with a Ph.D. in Conservative Dentistry and Endodontics, and more than a decade of clinical experience. She was named Best Specialist (Endodontist) of the Year at the Indian Dental Divas awards and received the Excellence in Conservative Dentistry & Endodontics award at the Indian Health Professional Awards.`,
 
     // About Us Gallery Images
     // About Us Grid Images (4 images)
@@ -90,13 +93,14 @@ const site = {
         { src: 'images/gallery-6.png', alt: 'Dental Equipment' }
     ],
 
-    // Facility Carousel Images (5 images)
+    // Facility Carousel Images (6 images)
     facilityCarouselImages: [
-        { src: 'images/image_doctor.png', alt: 'Dr. Aarti Bohora' },
         { src: 'images/about_us.png', alt: 'About Us' },
         { src: 'images/gallery-6.png', alt: 'Dental Equipment' },
-        { src: 'images/gallery-1.png', alt: 'Dental Facility' },
-        { src: 'images/gallery-4.png', alt: 'Modern Equipment' }
+        { src: 'images/gallery-4.png', alt: 'Modern Equipment' },
+        { src: 'images/gallery-7.png', alt: 'Dental Facility' },
+        { src: 'images/expert_bg.png', alt: 'Dr. Aarti Bohora' },
+        { src: 'images/gallery-8.png', alt: 'Dental Facility' }
     ],
 
     // Footer

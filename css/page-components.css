@@ -33,8 +33,46 @@ body.theme-light .hero {
 
 @media (min-width: 769px) {
     #services {
-        padding-bottom: 72px;
+        padding-bottom: 96px;
     }
+}
+
+/* Extra breathing room so Contact's own content doesn't sit flush against - or get covered by -
+   the footer's (now taller) curve */
+#contact {
+    padding-bottom: 150px;
+}
+
+/* Footer gets the same curve treatment as the hero, rising up into the Contact section above */
+#footer {
+    position: relative;
+}
+
+/* Lift the real footer content above the decorative curve/background pseudo-element */
+#footer > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Curve + footer body share ONE shape/background (spans from above the footer's top edge
+   all the way down to its bottom), so there's no seam between the arc and the footer color -
+   it's one continuous gradient instead of two separately-colored pieces. */
+#footer::before {
+    content: '';
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    top: -60px;
+    bottom: 0;
+    background: var(--bg-secondary);
+    /* Rounder, more pronounced dome ("half-sun") cap on top; straight sides below it */
+    border-radius: 50% 50% 0 0 / 160px 160px 0 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body.theme-light #footer::before {
+    background: linear-gradient(160deg, #E7F3FC 0%, #E1F7FA 45%, #EEF7E2 100%);
 }
 
 /* White curve rising up from the bottom, echoing the section boundary below */
@@ -225,6 +263,7 @@ body.theme-light .hero p {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    flex: 1 1 0;
 }
 
 .hero-stat strong {
@@ -375,7 +414,7 @@ body.theme-light .trust-section h2 {
 
 .about-image img {
     width: 100%;
-    max-width: 320px;
+    max-width: 250px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center 15%;
@@ -541,10 +580,13 @@ body.theme-light .doctor-name {
 }
 
 .gallery-carousel-multi .carousel-slide {
-    flex: 0 0 500px;
-    min-width: 500px;
-    width: 500px;
-    height: 500px;
+    /* Exactly 3 slides visible per view, sized to fill the available width */
+    flex: 0 0 calc((100% - 2 * var(--space-4)) / 3);
+    min-width: calc((100% - 2 * var(--space-4)) / 3);
+    width: calc((100% - 2 * var(--space-4)) / 3);
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     position: relative;
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -556,8 +598,8 @@ body.theme-light .doctor-name {
     position: relative;
 }
 .gallery-carousel-multi .carousel-slide img {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
     user-select: none;
@@ -676,10 +718,10 @@ body.theme-light .doctor-name {
 }
 
 .carousel-indicator {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+    background: var(--color-primary-dark);
     opacity: 0.4;
     border: none;
     cursor: pointer;
@@ -693,7 +735,7 @@ body.theme-light .doctor-name {
 }
 
 .carousel-indicator.active {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+    background: var(--color-primary-dark);
     opacity: 1;
     width: 32px;
     height: 6px;
@@ -703,7 +745,7 @@ body.theme-light .doctor-name {
 /* Light Theme Carousel Styles - buttons same as dark theme */
 
 body.theme-light .carousel-indicator {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+    background: var(--color-primary-dark);
     opacity: 0.4;
 }
 
@@ -712,7 +754,7 @@ body.theme-light .carousel-indicator:hover {
 }
 
 body.theme-light .carousel-indicator.active {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-success));
+    background: var(--color-primary-dark);
     opacity: 1;
 }
 
@@ -1103,9 +1145,11 @@ body.theme-light .carousel-indicator.active {
    ======================================== */
 
 footer {
-    background: var(--bg-secondary);
-    padding: var(--space-10) 0 var(--space-6) 0;
-    margin-top: var(--space-8);
+    /* Background lives on ::before instead, so the curve and the footer body
+       share one continuous gradient with no seam at the boundary. */
+    background: transparent;
+    padding: var(--space-4) 0;
+    margin-top: 0;
 }
 
 .footer-grid {
@@ -1234,6 +1278,18 @@ footer {
 
     #services {
         padding-top: 0;
+    }
+
+    #contact {
+        padding-bottom: 110px;
+    }
+
+    /* Footer curve (mirrors hero's mobile arc) */
+    #footer::before {
+        left: -20%;
+        right: -20%;
+        top: -90px;
+        border-radius: 50% 50% 0 0 / 90px 90px 0 0;
     }
 
     .hero-content {

@@ -167,8 +167,7 @@ contact: {
 The site is fully responsive with breakpoints:
 
 - **Desktop**: > 1024px (full layout)
-- **Tablet**: 768px - 1024px (2-column grids)
-- **Mobile**: < 768px (single column, stacked)
+- **Mobile**: ≤ 1024px (single column, stacked, hamburger nav)
 - **Small Mobile**: < 480px (optimized for tiny screens)
 
 ## 🎯 Features

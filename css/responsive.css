@@ -29,8 +29,8 @@
     }
 }
 
-/* Mobile (< 768px) */
-@media (max-width: 768px) {
+/* Mobile (< 1024px) */
+@media (max-width: 1024px) {
     :root {
         --font-size-6xl: 2.5rem;
         --font-size-5xl: 2rem;
@@ -132,9 +132,9 @@
     }
 
     .hero {
-        /* Bottom padding clears the height of .hero::after's arc (70px on mobile), with a modest buffer */
+        /* No decorative arc on mobile (desktop-only) */
         margin-top: 0;
-        padding: var(--space-12) 0 calc(var(--space-12) + var(--space-4));
+        padding: var(--space-12) 0;
     }
 
     .hero-content {
@@ -205,7 +205,14 @@
     }
 
     .content-section {
-        padding: var(--space-6) 0;
+        padding: var(--space-9) 0;
+    }
+
+    /* These two sit right below a heading-less/tighter section, so the standard
+       top padding reads as excessive - trim just the top while keeping bottom spacing */
+    #facility,
+    #contact {
+        padding-top: 0;
     }
 
     .btn-lg {
@@ -239,12 +246,17 @@
     }
 
     .hero {
-        /* Bottom padding clears the height of .hero::after's arc (70px on mobile), with a modest buffer */
-        padding: var(--space-10) 0 calc(var(--space-10) + var(--space-6));
+        /* No decorative arc on mobile (desktop-only) */
+        padding: var(--space-10) 0;
     }
 
     .content-section {
-        padding: var(--space-5) 0;
+        padding: var(--space-7) 0;
+    }
+
+    #facility,
+    #contact {
+        padding-top: var(--space-5);
     }
 
     .hero h1 {

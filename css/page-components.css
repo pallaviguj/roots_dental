@@ -10,7 +10,7 @@
 .hero {
     position: relative;
     margin-top: -72px;
-    /* Bottom padding clears the height of .hero::after's arc, with a modest buffer */
+    /* Bottom padding clears the height of .hero::after's arc (desktop-only, see below), with a modest buffer */
     padding: calc(72px + var(--space-8)) 0 calc(var(--space-10) + var(--space-8));
     min-height: auto;
     display: flex;
@@ -26,13 +26,9 @@ body.theme-light .hero {
     background: linear-gradient(160deg, #E7F3FC 0%, #E1F7FA 45%, #EEF7E2 100%);
 }
 
-/* Services sits right below the hero's curve, so it needs less top padding than usual */
-#services {
-    padding-top: 0;
-}
-
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     #services {
+        padding-top: 0;
         padding-bottom: 96px;
     }
 
@@ -67,15 +63,50 @@ body.theme-light .hero {
         object-position: center 20%;
         border-radius: 0;
     }
+
+    /* Extra breathing room so Contact's own content doesn't sit flush against - or get covered by -
+       the footer's curve (desktop-only decorative effect, see .hero::after / #footer::before below) */
+    #contact {
+        padding-bottom: 150px;
+    }
+
+    /* Curve + footer body share ONE shape/background (spans from above the footer's top edge
+       all the way down to its bottom), so there's no seam between the arc and the footer color -
+       it's one continuous gradient instead of two separately-colored pieces. */
+    #footer::before {
+        content: '';
+        position: absolute;
+        left: -10%;
+        right: -10%;
+        top: -60px;
+        bottom: 0;
+        background: var(--bg-secondary);
+        /* Rounder, more pronounced dome ("half-sun") cap on top; straight sides below it */
+        border-radius: 50% 50% 0 0 / 160px 160px 0 0;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    body.theme-light #footer::before {
+        background: linear-gradient(160deg, #E7F3FC 0%, #E1F7FA 45%, #EEF7E2 100%);
+    }
+
+    /* White curve rising up from the bottom, echoing the section boundary below */
+    .hero::after {
+        content: '';
+        position: absolute;
+        left: -10%;
+        right: -10%;
+        bottom: -60px;
+        height: 120px;
+        background: var(--bg-primary);
+        border-radius: 50% 50% 0 0 / 120px 120px 0 0;
+        z-index: 1;
+        pointer-events: none;
+    }
 }
 
-/* Extra breathing room so Contact's own content doesn't sit flush against - or get covered by -
-   the footer's (now taller) curve */
-#contact {
-    padding-bottom: 150px;
-}
-
-/* Footer gets the same curve treatment as the hero, rising up into the Contact section above */
+/* Footer gets the same curve treatment as the hero, rising up into the Contact section above (desktop-only) */
 #footer {
     position: relative;
 }
@@ -84,41 +115,6 @@ body.theme-light .hero {
 #footer > .container {
     position: relative;
     z-index: 1;
-}
-
-/* Curve + footer body share ONE shape/background (spans from above the footer's top edge
-   all the way down to its bottom), so there's no seam between the arc and the footer color -
-   it's one continuous gradient instead of two separately-colored pieces. */
-#footer::before {
-    content: '';
-    position: absolute;
-    left: -10%;
-    right: -10%;
-    top: -60px;
-    bottom: 0;
-    background: var(--bg-secondary);
-    /* Rounder, more pronounced dome ("half-sun") cap on top; straight sides below it */
-    border-radius: 50% 50% 0 0 / 160px 160px 0 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
-body.theme-light #footer::before {
-    background: linear-gradient(160deg, #E7F3FC 0%, #E1F7FA 45%, #EEF7E2 100%);
-}
-
-/* White curve rising up from the bottom, echoing the section boundary below */
-.hero::after {
-    content: '';
-    position: absolute;
-    left: -10%;
-    right: -10%;
-    bottom: -60px;
-    height: 120px;
-    background: var(--bg-primary);
-    border-radius: 50% 50% 0 0 / 120px 120px 0 0;
-    z-index: 1;
-    pointer-events: none;
 }
 
 .hero-content {
@@ -841,7 +837,7 @@ body.theme-light .carousel-indicator.active {
 }
 
 /* Responsive for the merged About Us / Expert section */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .about-us-text {
         text-align: left;
     }
@@ -944,7 +940,7 @@ body.theme-light .carousel-indicator.active {
 }
 
 /* Small tablet adjustments */
-@media (max-width: 768px) and (min-width: 481px) {
+@media (max-width: 1024px) and (min-width: 481px) {
     .gallery-carousel-multi {
         max-width: 100%;
         width: 100%;
@@ -1311,36 +1307,12 @@ footer {
    RESPONSIVE - PAGE COMPONENTS
    ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
     /* Hero Section */
     .hero {
-        /* Bottom padding clears the height of .hero::after's arc (70px on mobile), with a modest buffer */
-        padding: calc(72px + var(--space-8)) 0 calc(var(--space-9) + var(--space-4));
+        /* Padding/margin for mobile are set in responsive.css (loaded later); this just keeps min-height in check */
         min-height: auto;
-    }
-
-    .hero::after {
-        left: -20%;
-        right: -20%;
-        height: 70px;
-        border-radius: 50% 50% 0 0 / 70px 70px 0 0;
-    }
-
-    #services {
-        padding-top: 0;
-    }
-
-    #contact {
-        padding-bottom: 110px;
-    }
-
-    /* Footer curve (mirrors hero's mobile arc) */
-    #footer::before {
-        left: -20%;
-        right: -20%;
-        top: -60px;
-        border-radius: 50% 50% 0 0 / 90px 90px 0 0;
     }
 
     .hero-content {
@@ -1848,7 +1820,7 @@ footer {
    RESPONSIVE: REVIEWS
    ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .reviews-section {
         padding: var(--space-8) 0;
     }
@@ -1939,7 +1911,7 @@ footer {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .cookie-banner-content {
         flex-direction: column;
         align-items: stretch;
@@ -2017,7 +1989,7 @@ footer {
     color: var(--text-primary);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .policy-page {
         padding: var(--space-8) 0 var(--space-6) 0;
     }

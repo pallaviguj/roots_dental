@@ -20,7 +20,7 @@ header {
 }
 
 /* Desktop only: floating pill header with generous side margins + border instead of shadow by default */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     header {
         left: var(--space-8);
         right: var(--space-8);
@@ -34,7 +34,7 @@ header {
 }
 
 /* Mobile: Always fixed, full-width - unchanged from before */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     header {
         position: fixed;
         top: 0;

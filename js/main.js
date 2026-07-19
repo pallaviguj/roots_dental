@@ -22,7 +22,6 @@ window.requestIdleCallback = window.requestIdleCallback || function (cb, options
 
 // Initialize site on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    populateTrustIndicators();
     populateServices();
     populateAboutUsGallery();
     populateAchievements();
@@ -55,19 +54,6 @@ const setContact = (selector, attrs) => {
                 key === 'html' ? el.innerHTML = val :
                     el[key] = val;
         });
-    });
-};
-
-// Populate Trust Indicators
-const populateTrustIndicators = () => {
-    const container = document.getElementById('trustBadges');
-    if (!container) return;
-    data.trustIndicators.forEach(item => {
-        const span = createElement('span', { className: 'trust-badge' });
-        const strong = createElement('strong', {}, item.value);
-        span.appendChild(strong);
-        span.appendChild(document.createTextNode(' ' + item.label));
-        container.appendChild(span);
     });
 };
 

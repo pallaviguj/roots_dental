@@ -56,6 +56,11 @@
 	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+	/* Subtle brand-gradient shadow (Primary -> Accent -> Success), for header etc. */
+	--shadow-brand:
+		-40px 6px 14px -10px rgba(21, 101, 192, 0.16),
+		0 6px 14px -10px rgba(0, 178, 212, 0.14),
+		40px 6px 14px -10px rgba(124, 181, 24, 0.12);
 	--shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 	
 	/* Transitions */
@@ -81,6 +86,8 @@
 	/* Brand Colors - Used across all themes */
 	--color-primary: #1565C0;
 	--color-primary-hover: #0D47A1;
+	--color-primary-dark: #0D47A1;
+	--color-primary-darker: #08306B;
 	--color-accent: #00b2d4;
 	--color-accent-light: #4FC3F7;
 	--color-success: #7cb518;

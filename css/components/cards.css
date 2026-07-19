@@ -113,7 +113,7 @@ body.theme-dark .service-card h3 {
 /* Contact Cards */
 .contact-info {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-8);
     margin-top: var(--space-8);
 }
@@ -152,5 +152,13 @@ body.theme-dark .contact-card h3 {
 .contact-landmark {
     display: block;
     margin-top: var(--space-2);
+    color: var(--text-primary);
+}
+
+.contact-hours {
+    color: var(--text-secondary);
+}
+
+.contact-hours strong {
     color: var(--text-primary);
 }

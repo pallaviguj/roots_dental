@@ -5,37 +5,54 @@
 header {
     position: absolute;
     width: 100%;
-    top: 0;
     z-index: var(--z-fixed);
-    background: transparent;
-    border-bottom: 1px solid var(--border-primary);
+    background: var(--header-bg);
     backdrop-filter: blur(0px);
     box-shadow: none;
+    border: 1px solid transparent;
     transition: background-color 0.3s ease,
             box-shadow 0.3s ease,
             border-color 0.3s ease,
             backdrop-filter 0.3s ease,
+            border-radius 0.3s ease,
             transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
 }
 
-/* Mobile: Always fixed */
+/* Desktop only: floating pill header with generous side margins + border instead of shadow by default */
+@media (min-width: 769px) {
+    header {
+        left: var(--space-8);
+        right: var(--space-8);
+        width: auto;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-color: var(--border-primary);
+    }
+}
+
+/* Mobile: Always fixed, full-width - unchanged from before */
 @media (max-width: 768px) {
     header {
         position: fixed;
+        top: 0;
         background: var(--header-bg);
-            border-bottom: 1px solid var(--border-primary);
             backdrop-filter: blur(10px);
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-brand);
     }
 }
 
 header.scrolled {
     position: fixed;
+    top: 0;
     background: var(--header-bg);
-    border-bottom: 1px solid var(--border-primary);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: none;
+    border: 1px solid var(--border-primary);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     animation: slideDown 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
@@ -52,7 +69,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-4) 0;
+    padding: var(--space-2) var(--space-6);
     min-height: 72px;
 }
 
@@ -70,7 +87,7 @@ nav {
 }
 
 .logo img {
-    height: 60px;
+    height: 50px;
     width: auto;
     padding: var(--space-1) 0;
     display: block;
@@ -113,7 +130,7 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--space-4);
+    gap: var(--space-6);
 }
 
 /* Reduce gap on smaller screens to prevent logo squish */
@@ -159,10 +176,11 @@ nav {
 /* Nav CTA Button */
 .nav-cta-btn {
     white-space: nowrap;
+    display: none;
 }
 
 .nav-phone-btn {
-    display: flex;
+    display: none;
     align-items: center;
     white-space: nowrap;
     background: transparent;
@@ -173,6 +191,15 @@ nav {
     text-decoration: underline;
     text-underline-offset: 4px;
     gap: 0;
+}
+
+/* Only reveal the phone link & CTA button once the header is in its sticky/scrolled state */
+header.scrolled .nav-cta-btn {
+    display: inline-flex;
+}
+
+header.scrolled .nav-phone-btn {
+    display: flex;
 }
 
 .nav-phone-btn:hover {

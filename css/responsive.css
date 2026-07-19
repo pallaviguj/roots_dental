@@ -132,7 +132,8 @@
     }
 
     .hero {
-        padding: var(--space-12) 0;
+        /* Bottom padding clears the height of .hero::after's arc (70px on mobile), with a modest buffer */
+        padding: var(--space-12) 0 calc(var(--space-12) + var(--space-4));
     }
 
     .hero-content {
@@ -146,6 +147,10 @@
     }
 
     .hero-cta-row {
+        justify-content: center;
+    }
+
+    .hero-stats {
         justify-content: center;
     }
 
@@ -203,12 +208,6 @@
         padding: var(--space-3) var(--space-5);
         font-size: var(--font-size-base);
     }
-
-    .trust-logos {
-        gap: var(--space-4);
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 /* Small mobile (< 480px) */
@@ -230,17 +229,14 @@
         padding: var(--space-3) 0;
     }
 
-    .logo img {
-        height: 48px;
-    }
-
     .btn-sm {
         padding: var(--space-2) var(--space-3);
         font-size: var(--font-size-xs);
     }
 
     .hero {
-        padding: var(--space-10) 0;
+        /* Bottom padding clears the height of .hero::after's arc (70px on mobile), with a modest buffer */
+        padding: var(--space-10) 0 calc(var(--space-10) + var(--space-6));
     }
 
     .content-section {
@@ -249,10 +245,6 @@
 
     .hero h1 {
         font-size: 28px;
-    }
-
-    .trust-badge strong {
-        font-size: var(--font-size-xl);
     }
 
     .about-image {

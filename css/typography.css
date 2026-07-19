@@ -16,7 +16,7 @@ h1 {
 }
 
 h2 {
-	font-size: var(--font-size-4xl);
+	font-size: calc(var(--font-size-4xl) * 1.15);
 	font-weight: var(--font-weight-bold);
 	letter-spacing: -0.01em;
 }

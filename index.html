@@ -76,7 +76,7 @@
 <body class="theme-light">
 	<!-- Header -->
 	<header>
-		<nav class="container">
+		<nav>
 		<a href="/" class="logo">
 				<img src="images/rootsdentalspeciality_logo.png" alt="Roots Dental Speciality Clinic Logo" />
 		</a>
@@ -93,7 +93,6 @@
 				<li><a href="#services">Services</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#facility">Facility</a></li>
-				<li><a href="#expert">Expert</a></li>
 				<li><a href="/blog">Blog</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
@@ -121,9 +120,26 @@
 		</div>
 		<div class="container">
 			<div class="hero-content">
+				<div class="hero-image">
+					<img src="images/hero_doctor.png" alt="Dr. Aarti Bohara with dental microscope at Roots Dental Speciality Clinic" loading="eager" />
+				</div>
 				<div class="hero-text">
 				<h1>We get to the <span class="hero-highlight">Root</span> of the problem.</h1>
 				<p>Modern dental care, made simple</p>
+					<div class="hero-stats">
+						<div class="hero-stat">
+							<strong>15+</strong>
+							<span>years experience</span>
+						</div>
+						<div class="hero-stat">
+							<strong>5.0</strong>
+							<span>119 reviews</span>
+						</div>
+						<div class="hero-stat">
+							<strong>5000+</strong>
+							<span>patients treated</span>
+						</div>
+					</div>
 					<div class="hero-cta-row">
 						<p class="hero-call-text">
 							<a data-contact="phone-link-hero" class="hero-phone-link"><span data-contact="phone-text"></span></a> or
@@ -137,18 +153,6 @@
 			</div>
 		</section>
 
-	<!-- Trust Indicators -->
-	<section class="trust-section">
-		<div class="container">
-			<div class="trust-content">
-				<p class="trust-title">{{site.heroCustomersText}}</p>
-				<div class="trust-logos" id="trustBadges">
-					<!-- Dynamically populated by JavaScript -->
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Services Section -->
 	<section id="services" class="content-section">
 			<div class="container">
@@ -159,26 +163,40 @@
 			</div>
 		</section>
 
-		<!-- About Us Section (NEW - with Grid + Featured Carousel) -->
-		<section id="about" class="content-section">
-			<div class="container">
-				<h2>{{site.sectionAbout}}</h2>
-				<div class="about-gallery-content">
-					<div class="about-gallery-left">
-						<!-- Image Grid -->
-						<div class="gallery-grid-about" id="aboutUsGallery">
-							<!-- Dynamically populated by JavaScript -->
-						</div>
-					</div>
-					<div class="about-gallery-right">
-						<h3>{{site.aboutUsTitle1}}</h3>
-						<p>{{site.aboutUsText1}}</p>
-						<p>{{site.aboutUsText2}}</p>
-						<h3>{{site.aboutUsTitle2}}</h3>
-						<p>{{site.aboutUsText3}}</p>
+	<!-- Reviews Section (uses parallax background) -->
+	<section id="reviews" class="trust-section">
+		<div class="container">
+			<h2>{{site.sectionReviews}}</h2>
+			<!-- Elfsight Google Reviews Widget -->
+			<div id="reviewsWidgetContainer">
+				<!-- Widget will be injected here by JavaScript -->
 			</div>
 		</div>
 	</section>
+
+		<!-- About Us Section (merged with Meet our Expert) -->
+		<section id="about" class="content-section">
+			<div class="container">
+				<h2>{{site.sectionAbout}}</h2>
+				<div class="about-us-text">
+					<h3>{{site.aboutUsTitle1}}</h3>
+					<p>{{site.aboutUsText1}}</p>
+					<p>{{site.aboutUsText2}}</p>
+				</div>
+
+				<div class="about-content about-expert-block">
+					<div class="about-image">
+						<img src="images/hero_image.png" alt="Roots Dental Speciality Clinic - Modern Dental Facility" loading="lazy" />
+					</div>
+					<div class="about-text">
+						<h3 class="doctor-name">{{site.doctorName}}<br><span class="doctor-qualifications">({{site.doctorQualifications}})</span></h3>
+						<blockquote class="doctor-quote">
+							<p>{{site.doctorQuote}}</p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</section>
 
 	<!-- Facility Section - 3-Image Carousel -->
 	<section id="facility" class="content-section">
@@ -211,50 +229,20 @@
 		</div>
 	</section>
 
-	<!-- Reviews Section -->
-	<section id="reviews" class="content-section reviews-section">
-		<div class="container">
-		<h2>{{site.sectionReviews}}</h2>
-		
-		<!-- Elfsight Google Reviews Widget -->
-		<div id="reviewsWidgetContainer">
-			<!-- Widget will be injected here by JavaScript -->
-		</div>
-		</div>
-	</section>
-
-		<!-- Meet our Expert Section -->
-		<section id="expert" class="content-section">
-			<div class="container">
-				<h2>{{site.sectionExpert}}</h2>
-				<div class="about-content">
-					<div class="about-image">
-						<img src="images/hero_image.png" alt="Roots Dental Speciality Clinic - Modern Dental Facility" loading="lazy" />
-					</div>
-					<div class="about-text">
-						<h3 class="doctor-name">{{site.doctorName}}<br><span class="doctor-qualifications">({{site.doctorQualifications}})</span></h3>
-						<blockquote class="doctor-quote">
-							<p>{{site.doctorQuote}}</p>
-						</blockquote>
-						<p>{{site.aboutText}}</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
 	<!-- Expert/Achievements Section -->
+	<!--
 	<section id="expert-awards" class="content-section">
 		<div class="container">
 			<h2>{{site.sectionAchievements}}</h2>
 				<div class="our-expert">
 					<div class="achievements-section">
 						<ul class="achievements-list" id="achievementsList">
-							<!-- Dynamically populated by JavaScript -->
 						</ul>
 					</div>
 				</div>
 			</div>
 		</section>
+	-->
 
 		<!-- Contact Section -->
 		<section id="contact" class="content-section">
@@ -268,12 +256,10 @@
 							<a data-contact="address-link" target="_blank" class="contact-link"><span data-contact="address"></span></a><br /><br />
 					<strong>Landmark:</strong> <span class="contact-landmark">{{site.landmark}}</span>
 				</p>
-				<div class="hero-cta-row">
-					<p class="hero-call-text">
-						<a data-contact="phone-link" class="hero-phone-link"><span data-contact="phone-text"></span></a>
-					</p>
-					<a href="#" class="btn btn-primary btn-md cta-button" onclick="openAppointmentModal(); return false;">{{site.btnBookAppointment}}</a>
-				</div>
+				<p class="contact-hours">
+					<strong>{{site.labelHours}}</strong><br />
+					<span data-contact="hours"></span>
+				</p>
 					</div>
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.1234567890!2d73.7890123456789!3d20.0123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDAwJzQ0LjQiTiA3M8KwNDcnMjAuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
@@ -315,27 +301,30 @@
 				<ul class="footer-list">
 					<li class="footer-list-item"><a href="#home" class="footer-link">Home</a></li>
 					<li class="footer-list-item"><a href="#services" class="footer-link">Services</a></li>
-					<li class="footer-list-item"><a href="#about" class="footer-link">About us</a></li>
 					<li class="footer-list-item"><a href="#reviews" class="footer-link">Reviews</a></li>
-					<li class="footer-list-item"><a href="#expert" class="footer-link">Expert</a></li>
+					<li class="footer-list-item"><a href="#about" class="footer-link">About us</a></li>
 					<li class="footer-list-item"><a href="#contact" class="footer-link">Contact us</a></li>
 					<li class="footer-list-item"><a href="#" onclick="openAppointmentModal()" class="footer-link">Book Appointment</a></li>
 				</ul>
+				</div>
+				<div>
+					<h3 class="footer-heading">Legal</h3>
+					<ul class="footer-list">
+						<li class="footer-list-item"><a href="/privacy-policy.html" class="footer-link">{{site.linkPrivacyPolicy}}</a></li>
+						<li class="footer-list-item"><a href="/terms-of-service.html" class="footer-link">{{site.linkTermsOfService}}</a></li>
+						<li class="footer-list-item"><a href="/cookie-policy.html" class="footer-link">Cookie Policy</a></li>
+					</ul>
 				</div>
 				<div>
 					<h3 class="footer-heading">{{site.footerContactHeading}}</h3>
 					<div class="footer-contact">
 						<p><strong>{{site.labelPhone}}</strong> <a data-contact="phone-link" class="footer-link"><span data-contact="phone"></span></a></p>
 						<p><strong>{{site.labelEmail}}</strong> <a data-contact="email-link" class="footer-link"><span data-contact="email"></span></a></p>
-						<p><strong>{{site.labelAddress}}</strong> <a data-contact="address-link" target="_blank" class="footer-link"><span data-contact="address"></span></a></p>
 						<p><strong>{{site.labelHours}}</strong><br /><span data-contact="hours"></span></p>
 					</div>
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p id="footerLinks" class="footer-legal-links">
-					<!-- Populated by JavaScript from config.js -->
-				</p>
 				<p id="copyright" class="footer-copyright">
 					<!-- Populated by JavaScript from config.js -->
 				</p>

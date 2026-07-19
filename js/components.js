@@ -30,7 +30,6 @@ function renderHeader() {
                     <li><a href="/#services">Services</a></li>
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#facility">Facility</a></li>
-                    <li><a href="/#expert">Expert</a></li>
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/#contact">Contact</a></li>
                 </ul>
@@ -100,11 +99,18 @@ function renderFooter() {
                     <ul class="footer-list">
                         <li class="footer-list-item"><a href="/#home" class="footer-link">Home</a></li>
                         <li class="footer-list-item"><a href="/#services" class="footer-link">Our Services</a></li>
-                        <li class="footer-list-item"><a href="/#about" class="footer-link">About Us</a></li>
                         <li class="footer-list-item"><a href="/#reviews" class="footer-link">Reviews</a></li>
-                        <li class="footer-list-item"><a href="/#expert" class="footer-link">Meet our Expert</a></li>
+                        <li class="footer-list-item"><a href="/#about" class="footer-link">About Us</a></li>
                         <li class="footer-list-item"><a href="/blog" class="footer-link">Blog</a></li>
                         <li class="footer-list-item"><a href="/#contact" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Legal</h3>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="/privacy-policy.html" class="footer-link">${site.linkPrivacyPolicy}</a></li>
+                        <li class="footer-list-item"><a href="/terms-of-service.html" class="footer-link">${site.linkTermsOfService}</a></li>
+                        <li class="footer-list-item"><a href="/cookie-policy.html" class="footer-link">Cookie Policy</a></li>
                     </ul>
                 </div>
                 <div>
@@ -112,15 +118,11 @@ function renderFooter() {
                     <div class="footer-contact">
                         <p><strong>${site.labelPhone}</strong> <a href="tel:${site.phoneRaw}" class="footer-link">${site.phoneDisplay}</a></p>
                         <p><strong>${site.labelEmail}</strong> <a href="mailto:${site.email}" class="footer-link">${site.email}</a></p>
-                        <p><strong>${site.labelAddress}</strong> <a href="${site.mapUrl}" target="_blank" class="footer-link">${site.addressFull}</a></p>
                         <p><strong>${site.labelHours}</strong><br />${site.hoursWeekdays}<br>${site.hoursWeekend}</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p id="footerLinks" class="footer-legal-links">
-                    <!-- Populated below -->
-                </p>
                 <p id="copyright" class="footer-copyright">
                     <!-- Populated below -->
                 </p>
@@ -128,36 +130,7 @@ function renderFooter() {
         </div>
     `;
 
-    // Populate footer legal links (Privacy, Terms & Cookies)
-    const footerLinks = document.getElementById('footerLinks');
-    if (footerLinks) {
-        // Clear existing content to prevent duplication
-        footerLinks.innerHTML = '';
-        
-        const privacy = document.createElement('a');
-        privacy.href = '/privacy-policy.html';
-        privacy.className = 'footer-link';
-        privacy.textContent = site.linkPrivacyPolicy;
-        footerLinks.appendChild(privacy);
-        
-        footerLinks.appendChild(document.createTextNode(' | '));
-        
-        const terms = document.createElement('a');
-        terms.href = '/terms-of-service.html';
-        terms.className = 'footer-link';
-        terms.textContent = site.linkTermsOfService;
-        footerLinks.appendChild(terms);
-        
-        footerLinks.appendChild(document.createTextNode(' | '));
-        
-        const cookies = document.createElement('a');
-        cookies.href = '/cookie-policy.html';
-        cookies.className = 'footer-link';
-        cookies.textContent = 'Cookie Policy';
-        footerLinks.appendChild(cookies);
-    }
-
-    // Populate copyright text (below links)
+    // Populate copyright text
     const copyright = document.getElementById('copyright');
     if (copyright) {
         copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText}`;
@@ -186,38 +159,8 @@ function renderContactBox() {
     `;
 }
 
-// Populate Footer Links and Copyright (for static footer HTML)
+// Populate Footer Copyright (for static footer HTML; legal links now live in the "Legal" footer column)
 function populateFooterLinks() {
-    // Populate footer legal links (Privacy, Terms & Cookies)
-    const footerLinks = document.getElementById('footerLinks');
-    if (footerLinks) {
-        // Clear existing content to prevent duplication
-        footerLinks.innerHTML = '';
-        
-        const privacy = document.createElement('a');
-        privacy.href = '/privacy-policy.html';
-        privacy.className = 'footer-link';
-        privacy.textContent = site.linkPrivacyPolicy;
-        footerLinks.appendChild(privacy);
-
-        footerLinks.appendChild(document.createTextNode(' | '));
-
-        const terms = document.createElement('a');
-        terms.href = '/terms-of-service.html';
-        terms.className = 'footer-link';
-        terms.textContent = site.linkTermsOfService;
-        footerLinks.appendChild(terms);
-
-        footerLinks.appendChild(document.createTextNode(' | '));
-
-        const cookies = document.createElement('a');
-        cookies.href = '/cookie-policy.html';
-        cookies.className = 'footer-link';
-        cookies.textContent = 'Cookie Policy';
-        footerLinks.appendChild(cookies);
-    }
-
-    // Populate copyright text (below links)
     const copyright = document.getElementById('copyright');
     if (copyright) {
         copyright.textContent = `${site.copyrightYear} ${site.businessName}. ${site.copyrightText}`;

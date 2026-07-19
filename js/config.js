@@ -16,7 +16,7 @@ const site = {
     // Doctor
     doctorName: 'Dr. Aarti Bohora',
     doctorQualifications: 'BDS, MDS, Ph.D',
-    doctorQuote: 'Everybody does root canal, doing it gracefully is my expertise©',
+    doctorQuote: 'Everybody does root canal, doing it gracefully is my expertise',
     doctorExperience: '15+',
     doctorSpecialization: 'Conservative Dentistry & Endodontics',
 
@@ -66,7 +66,6 @@ const site = {
     heroHighlightWord: 'Root',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
-    heroCustomersText: 'Trusted by 5000+ happy 🦷 satisfied patients',
     heroCustomerImages: [
         { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
         { src: 'images/gallery-1.png', alt: 'Happy patient 1' },
@@ -75,15 +74,12 @@ const site = {
         { src: 'images/gallery-4.png', alt: 'Happy patient 4' }
     ],
 
-    // About (Meet Our Expert section)
-    aboutText: `"Form follows function". Esthetics should complement and enhance functionality. Our motto is to provide modern microscopic dentistry with personalized care in a calm and relaxed environment. Saving what is natural because teeth have feelings too! As distinctive as you are, we are committed to dental excellence for you.`,
 
+    
     // About Us (New section with gallery)
     aboutUsTitle1: 'What sets us apart',
-    aboutUsText1: `Roots Dental Speciality Clinic is thoughtfully designed with modern interiors and advanced dental equipment to give you the best possible care in a comfortable and welcoming environment.`,
+    aboutUsText1: `At Roots Dental, we practice modern microscopic dentistry with a simple philosophy: save your natural teeth whenever possible, and treat you with the same care we'd want for our own family. Every treatment is personalized, every environment kept calm and unhurried because good dentistry should feel as good as it looks.`,
     aboutUsText2: `We provide complete dental care under one roof, including Cosmetic dentistry, Root canal treatments, Emergency, Implantology, Periodontology, Prosthodontics, Orthodontics, and Facial aesthetic treatments.`,
-    aboutUsTitle2: 'Our commitment',
-    aboutUsText3: 'We understand that visiting a dentist can be stressful. At Roots Dental Speciality Clinic, we make sure you feel calm, safe, and cared for from the moment you walk-in. Say goodbye to fear, pain, and discomfort. Trust us with your smile, and let us help you smile brighter with confidence.',
 
     // About Us Gallery Images
     // About Us Grid Images (4 images)
@@ -94,18 +90,17 @@ const site = {
         { src: 'images/gallery-6.png', alt: 'Dental Equipment' }
     ],
 
-    // Facility Carousel Images (6 images)
+    // Facility Carousel Images (5 images)
     facilityCarouselImages: [
         { src: 'images/image_doctor.png', alt: 'Dr. Aarti Bohora' },
         { src: 'images/about_us.png', alt: 'About Us' },
-        { src: 'images/gallery-5.png', alt: 'Treatment Room' },
         { src: 'images/gallery-6.png', alt: 'Dental Equipment' },
         { src: 'images/gallery-1.png', alt: 'Dental Facility' },
         { src: 'images/gallery-4.png', alt: 'Modern Equipment' }
     ],
 
     // Footer
-    footerContactHeading: 'Contact Info',
+    footerContactHeading: 'Contact Us',
     copyrightYear: '© 2026',
     copyrightText: 'All rights reserved.',
     linkPrivacyPolicy: 'Privacy Policy',
@@ -147,15 +142,6 @@ const site = {
 // ========================================
 
 const data = {
-    // Navigation Links
-    trustIndicators: [
-        { value: '15+', label: 'Years Experience' },
-        { value: 'Ph.D.', label: 'Qualified' },
-        { value: 'Award', label: 'Winning' },
-        { value: '5/5', label: 'Google Reviews' },
-
-    ],
-
     services: [
         {
             name: 'Microscopic Dentistry',

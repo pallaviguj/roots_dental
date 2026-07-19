@@ -11,7 +11,7 @@
     position: relative;
     margin-top: -72px;
     /* Bottom padding clears the height of .hero::after's arc (desktop-only, see below), with a modest buffer */
-    padding: calc(72px + var(--space-8)) 0 calc(var(--space-10) + var(--space-8));
+    padding: calc(72px + var(--space-10)) 0 calc(var(--space-10) + var(--space-10));
     min-height: auto;
     display: flex;
     align-items: center;
@@ -344,7 +344,7 @@ body.theme-dark .hero-call-text {
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: auto;
-    padding-top: var(--space-5);
+    padding-top: var(--space-8);
 }
 
 #contact .hero-cta-row {

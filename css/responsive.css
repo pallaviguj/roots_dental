@@ -152,10 +152,12 @@
 
     .hero-cta-row {
         justify-content: center;
+        margin-top: 0;
+        padding-top: var(--space-4);
     }
 
     .hero-stats {
-        justify-content: center;
+        display: none;
     }
 
     .hero-image {

@@ -304,22 +304,22 @@ const toggleMobileMenu = () => {
 // Initialize Scroll-Based Header
 const initializeScrollHeader = () => {
     const header = document.querySelector('header');
-    const trustSection = document.querySelector('.trust-section');
+    const triggerSection = document.querySelector('#services');
 
-    if (!header || !trustSection) return;
+    if (!header || !triggerSection) return;
 
     let isScrolled = false;
     const buffer = 50; // Add buffer to prevent flickering
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
-        const trustSectionTop = trustSection.offsetTop;
+        const triggerSectionTop = triggerSection.offsetTop;
 
         // Add hysteresis to prevent rapid toggling
-        if (!isScrolled && scrollY >= trustSectionTop - buffer) {
+        if (!isScrolled && scrollY >= triggerSectionTop - buffer) {
             header.classList.add('scrolled');
             isScrolled = true;
-        } else if (isScrolled && scrollY < trustSectionTop - buffer - 50) {
+        } else if (isScrolled && scrollY < triggerSectionTop - buffer - 50) {
             header.classList.remove('scrolled');
             isScrolled = false;
         }

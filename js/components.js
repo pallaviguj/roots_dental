@@ -30,7 +30,6 @@ function renderHeader() {
                     <li><a href="/#services">Services</a></li>
                     <li><a href="/#about">About us</a></li>
                     <li><a href="/#facility">Facility</a></li>
-                    <li><a href="/blog">Blog</a></li>
                     <li><a href="/#contact">Contact us</a></li>
                 </ul>
                 <a href="tel:${site.phoneRaw}" class="btn btn-ghost btn-sm nav-phone-btn">

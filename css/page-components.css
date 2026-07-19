@@ -442,12 +442,23 @@ body.theme-light .trust-section h2 {
    ======================================== */
 
 .about-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-expert-heading {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-5);
+    text-align: left;
+}
+
+.about-expert-inner {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--space-8);
     align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
 }
 
 .about-image {
@@ -818,7 +829,7 @@ body.theme-light .carousel-indicator.active {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
     margin-top: var(--space-6);
 }
 
@@ -1361,9 +1372,13 @@ footer {
     }
 
     /* About Section */
-    .about-content {
+    .about-expert-inner {
         grid-template-columns: 1fr;
         gap: var(--space-6);
+    }
+
+    .about-expert-heading {
+        text-align: center;
     }
 
     .about-image {

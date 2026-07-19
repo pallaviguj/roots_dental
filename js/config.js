@@ -81,8 +81,8 @@ const site = {
     
     // About Us (New section with gallery)
     aboutUsTitle1: 'What sets us apart',
-    aboutUsText1: `At Roots Dental, we practice modern microscopic dentistry with a simple philosophy: save your natural teeth whenever possible, and treat you with the same care we'd want for our own family. Every treatment is personalized, every environment kept calm and unhurried because good dentistry should feel as good as it looks. We've proudly served the Nashik community from this same clinic for over 15 years, so you're always treated by a familiar, trusted face.`,
-    aboutUsText2: `Dr. Aarti Bohora is an endodontist with a Ph.D. in Conservative Dentistry and Endodontics, and more than 15 years of clinical experience. Since 2019, she has been recognized as Best Specialist (Endodontist) of the Year at the Indian Dental Divas awards and received the Excellence in Conservative Dentistry & Endodontics award at the Indian Health Professional Awards.`,
+    aboutUsText1: `At Roots Dental, we practice modern microscopic dentistry with a simple philosophy: save your natural teeth whenever possible, and treat you like family. We've proudly served the Nashik community from this same clinic for over 15 years.`,
+    aboutUsText2: `Dr. Aarti Bohora is an endodontist with a Ph.D. in Conservative Dentistry and Endodontics, and more than 15 years of clinical experience, recognized with Best Specialist (Endodontist) of the Year and Excellence in Conservative Dentistry & Endodontics awards.`,
 
     // About Us Gallery Images
     // About Us Grid Images (4 images)

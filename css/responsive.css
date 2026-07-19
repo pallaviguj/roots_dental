@@ -169,9 +169,13 @@
         margin: 0 auto;
     }
 
-    .about-content {
+    .about-expert-inner {
         grid-template-columns: 1fr;
         gap: var(--space-6);
+    }
+
+    .about-expert-heading {
+        text-align: center;
     }
 
     .about-image {

@@ -1288,7 +1288,7 @@ footer {
     #footer::before {
         left: -20%;
         right: -20%;
-        top: -90px;
+        top: -60px;
         border-radius: 50% 50% 0 0 / 90px 90px 0 0;
     }
 

@@ -35,6 +35,38 @@ body.theme-light .hero {
     #services {
         padding-bottom: 96px;
     }
+
+    /* Bleed the hero image to the full height of the hero section: flush with the
+       header at the top, and reaching up to the arc's peak at the bottom so it
+       reads as "tucked under" the curve rather than leaving a gap. */
+    .hero-image {
+        position: absolute;
+        grid-column: 1;
+        grid-row: 1;
+        top: calc(-1 * (72px + var(--space-8)));
+        /* Deliberately overshoots past the arc's lowest reach - the arc (painted
+           above the image, see .hero::after z-index) crops the excess, so the
+           image's visible bottom edge always follows the arc's exact curve. */
+        bottom: -150px;
+        left: 0;
+        width: calc((100% - var(--space-8)) * 2 / 5);
+        display: block;
+    }
+
+    .hero-text {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        aspect-ratio: auto;
+        object-fit: cover;
+        object-position: center 20%;
+        border-radius: 0;
+    }
 }
 
 /* Extra breathing room so Contact's own content doesn't sit flush against - or get covered by -
@@ -81,7 +113,7 @@ body.theme-light #footer::before {
     position: absolute;
     left: -10%;
     right: -10%;
-    bottom: -40px;
+    bottom: -60px;
     height: 120px;
     background: var(--bg-primary);
     border-radius: 50% 50% 0 0 / 120px 120px 0 0;
@@ -91,7 +123,6 @@ body.theme-light #footer::before {
 
 .hero-content {
     position: relative;
-    z-index: 2;
     display: grid;
     grid-template-columns: 2fr 3fr;
     align-items: stretch;
@@ -105,6 +136,8 @@ body.theme-light #footer::before {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    animation: heroImageIn 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
 }
 
 .hero-image img {
@@ -116,7 +149,21 @@ body.theme-light #footer::before {
     box-shadow: var(--shadow-xl);
 }
 
+@keyframes heroImageIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
 .hero-text {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -257,6 +304,8 @@ body.theme-light .hero p {
     flex-wrap: wrap;
     margin-bottom: 0;
     padding-top: 12px;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
 }
 
 .hero-stat {
@@ -311,6 +360,8 @@ body.theme-dark .hero-call-text {
     margin: 0 !important;
     white-space: nowrap;
     font-size: var(--font-size-lg);
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
 }
 
 .hero-phone-link {

@@ -587,7 +587,7 @@ body.theme-light .doctor-name {
 }
 
 .doctor-bio p {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
     line-height: 1.75;
     color: var(--text-secondary);
     margin-bottom: var(--space-4);

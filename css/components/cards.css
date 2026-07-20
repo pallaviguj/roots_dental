@@ -71,6 +71,10 @@
     transition: transform var(--transition-base), box-shadow var(--transition-base);
     text-align: left;
     animation: gradientFlow 4s ease infinite;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
     }
     
     @keyframes gradientFlow {

@@ -62,7 +62,10 @@ const populateServices = () => {
     const grid = document.getElementById('servicesGrid');
     if (!grid) return;
     data.services.forEach(service => {
-        const card = createElement('div', { className: 'service-card' });
+        const card = createElement('a', {
+            className: 'service-card',
+            href: `service.html?slug=${encodeURIComponent(service.slug)}`
+        });
         const h3 = createElement('h3', {}, service.name);
         const p = createElement('p', {}, service.description);
         card.appendChild(h3);
@@ -304,22 +307,22 @@ const toggleMobileMenu = () => {
 // Initialize Scroll-Based Header
 const initializeScrollHeader = () => {
     const header = document.querySelector('header');
-    const triggerSection = document.querySelector('#services');
+    if (!header) return;
 
-    if (!header || !triggerSection) return;
+    const triggerSection = document.querySelector('#services');
+    // Homepage: sticky when Services enters view. Subpages (e.g. service detail): sticky after a short scroll.
+    const getTriggerY = () => (triggerSection ? triggerSection.offsetTop - 50 : 80);
 
     let isScrolled = false;
-    const buffer = 50; // Add buffer to prevent flickering
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
-        const triggerSectionTop = triggerSection.offsetTop;
+        const triggerY = getTriggerY();
 
-        // Add hysteresis to prevent rapid toggling
-        if (!isScrolled && scrollY >= triggerSectionTop - buffer) {
+        if (!isScrolled && scrollY >= triggerY) {
             header.classList.add('scrolled');
             isScrolled = true;
-        } else if (isScrolled && scrollY < triggerSectionTop - buffer - 50) {
+        } else if (isScrolled && scrollY < triggerY - 50) {
             header.classList.remove('scrolled');
             isScrolled = false;
         }

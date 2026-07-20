@@ -13,6 +13,7 @@ module.exports = (env, argv) => {
     mode: isProduction ? 'production' : 'development',
     entry: {
       main: './js/main.js',
+      service: './js/service.js',
       blog: './js/blog.js',
       'blog-post': './js/blog-post.js',
     },
@@ -134,6 +135,20 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './cookie-policy.html',
         filename: 'cookie-policy.html',
+        inject: 'body',
+        scriptLoading: 'defer',
+        minify: isProduction ? {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: false,
+          minifyJS: true,
+          minifyCSS: true,
+        } : false,
+      }),
+      new HtmlWebpackPlugin({
+        template: './service.html',
+        filename: 'service.html',
+        chunks: ['main', 'service'],
         inject: 'body',
         scriptLoading: 'defer',
         minify: isProduction ? {

@@ -96,6 +96,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './index.html',
         filename: 'index.html',
+        chunks: ['main'],
         inject: 'body',
         scriptLoading: 'defer',
         minify: isProduction ? {
@@ -109,6 +110,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './privacy-policy.html',
         filename: 'privacy-policy.html',
+        chunks: ['main'],
         inject: 'body',
         scriptLoading: 'defer',
         minify: isProduction ? {
@@ -122,6 +124,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './terms-of-service.html',
         filename: 'terms-of-service.html',
+        chunks: ['main'],
         inject: 'body',
         scriptLoading: 'defer',
         minify: isProduction ? {
@@ -135,6 +138,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './cookie-policy.html',
         filename: 'cookie-policy.html',
+        chunks: ['main'],
         inject: 'body',
         scriptLoading: 'defer',
         minify: isProduction ? {
@@ -162,6 +166,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './blog.html',
         filename: 'blog.html',
+        chunks: ['blog'],
         inject: false,
         scriptLoading: 'defer',
         minify: isProduction ? {
@@ -175,6 +180,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './blog-post.html',
         filename: 'blog-post.html',
+        chunks: ['blog-post'],
         inject: false,
         scriptLoading: 'defer',
         minify: isProduction ? {

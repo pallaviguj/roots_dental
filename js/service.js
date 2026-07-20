@@ -19,6 +19,9 @@ const getSlug = () => {
 };
 
 const hydrateServicePage = () => {
+    // Only run on the service detail page (avoid redirecting the homepage)
+    if (!document.getElementById('serviceTitle')) return;
+
     const slug = getSlug();
     const service = data.services.find(s => s.slug === slug);
 

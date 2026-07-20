@@ -11,7 +11,7 @@ function renderHeader() {
     if (!header) return;
 
     header.innerHTML = `
-        <nav class="container">
+        <nav>
             <div class="logo">
                 <a href="/">
                     <img src="/images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" />
@@ -29,6 +29,8 @@ function renderHeader() {
                 <ul class="nav-links">
                     <li><a href="/#services">Services</a></li>
                     <li><a href="/#about">About us</a></li>
+                    <li><a href="/#reviews">Testimonials</a></li>
+                    <li><a href="/#expert">Expert</a></li>
                     <li><a href="/#facility">Facility</a></li>
                     <li><a href="/#contact">Contact us</a></li>
                 </ul>
@@ -38,7 +40,7 @@ function renderHeader() {
                     </svg>
                     ${site.phoneDisplay}
                 </a>
-                <a href="/#book" class="btn btn-primary btn-sm nav-cta-btn">
+                <a href="#" class="btn btn-primary btn-sm nav-cta-btn" onclick="openAppointmentModal(); return false;">
                     Book Appointment
                 </a>
             </div>
@@ -98,8 +100,8 @@ function renderFooter() {
                     <ul class="footer-list">
                         <li class="footer-list-item"><a href="/#home" class="footer-link">Home</a></li>
                         <li class="footer-list-item"><a href="/#services" class="footer-link">Our Services</a></li>
-                        <li class="footer-list-item"><a href="/#reviews" class="footer-link">Reviews</a></li>
                         <li class="footer-list-item"><a href="/#about" class="footer-link">About us</a></li>
+                        <li class="footer-list-item"><a href="/#reviews" class="footer-link">Reviews</a></li>
                         <li class="footer-list-item"><a href="/blog" class="footer-link">Blog</a></li>
                         <li class="footer-list-item"><a href="/#contact" class="footer-link">Contact us</a></li>
                     </ul>

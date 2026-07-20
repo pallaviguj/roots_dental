@@ -55,7 +55,7 @@
 			"@type": "Person",
 			"name": "Dr. Aarti Bohora",
 			"jobTitle": "Dentist - Conservative Dentistry & Endodontics",
-			"hasCredential": "BDS, MDS, Ph.D."
+			"hasCredential": "BDS, MDS, Ph.D., Diplomate Indian Board of Endodontics"
 		},
 		"sameAs": [
 			"https://facebook.com/draartibohora/",
@@ -92,6 +92,8 @@
 			<ul class="nav-links">
 				<li><a href="#services">Services</a></li>
 				<li><a href="#about">About us</a></li>
+				<li><a href="#reviews">Testimonials</a></li>
+				<li><a href="#expert">Expert</a></li>
 				<li><a href="#facility">Facility</a></li>
 				<li><a href="#contact">Contact us</a></li>
 			</ul>
@@ -162,6 +164,20 @@
 			</div>
 		</section>
 
+		<!-- About Us Section -->
+		<section id="about" class="content-section">
+			<div class="container">
+				<h2>{{site.sectionAbout}}</h2>
+				<div class="about-us-text">
+					<h3>{{site.aboutUsTitle1}}</h3>
+					<p>{{site.aboutUsText1}}</p>
+					<p>{{site.aboutUsText1b}}</p>
+					<h3>{{site.aboutUsTitle2}}</h3>
+					<p>{{site.aboutUsText2}}</p>
+				</div>
+			</div>
+		</section>
+
 	<!-- Reviews Section (uses parallax background) -->
 	<section id="reviews" class="trust-section">
 		<div class="container">
@@ -173,29 +189,28 @@
 		</div>
 	</section>
 
-		<!-- About Us Section (merged with Meet our Expert) -->
-		<section id="about" class="content-section">
+		<!-- Meet our Expert -->
+		<section id="expert" class="content-section">
 			<div class="container">
-				<h2>{{site.sectionAbout}}</h2>
-				<div class="about-us-text">
-					<h3>{{site.aboutUsTitle1}}</h3>
-					<p>{{site.aboutUsText1}}</p>
-					<p>{{site.aboutUsText2}}</p>
-
 				<div class="about-content about-expert-block">
-					<h3 class="about-expert-heading">{{site.sectionExpert}}</h3>
+					<h2 class="about-expert-heading">{{site.sectionExpert}}</h2>
+					<div class="doctor-bio">
+						<p>{{site.doctorBio1}}</p>
+						<p>{{site.doctorBio2}}</p>
+						<p>{{site.doctorBio3}}</p>
+					</div>
 					<div class="about-expert-inner">
 						<div class="about-image">
-							<img src="images/hero_image.png" alt="Roots Dental Speciality Clinic - Modern Dental Facility" loading="lazy" />
+							<img src="images/DSC_3074-29.jpg" alt="Dr. Aarti Bohora" loading="lazy" />
 						</div>
 						<div class="about-text">
-							<h3 class="doctor-name">{{site.doctorName}}<br><span class="doctor-qualifications">({{site.doctorQualifications}})</span></h3>
+							<h3 class="doctor-name">{{site.doctorName}}</h3>
+							<p class="doctor-qualifications">({{site.doctorQualifications}})</p>
 							<blockquote class="doctor-quote">
 								<p>{{site.doctorQuote}}</p>
 							</blockquote>
 						</div>
 					</div>
-				</div>
 				</div>
 			</div>
 		</section>
@@ -303,8 +318,8 @@
 				<ul class="footer-list">
 					<li class="footer-list-item"><a href="#home" class="footer-link">Home</a></li>
 					<li class="footer-list-item"><a href="#services" class="footer-link">Services</a></li>
-					<li class="footer-list-item"><a href="#reviews" class="footer-link">Reviews</a></li>
 					<li class="footer-list-item"><a href="#about" class="footer-link">About us</a></li>
+					<li class="footer-list-item"><a href="#reviews" class="footer-link">Reviews</a></li>
 					<li class="footer-list-item"><a href="#contact" class="footer-link">Contact us</a></li>
 					<li class="footer-list-item"><a href="#" onclick="openAppointmentModal()" class="footer-link">Book Appointment</a></li>
 				</ul>

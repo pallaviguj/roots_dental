@@ -6,7 +6,7 @@ Since Node.js 18 doesn't support the latest Sanity CLI, use Sanity's **hosted st
 
 - **Project ID:** `0i5dsfwt` ✓ (already configured in `js/sanity-client.js`)
 - **Dataset:** `production`
-- **Studio URL:** https://0i5dsfwt.sanity.studio
+- **Studio URL:** https://rootsdentalspeciality.sanity.studio
 
 ---
 
@@ -18,7 +18,7 @@ Since Node.js 18 doesn't support the latest Sanity CLI, use Sanity's **hosted st
 2. Log in with your account
 3. Click on your project (ID: `0i5dsfwt`)
 4. Click **"Studio"** in the left sidebar
-5. This opens your hosted studio at: **https://0i5dsfwt.sanity.studio**
+5. This opens your hosted studio at: **https://rootsdentalspeciality.sanity.studio**
 
 ### Step 2: Configure CORS (REQUIRED!)
 
@@ -43,7 +43,7 @@ Since Node.js 18 doesn't support the latest Sanity CLI, use Sanity's **hosted st
 
 **Option B: Manual Setup via Studio**
 
-1. Go to your studio: https://0i5dsfwt.sanity.studio
+1. Go to your studio: https://rootsdentalspeciality.sanity.studio
 2. Click the **settings/config icon**
 3. Look for **"Schema"** or **"Vision"** tool
 4. You may need to deploy schema via Sanity's web interface
@@ -93,7 +93,7 @@ Fields:
 ### Step 4: Create Your First Content
 
 **Create an Author:**
-1. Open Studio: https://0i5dsfwt.sanity.studio
+1. Open Studio: https://rootsdentalspeciality.sanity.studio
 2. Click **"Create"** → **"Author"**
 3. Fill in:
    - Name: `Dr. Aarti Bohora`
@@ -135,7 +135,7 @@ Fields:
 
 **To add blog posts (after initial setup):**
 
-1. Go to: https://0i5dsfwt.sanity.studio
+1. Go to: https://rootsdentalspeciality.sanity.studio
 2. Log in
 3. Click **"Create"** → **"Post"**
 4. Write title and content (like using Microsoft Word)
@@ -173,7 +173,7 @@ npm create sanity@latest
 
 ## 📚 Resources
 
-- **Your Studio:** https://0i5dsfwt.sanity.studio
+- **Your Studio:** https://rootsdentalspeciality.sanity.studio
 - **Dashboard:** https://www.sanity.io/manage
 - **Documentation:** https://www.sanity.io/docs
 - **Schema Guide:** https://www.sanity.io/docs/schema-types

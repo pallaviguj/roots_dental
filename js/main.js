@@ -164,6 +164,28 @@ const initializeReviewsWidget = () => {
     });
     widgetDiv.setAttribute('data-elfsight-app-lazy', '');
     container.appendChild(widgetDiv);
+
+    // Hide Elfsight free-plan promo badge without removing it from the DOM
+    // (removing it causes Elfsight insertBefore errors)
+    const hideElfsightBadge = () => {
+        document.querySelectorAll('a[href*="elfsight.com"]').forEach((link) => {
+            if (!/google-reviews-widget|Free Google Reviews/i.test(link.href + link.textContent)) return;
+            link.style.setProperty('display', 'none', 'important');
+            link.style.setProperty('visibility', 'hidden', 'important');
+            link.style.setProperty('height', '0', 'important');
+            link.style.setProperty('margin', '0', 'important');
+            link.style.setProperty('padding', '0', 'important');
+            link.style.setProperty('overflow', 'hidden', 'important');
+            link.style.setProperty('pointer-events', 'none', 'important');
+            link.setAttribute('aria-hidden', 'true');
+            link.setAttribute('tabindex', '-1');
+        });
+    };
+
+    const observer = new MutationObserver(hideElfsightBadge);
+    observer.observe(document.body, { childList: true, subtree: true });
+    hideElfsightBadge();
+    setTimeout(() => observer.disconnect(), 15000);
 };
 
 // Initialize Hero Underline Animation on Scroll

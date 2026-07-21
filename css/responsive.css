@@ -210,17 +210,6 @@
         grid-template-columns: 1fr;
     }
 
-    .content-section {
-        padding: var(--space-9) 0;
-    }
-
-    /* These two sit right below a heading-less/tighter section, so the standard
-       top padding reads as excessive - trim just the top while keeping bottom spacing */
-    #facility,
-    #contact {
-        padding-top: 0;
-    }
-
     .btn-lg {
         padding: var(--space-3) var(--space-5);
         font-size: var(--font-size-base);
@@ -254,15 +243,6 @@
     .hero {
         /* No decorative arc on mobile (desktop-only) */
         padding: var(--space-10) 0;
-    }
-
-    .content-section {
-        padding: var(--space-7) 0;
-    }
-
-    #facility,
-    #contact {
-        padding-top: var(--space-5);
     }
 
     .hero h1 {

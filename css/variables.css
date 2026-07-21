@@ -16,6 +16,10 @@
 	--space-9: 4rem;     /* 64px */
 	--space-10: 5rem;    /* 80px */
 	--space-12: 6rem;    /* 96px */
+	--space-16: 8rem;    /* 128px */
+
+	/* Consistent vertical rhythm between page sections */
+	--section-padding-y: var(--space-10);
 	
 	/* Typography Scale */
 	--font-size-xs: 0.75rem;    /* 12px */

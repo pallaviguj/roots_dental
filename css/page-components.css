@@ -27,9 +27,9 @@ body.theme-light .hero {
 }
 
 @media (min-width: 1025px) {
-    #services {
-        padding-top: 0;
-        padding-bottom: 96px;
+    /* Services sits under the hero arc — half the usual section top spacing */
+    #services.content-section {
+        margin-top: calc(var(--section-padding-y) / 3);
     }
 
     /* Bleed the hero image to the full height of the hero section: flush with the
@@ -64,10 +64,9 @@ body.theme-light .hero {
         border-radius: 0;
     }
 
-    /* Extra breathing room so Contact's own content doesn't sit flush against - or get covered by -
-       the footer's curve (desktop-only decorative effect, see .hero::after / #footer::before below) */
-    #contact {
-        padding-bottom: 150px;
+    /* Extra room so Contact clears the footer's upward curve */
+    #contact.content-section {
+        margin-bottom: calc(var(--section-padding-y) + var(--space-8));
     }
 
     /* Curve + footer body share ONE shape/background (spans from above the footer's top edge
@@ -422,7 +421,6 @@ body.theme-dark .cta-button {
         url('../images/DSC_3200.jpg') center/cover no-repeat;
     background-attachment: fixed;
     padding: var(--space-12) 0;
-    margin: 0;
     scroll-margin-top: 96px;
 }
 
@@ -453,8 +451,8 @@ body.theme-light .trust-section h2 {
     letter-spacing: -0.01em;
     color: var(--text-primary);
     text-align: center;
-    margin-bottom: var(--space-8);
     margin-top: 0;
+    margin-bottom: var(--space-8);
 }
 
 .about-expert-inner {
@@ -1072,8 +1070,7 @@ body.theme-light .carousel-indicator.active {
             rgba(11, 15, 26, 0.85)),
         url('../images/facility/20251115_102432.jpg') center/cover no-repeat;
     background-attachment: fixed;
-    padding: var(--space-12) 0;
-    margin: var(--space-6) 0;
+    margin: 0;
     color: var(--color-white);
 }
 
@@ -1085,7 +1082,7 @@ body.theme-light .carousel-indicator.active {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-6);
-    margin-top: var(--space-8);
+    margin-top: 0;
 }
 
 .achievements-section {

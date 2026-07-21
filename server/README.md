@@ -74,7 +74,7 @@ module.exports = {
 	port: 3000,
 	
 	// Replace with your calendar ID (usually your email)
-	calendarId: 'pallavi.gujrati@gmail.com',
+	calendarId: 'rootsdentalspeciality@gmail.com',
 	
 	// Business hours
 	businessHours: {

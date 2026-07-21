@@ -70,7 +70,7 @@ Visit: https://console.cloud.google.com/
 Edit `server/config.js`:
 
 ```javascript
-calendarId: 'pallavi.gujrati@gmail.com',  // Your email
+calendarId: 'rootsdentalspeciality@gmail.com',  // Business calendar email
 ```
 
 That's it! Everything else has good defaults.

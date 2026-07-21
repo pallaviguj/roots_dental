@@ -3,7 +3,7 @@ module.exports = {
 	port: process.env.PORT || 3000,
 	
 	// Google Calendar Configuration
-	calendarId: 'pallavi.gujrati@gmail.com',
+	calendarId: 'rootsdentalspeciality@gmail.com',
 	
 	// Service Account Credentials Path
 	serviceAccountPath: './service-account-key.json',

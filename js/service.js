@@ -1,8 +1,10 @@
 /**
  * Service detail page — hydrates content from ?slug=
+ * Prefers Sanity CMS; falls back to js/config.js
  */
 
 import { site, data } from './config.js';
+import { getServiceBySlug } from './sanity-client.js';
 
 const createElement = (tag, attrs = {}, text = '') => {
     const el = document.createElement(tag);
@@ -18,12 +20,25 @@ const getSlug = () => {
     return (params.get('slug') || '').trim();
 };
 
-const hydrateServicePage = () => {
+const resolveService = async (slug) => {
+    if (!slug) return null;
+
+    try {
+        const fromSanity = await getServiceBySlug(slug);
+        if (fromSanity) return fromSanity;
+    } catch (error) {
+        console.error('Error loading service from Sanity:', error);
+    }
+
+    return data.services.find(s => s.slug === slug) || null;
+};
+
+const hydrateServicePage = async () => {
     // Only run on the service detail page (avoid redirecting the homepage)
     if (!document.getElementById('serviceTitle')) return;
 
     const slug = getSlug();
-    const service = data.services.find(s => s.slug === slug);
+    const service = await resolveService(slug);
 
     if (!service) {
         window.location.replace('/#services');

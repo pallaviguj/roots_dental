@@ -1,25 +1,33 @@
 /**
  * Sanity Client Configuration
- * Connects to Sanity.io for blog content
+ * Connects to Sanity.io for blog + service content
  */
 
 import { createClient } from '@sanity/client';
 
-// Sanity project configuration
-// TODO: Replace these with your actual Sanity project details after setup
 const sanityConfig = {
-    projectId: '0i5dsfwt', // Get this from sanity.io/manage
+    projectId: '0i5dsfwt',
     dataset: 'production',
     apiVersion: '2024-01-29',
-    useCdn: true, // Use CDN for faster response (set to false for preview mode)
+    useCdn: true,
 };
 
-// Create Sanity client
 export const sanityClient = createClient(sanityConfig);
 
-// GROQ queries for blog posts
+const serviceFields = `
+    _id,
+    name,
+    "slug": slug.current,
+    description,
+    intro,
+    order,
+    images[]{
+        alt,
+        asset->{url, metadata{dimensions}}
+    }
+`;
+
 export const queries = {
-    // Get all published posts (sorted by date, newest first)
     allPosts: `*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
         _id,
         title,
@@ -33,7 +41,6 @@ export const queries = {
         categories[]->{title, slug}
     }`,
 
-    // Get single post by slug
     postBySlug: (slug) => `*[_type == "post" && slug.current == "${slug}"][0] {
         _id,
         title,
@@ -48,7 +55,6 @@ export const queries = {
         categories[]->{title, slug}
     }`,
 
-    // Get recent posts (limit 5)
     recentPosts: `*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) [0...5] {
         _id,
         title,
@@ -58,42 +64,87 @@ export const queries = {
             asset->{url}
         }
     }`,
+
+    allServices: `*[_type == "service" && !(_id in path("drafts.**"))] | order(order asc, name asc) {
+        ${serviceFields}
+    }`,
+
+    serviceBySlug: (slug) => `*[_type == "service" && slug.current == "${slug}" && !(_id in path("drafts.**"))][0] {
+        ${serviceFields}
+    }`,
 };
 
-// Fetch all blog posts
+/** Normalize Sanity service docs to the site's { slug, name, description, intro, images:[{src,alt}] } shape */
+export function normalizeService(doc) {
+    if (!doc || !doc.slug || !doc.name) return null;
+
+    const images = (doc.images || [])
+        .map((image) => {
+            const src = image?.asset?.url;
+            if (!src) return null;
+            return {
+                src,
+                alt: image.alt || doc.name,
+            };
+        })
+        .filter(Boolean);
+
+    return {
+        slug: doc.slug,
+        name: doc.name,
+        description: doc.description || '',
+        intro: doc.intro || '',
+        images,
+    };
+}
+
 export async function getAllPosts() {
     try {
-        const posts = await sanityClient.fetch(queries.allPosts);
-        return posts;
+        return await sanityClient.fetch(queries.allPosts);
     } catch (error) {
         console.error('Error fetching posts:', error);
         return [];
     }
 }
 
-// Fetch single post by slug
 export async function getPostBySlug(slug) {
     try {
-        const post = await sanityClient.fetch(queries.postBySlug(slug));
-        return post;
+        return await sanityClient.fetch(queries.postBySlug(slug));
     } catch (error) {
         console.error('Error fetching post:', error);
         return null;
     }
 }
 
-// Fetch recent posts for sidebar
 export async function getRecentPosts() {
     try {
-        const posts = await sanityClient.fetch(queries.recentPosts);
-        return posts;
+        return await sanityClient.fetch(queries.recentPosts);
     } catch (error) {
         console.error('Error fetching recent posts:', error);
         return [];
     }
 }
 
-// Format date helper
+export async function getAllServices() {
+    try {
+        const docs = await sanityClient.fetch(queries.allServices);
+        return (docs || []).map(normalizeService).filter(Boolean);
+    } catch (error) {
+        console.error('Error fetching services:', error);
+        return [];
+    }
+}
+
+export async function getServiceBySlug(slug) {
+    try {
+        const doc = await sanityClient.fetch(queries.serviceBySlug(slug));
+        return normalizeService(doc);
+    } catch (error) {
+        console.error('Error fetching service:', error);
+        return null;
+    }
+}
+
 export function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -103,7 +154,6 @@ export function formatDate(dateString) {
     });
 }
 
-// Get image URL helper
 export function getImageUrl(imageAsset) {
     if (!imageAsset || !imageAsset.asset) return '/images/placeholder-blog.png';
     return imageAsset.asset.url;

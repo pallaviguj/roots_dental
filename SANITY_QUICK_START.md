@@ -26,6 +26,7 @@ Since Node.js 18 doesn't support the latest Sanity CLI, use Sanity's **hosted st
 2. Click **"CORS Origins"**
 3. Click **"Add CORS Origin"**
 4. Add these URLs (one at a time):
+   - `https://rootsdental-final.surge.sh`
    - `https://rootsdental-source.surge.sh`
    - `https://www.rootsdentalspeciality.com`
    - `http://localhost:3000`
@@ -182,11 +183,57 @@ npm create sanity@latest
 ## ✅ Next Steps
 
 1. ✅ Project ID configured (`0i5dsfwt`)
-2. ⏳ Add CORS origins (required!)
-3. ⏳ Set up schema (author, category, post)
-4. ⏳ Create first blog post
-5. ⏳ Test on website
+2. ⏳ Add CORS origins (required!) — include `https://rootsdental-final.surge.sh` and `http://localhost:3000`
+3. ⏳ Deploy/run Studio with the `service` schema (see below)
+4. ⏳ Create 4 Service documents + blog posts
+5. ⏳ Test homepage cards, service detail galleries, and `/blog.html`
 
 **The blog pages are already live and waiting for content!**
 
-Visit: https://rootsdental-source.surge.sh/blog.html
+Visit: https://rootsdental-final.surge.sh/blog.html
+
+---
+
+## Services in Sanity (upload / reorder images)
+
+The site loads services from Sanity when documents exist; otherwise it falls back to `js/config.js`.
+
+### Schema
+
+The `service` type lives in:
+
+- `studio-roots-dental-speciality-clinic/schemaTypes/service.ts`
+
+Fields: `name`, `slug`, `description`, `intro`, `order`, `images` (gallery with alt text).
+
+### Run Studio locally (recommended to pick up the new schema)
+
+```bash
+cd studio-roots-dental-speciality-clinic
+npm install
+npm run dev
+```
+
+Or deploy the studio: `npm run deploy` from that folder.
+
+### Seed the 4 services
+
+Create one **Service** document per row. Use these **exact** slugs so existing links keep working:
+
+| Order | Name | Slug |
+|------:|------|------|
+| 1 | Microscopic Dentistry | `microscopic-dentistry` |
+| 2 | Root Canal Treatments | `root-canal-treatments` |
+| 3 | Restorative Dentistry | `restorative-dentistry` |
+| 4 | Cosmetic Dentistry | `cosmetic-dentistry` |
+
+1. Paste `description` / `intro` from `js/config.js` (or rewrite in Studio)
+2. Upload gallery photos from `images/services/microendo|endo|restorative|cosmetic/`
+3. Drag to reorder images; set alt text as needed
+4. Publish
+
+After publish, homepage cards and `service.html?slug=...` galleries update live (no code redeploy for content/images).
+
+### Fallback
+
+If Sanity returns no services (empty dataset, CORS error, or network issue), the site still shows the hard-coded list in `js/config.js`.

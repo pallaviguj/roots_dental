@@ -100,7 +100,7 @@ async function renderBlogPost() {
 
         // Render post
         postContainer.innerHTML = `
-            <article class="blog-post">
+            <article class="blog-post container">
                 <header class="post-header">
                     <div class="post-back-link">
                         <a href="/blog" class="btn">← Back to Blog</a>

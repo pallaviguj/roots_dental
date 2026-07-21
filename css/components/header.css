@@ -1,8 +1,10 @@
 /* ========================================
    HEADER COMPONENT
+   Scoped to body > header so blog <header class="post-header">
+   is not affected by site chrome positioning.
    ======================================== */
 
-header {
+body > header {
     position: absolute;
     width: 100%;
     z-index: var(--z-fixed);
@@ -21,7 +23,7 @@ header {
 
 /* Desktop only: floating pill header with generous side margins + border instead of shadow by default */
 @media (min-width: 1025px) {
-    header {
+    body > header {
         left: var(--space-8);
         right: var(--space-8);
         width: auto;
@@ -35,7 +37,7 @@ header {
 
 /* Mobile: Always fixed, full-width - unchanged from before */
 @media (max-width: 1024px) {
-    header {
+    body > header {
         position: fixed;
         top: 0;
         background: var(--header-bg);
@@ -44,7 +46,7 @@ header {
     }
 }
 
-header.scrolled {
+body > header.scrolled {
     position: fixed;
     top: 0;
     background: var(--header-bg);
@@ -194,11 +196,11 @@ nav {
 }
 
 /* Only reveal the phone link & CTA button once the header is in its sticky/scrolled state */
-header.scrolled .nav-cta-btn {
+body > header.scrolled .nav-cta-btn {
     display: inline-flex;
 }
 
-header.scrolled .nav-phone-btn {
+body > header.scrolled .nav-phone-btn {
     display: flex;
 }
 
@@ -238,11 +240,6 @@ header.scrolled .nav-phone-btn {
 
 .theme-toggle-float .theme-icon {
     font-size: 24px;
-}
-
-/* Admin Button */
-.admin-btn {
-    display: none;
 }
 
 /* Hamburger Menu */

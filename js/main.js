@@ -78,7 +78,18 @@ const populateServices = async () => {
             className: 'service-card',
             href: `service.html?slug=${encodeURIComponent(service.slug)}`
         });
-        const h3 = createElement('h3', {}, service.name);
+        const h3 = createElement('h3');
+        const words = String(service.name || '').trim().split(/\s+/).filter(Boolean);
+        if (words.length >= 2) {
+            // Keep titles on two lines so card copy aligns across the grid
+            // e.g. "Root Canal Treatments" → "Root Canal" / "Treatments"
+            const lastWord = words.pop();
+            h3.appendChild(document.createTextNode(words.join(' ')));
+            h3.appendChild(document.createElement('br'));
+            h3.appendChild(document.createTextNode(lastWord));
+        } else {
+            h3.textContent = service.name || '';
+        }
         const p = createElement('p', {}, service.description);
         card.appendChild(h3);
         card.appendChild(p);

@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {GalleryImagesInput} from './GalleryImagesInput'
 
 export default defineType({
   name: 'service',
@@ -48,6 +49,9 @@ export default defineType({
       name: 'images',
       title: 'Gallery images',
       type: 'array',
+      components: {
+        input: GalleryImagesInput,
+      },
       of: [
         {
           type: 'image',

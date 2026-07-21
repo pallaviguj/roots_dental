@@ -7,7 +7,7 @@ import { site } from './config.js';
 
 // Render Header Component
 function renderHeader() {
-    const header = document.querySelector('header');
+    const header = document.querySelector('body > header');
     if (!header) return;
 
     header.innerHTML = `
@@ -32,6 +32,7 @@ function renderHeader() {
                     <li><a href="/#reviews">Testimonials</a></li>
                     <li><a href="/#expert">Expert</a></li>
                     <li><a href="/#facility">Facility</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
                     <li><a href="/#contact">Contact us</a></li>
                 </ul>
                 <a href="tel:${site.phoneRaw}" class="btn btn-ghost btn-sm nav-phone-btn">
@@ -44,7 +45,6 @@ function renderHeader() {
                     Book Appointment
                 </a>
             </div>
-            <button class="btn btn-ghost btn-sm admin-btn" onclick="openCMS()">Admin</button>
         </nav>
     `;
 }
@@ -61,11 +61,6 @@ function toggleMobileMenu() {
     }
 }
 
-// CMS Placeholder Function
-function openCMS() {
-    console.log('CMS feature coming soon');
-}
-
 // Render Footer Component
 function renderFooter() {
     const footer = document.querySelector('footer');
@@ -79,18 +74,18 @@ function renderFooter() {
                         <img src="/images/rootsdentalspeciality_logo.png" alt="${site.businessName} Logo" class="footer-logo" />
                     </a>
                     <div class="footer-social">
-                        <a href="https://linkedin.com/in/dr-aarti-bohora-59b51b68/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <a href="${site.social.linkedin.url}" class="social-icon" aria-label="${site.social.linkedin.label}" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <rect width="24" height="24" rx="3" fill="#0A66C2"/>
                                 <path fill="#fff" d="M3.545 9h3.636v12H3.545zM5.364 3.545a2.109 2.109 0 1 1 0 4.218 2.109 2.109 0 0 1 0-4.218zM9.818 9h3.488v1.636h.05c.486-.923 1.674-1.896 3.444-1.896 3.682 0 4.364 2.423 4.364 5.576V21h-3.636v-5.727c0-1.364-.027-3.118-1.9-3.118-1.9 0-2.19 1.482-2.19 3.018V21H9.818z"/>
                             </svg>
                         </a>
-                        <a href="https://facebook.com/draartibohora/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <a href="${site.social.facebook.url}" class="social-icon" aria-label="${site.social.facebook.label}" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path fill="#1877F2" d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
                             </svg>
                         </a>
-                        <a href="https://instagram.com/rootsdentalspecialityclinic" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <a href="${site.social.instagram.url}" class="social-icon" aria-label="${site.social.instagram.label}" target="_blank" rel="noopener noreferrer">
                             <img src="/images/instagram_logo.png" alt="Instagram" />
                         </a>
                     </div>
@@ -143,6 +138,7 @@ function renderWhatsAppButton() {
     const whatsappBtn = document.getElementById('whatsappBtn');
     if (whatsappBtn && site.phoneRaw) {
         whatsappBtn.href = `https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.whatsappMessage + ' at ' + site.businessName)}`;
+        whatsappBtn.setAttribute('data-tooltip', site.whatsappTooltip);
     }
 }
 
@@ -153,7 +149,7 @@ function renderContactBox() {
 
     contactBox.innerHTML = `
         <p style="margin-bottom: 0.5rem;"><strong>${site.businessName}</strong></p>
-        <p style="margin-bottom: 0.5rem;">Website: <a href="${site.websiteUrl || 'http://www.rootsdentalspeciality.com/'}" target="_blank" class="footer-link">${site.websiteName || 'www.rootsdentalspeciality.com'}</a></p>
+        <p style="margin-bottom: 0.5rem;">Website: <a href="${site.websiteUrl}" target="_blank" class="footer-link">${site.websiteName}</a></p>
         <p style="margin-bottom: 0.5rem;">Email: <a href="mailto:${site.email}" class="footer-link">${site.email}</a></p>
         <p style="margin-bottom: 0.5rem;">Phone: <a href="tel:${site.phoneRaw}" class="footer-link">${site.phoneDisplay}</a></p>
         <p style="margin-bottom: 0;">Address: ${site.addressFull}</p>
@@ -220,8 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export functions that are called from inline HTML
-export { toggleMobileMenu, openCMS };
+export { toggleMobileMenu };
 
 // Also expose to window for inline onclick handlers
 window.toggleMobileMenu = toggleMobileMenu;
-window.openCMS = openCMS;

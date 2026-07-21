@@ -48,12 +48,11 @@ roots_dental/
 │   └── service-account-key.json  # Google service account (DO NOT COMMIT)
 │
 └── images/               # Image assets
-    ├── logo.png
-    ├── hero_image.png
-    ├── hero_bg.png
-    ├── about_us.png
-    ├── expert_bg.png
-    └── gallery*.png
+    ├── rootsdentalspeciality_logo.png
+    ├── hero_doctor.png
+    ├── mini_logo_transparent.png
+    ├── facility/         # Facility carousel images
+    └── services/         # Per-service gallery images
 ```
 
 ## 🎨 Design System

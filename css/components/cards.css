@@ -2,49 +2,6 @@
    CARD COMPONENT SYSTEM
    ======================================== */
 
-.card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
-    transition: all var(--transition-base);
-}
-
-.card-hover {
-    cursor: pointer;
-}
-
-.card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-accent-light);
-}
-
-.card-title {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-3);
-}
-
-.card-description {
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
-    line-height: var(--line-height-relaxed);
-}
-
-.card-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-accent-light);
-    border-radius: var(--radius-lg);
-    margin-bottom: var(--space-4);
-    font-size: var(--font-size-2xl);
-}
-
 /* Service Cards */
 .services-grid {
     display: grid;

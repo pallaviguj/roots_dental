@@ -8,6 +8,7 @@ import { initializeCarousel } from './carousel.js';
 import './components.js';
 import './theme.js';
 import './cookies.js';
+import { getAllServices } from './sanity-client.js';
 
 // Polyfill for requestIdleCallback
 window.requestIdleCallback = window.requestIdleCallback || function (cb, options) {
@@ -23,11 +24,9 @@ window.requestIdleCallback = window.requestIdleCallback || function (cb, options
 // Initialize site on DOM load
 document.addEventListener('DOMContentLoaded', () => {
     populateServices();
-    populateAboutUsGallery();
+    populateFacilityCarousel();
     populateAchievements();
     populateContact();
-    initializeWhatsApp();
-    initializeAppointmentForm();
     initializeHeroAnimation();
     initializeScrollHeader();
     initializeSmoothScroll();
@@ -57,11 +56,24 @@ const setContact = (selector, attrs) => {
     });
 };
 
-// Populate Services
-const populateServices = () => {
+// Populate Services (Sanity first, config.js fallback)
+const populateServices = async () => {
     const grid = document.getElementById('servicesGrid');
     if (!grid) return;
-    data.services.forEach(service => {
+
+    let services = [];
+    try {
+        services = await getAllServices();
+    } catch (error) {
+        console.error('Error loading services from Sanity:', error);
+    }
+
+    if (!services.length) {
+        services = data.services;
+    }
+
+    grid.innerHTML = '';
+    services.forEach(service => {
         const card = createElement('a', {
             className: 'service-card',
             href: `service.html?slug=${encodeURIComponent(service.slug)}`
@@ -74,30 +86,9 @@ const populateServices = () => {
     });
 };
 
-// Populate About Us Gallery (Grid + Carousel)
-const populateAboutUsGallery = () => {
-    // Separate arrays for grid and carousel
-    const gridImages = site.aboutUsGalleryImages;
-    const carouselImages = site.facilityCarouselImages;
-
-    // Populate Grid
-    const gallery = document.getElementById('aboutUsGallery');
-    if (gallery) {
-        gridImages.forEach(image => {
-            const figure = createElement('figure', { className: 'gallery-item' });
-            const img = createElement('img', {
-                className: 'gallery-image',
-                src: image.src,
-                alt: `${site.businessName} - ${image.alt}`,
-                loading: 'lazy'
-            });
-            figure.appendChild(img);
-            gallery.appendChild(figure);
-        });
-    }
-
-    // Initialize Carousel (handled by carousel.js)
-    initializeCarousel(carouselImages, createElement);
+// Populate facility carousel
+const populateFacilityCarousel = () => {
+    initializeCarousel(site.facilityCarouselImages, createElement);
 };
 
 // Populate Achievements
@@ -142,24 +133,6 @@ const populateContact = () => {
     setContact('[data-contact="address"]', { html: site.addressFull });
     setContact('[data-contact="address-link"]', { href: site.mapUrl });
     setContact('[data-contact="hours"]', { html: `${site.hoursWeekdays}<br>${site.hoursWeekend}` });
-};
-
-// Populate Footer
-// Initialize Google Calendar Scheduling iframe
-const initializeAppointmentForm = () => {
-    const iframe = document.getElementById('googleCalendarScheduling');
-    if (iframe && site.googleCalendarSchedulingUrl) {
-        iframe.src = site.googleCalendarSchedulingUrl;
-    }
-};
-
-// Initialize WhatsApp Button
-const initializeWhatsApp = () => {
-    const btn = document.getElementById('whatsappBtn');
-    if (btn) {
-        btn.href = `https://wa.me/${site.phoneRaw}?text=${encodeURIComponent(site.whatsappMessage + ' at ' + site.businessName)}`;
-        btn.setAttribute('data-tooltip', site.whatsappTooltip);
-    }
 };
 
 // Initialize Reviews Widget (Elfsight)
@@ -291,22 +264,9 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeAppointmentModal();
 });
 
-// CMS Placeholder
-const openCMS = () => console.log('CMS feature coming soon');
-
-// Mobile Menu Toggle
-const toggleMobileMenu = () => {
-    const hamburger = document.getElementById('hamburger');
-    const navRight = document.getElementById('navRight');
-
-    hamburger.classList.toggle('active');
-    navRight.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-};
-
 // Initialize Scroll-Based Header
 const initializeScrollHeader = () => {
-    const header = document.querySelector('header');
+    const header = document.querySelector('body > header');
     if (!header) return;
 
     const triggerSection = document.querySelector('#services');
@@ -362,7 +322,7 @@ const initializeSmoothScroll = () => {
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
-                const header = document.querySelector('header');
+                const header = document.querySelector('body > header');
                 const headerHeight = header ? header.offsetHeight : 80;
                 const offset = headerHeight + 20; // Header height + 20px extra space
                 const elementPosition = targetElement.getBoundingClientRect().top;

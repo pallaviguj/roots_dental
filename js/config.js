@@ -10,8 +10,8 @@
 const site = {
     // Business
     businessName: 'Roots Dental Speciality Clinic',
-    tagline: 'We get to the Root of the problem.',
-    establishedYear: '2008',
+    websiteUrl: 'https://www.rootsdentalspeciality.com/',
+    websiteName: 'www.rootsdentalspeciality.com',
 
     // Doctor
     doctorName: 'Dr. Aarti Bohora',
@@ -20,15 +20,11 @@ const site = {
     doctorBio1: `"Form follows function." In endodontics, biology leads and aesthetics follows. Every treatment begins with preserving strength, eliminating infection, and respecting the natural architecture of your tooth.`,
     doctorBio2: `Our philosophy is rooted in modern microscopic treatment, with meticulous precision and personalized care. Our approach is minimally invasive, biologically driven, and designed for long-term success — all delivered in a calm, comfortable, and reassuring environment.`,
     doctorBio3: `Whenever possible, we believe in saving what is natural, because preserving your own tooth is always the best foundation for lasting oral health. As distinctive as you are, we remain committed to uncompromising dental excellence — restoring health, comfort, and confidence, one tooth at a time.`,
-    doctorExperience: '15+',
-    doctorSpecialization: 'Conservative Dentistry & Endodontics',
 
     // Contact
     phoneDisplay: '+91 70200 54267',
     phoneRaw: '917020054267',
-    email: 'rootsdentalspeciality@gmail.com', // Display email
-    bookingEmail: 'pallavi.gujrati@gmail.com', // Booking/Calendar email only
-    ownerEmail: 'pallavi.gujrati@gmail.com', // Calendar invites sent here (same as bookingEmail)
+    email: 'rootsdentalspeciality@gmail.com',
     addressFull: '472, Bohora Bhavan,<br>Near Jain Dharmarth Hospital (opposite Raspco Café & Somani Courier),<br>Raviwar Peth, Nashik, Maharashtra, 422001',
     landmark: 'From Ashok stambh to ravivar karanja - First right turn and then first left turn',
     mapUrl: 'https://maps.app.goo.gl/zoBfu8D4zgYvfPKD6',
@@ -52,7 +48,6 @@ const site = {
     },
 
     // Section Titles
-    sectionTrust: 'Trusted by patients across Nashik',
     sectionServices: 'Our Services',
     sectionFacility: 'Explore Our Facility',
     sectionAbout: 'About us',
@@ -62,40 +57,21 @@ const site = {
     sectionContact: 'Contact us',
 
     // Reviews Widget
-    elfsightWidgetId: '952e9a06-e58c-4631-9306-d3393f926a09', // Your Elfsight Google Reviews widget ID
+    elfsightWidgetId: '952e9a06-e58c-4631-9306-d3393f926a09',
 
     // Hero
-    heroTitle: 'We get to the Root of the problem.',
-    heroHighlightWord: 'Root',
     heroCallText: 'Call us at',
     heroCta: 'Book Appointment',
     heroYearsExperience: '15+',
     heroReviewsRating: '5.0',
-    heroPatientsTreated: '5000+',
-    heroCustomerImages: [
-        { src: 'images/gallery-5.png', alt: 'Happy patient 5' },
-        { src: 'images/gallery-1.png', alt: 'Happy patient 1' },
-        { src: 'images/gallery-2.png', alt: 'Happy patient 2' },
-        { src: 'images/image_doctor.png', alt: 'Dr. Aarti Bohora' },
-        { src: 'images/gallery-4.png', alt: 'Happy patient 4' }
-    ],
+    heroPatientsTreated: '1M+',
 
-
-    
     // About Us
     aboutUsTitle1: 'What sets us apart',
     aboutUsText1: `Roots Dental Speciality Clinic is thoughtfully designed with modern interiors and advanced dental equipment to provide exceptional care in a comfortable, welcoming environment.`,
     aboutUsText1b: `We've proudly served the Nashik community from this same clinic for over 15 years. As a premium, patient-centered practice, we offer preventive, restorative, cosmetic, and root canal treatments along with advanced specialty care — all under one roof. Blending cutting-edge technology, clinical precision, strong ethics, and compassionate care, we are committed to creating healthy, confident smiles for life.`,
     aboutUsTitle2: 'Our Commitment',
     aboutUsText2: `At Roots Dental Speciality Clinic, our commitment is to deliver ethical, evidence-based, and patient-focused care with uncompromising precision. We prioritize preserving natural tooth structure, ensuring comfort at every step, and creating treatment plans tailored to individual needs. Through continuous learning, advanced technology, and a deep sense of responsibility toward our patients, we strive to provide dentistry that is transparent, trustworthy, and built for long-term oral health.`,
-
-    // About Us Grid Images
-    aboutUsGalleryImages: [
-        { src: 'images/facility/expert_bg.png', alt: 'Dr. Aarti Bohora' },
-        { src: 'images/facility/gallery-6.png', alt: 'Treatment Room' },
-        { src: 'images/facility/hero_bg.png', alt: 'Clinic Interior' },
-        { src: 'images/facility/20231209_110607.jpg', alt: 'Dental Facility' }
-    ],
 
     // Facility Carousel Images (from images/facility/)
     facilityCarouselImages: [
@@ -120,11 +96,7 @@ const site = {
     // Contact Labels
     labelPhone: 'Phone:',
     labelEmail: 'Email:',
-    labelAddress: 'Address:',
     labelHours: 'Hours:',
-
-    // Buttons
-    btnBookAppointment: 'Book Appointment',
 
     // Theme
     themeDefault: 'light',
@@ -142,10 +114,7 @@ const site = {
 
     // WhatsApp
     whatsappMessage: 'Hello, I would like to book an appointment.',
-    whatsappTooltip: 'Chat with us on WhatsApp',
-
-    // CMS
-    cmsPlaceholder: 'CMS system - Full implementation coming soon'
+    whatsappTooltip: 'Chat with us on WhatsApp'
 };
 
 // ========================================
@@ -162,7 +131,6 @@ const data = {
             // images/services/microendo
             images: [
                 { src: 'images/services/microendo/InShot_20211018_210248016.jpg', alt: 'Microscopic dentistry case' },
-                { src: 'images/services/microendo/InShot_20211102_193748760.jpg', alt: 'Microscopic dentistry case' },
                 { src: 'images/services/microendo/InShot_20211128_215952001.jpg', alt: 'Microscopic dentistry case' },
                 { src: 'images/services/microendo/InShot_20220407_193101019.jpg', alt: 'Microscopic dentistry case' },
                 { src: 'images/services/microendo/InShot_20220810_112433563.jpg', alt: 'Microscopic dentistry case' },

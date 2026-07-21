@@ -1,10 +1,11 @@
 /**
  * Service detail page — hydrates content from ?slug=
- * Prefers Sanity CMS; falls back to js/config.js
+ * Renders local config.js by default; Sanity only when already cached.
+ * Background fetch warms the cache for the next visit.
  */
 
 import { site, data } from './config.js';
-import { getServiceBySlug } from './sanity-client.js';
+import { getServiceBySlug, peekServiceBySlug } from './sanity-client.js';
 
 const createElement = (tag, attrs = {}, text = '') => {
     const el = document.createElement(tag);
@@ -20,31 +21,7 @@ const getSlug = () => {
     return (params.get('slug') || '').trim();
 };
 
-const resolveService = async (slug) => {
-    if (!slug) return null;
-
-    try {
-        const fromSanity = await getServiceBySlug(slug);
-        if (fromSanity) return fromSanity;
-    } catch (error) {
-        console.error('Error loading service from Sanity:', error);
-    }
-
-    return data.services.find(s => s.slug === slug) || null;
-};
-
-const hydrateServicePage = async () => {
-    // Only run on the service detail page (avoid redirecting the homepage)
-    if (!document.getElementById('serviceTitle')) return;
-
-    const slug = getSlug();
-    const service = await resolveService(slug);
-
-    if (!service) {
-        window.location.replace('/#services');
-        return;
-    }
-
+const paintService = (service) => {
     document.title = `${service.name} - ${site.businessName}`;
 
     const meta = document.querySelector('meta[name="description"]');
@@ -60,26 +37,72 @@ const hydrateServicePage = async () => {
     if (introEl) introEl.textContent = service.intro;
 
     if (gridEl && Array.isArray(service.images)) {
-        gridEl.innerHTML = '';
-        service.images.forEach((image, index) => {
-            const figure = createElement('figure', {
-                className: `service-grid-item service-grid-item-${index + 1}`
+        const nextSignature = service.images.map((image) => image.src).join('|');
+        if (gridEl.dataset.images !== nextSignature) {
+            gridEl.dataset.images = nextSignature;
+            gridEl.innerHTML = '';
+            service.images.forEach((image, index) => {
+                const figure = createElement('figure', {
+                    className: `service-grid-item service-grid-item-${index + 1}`
+                });
+                const img = createElement('img', {
+                    src: image.src,
+                    alt: image.alt || `${service.name} at ${site.businessName}`,
+                    loading: index < 2 ? 'eager' : 'lazy'
+                });
+                figure.appendChild(img);
+                gridEl.appendChild(figure);
             });
-            const img = createElement('img', {
-                src: image.src,
-                alt: image.alt || `${service.name} at ${site.businessName}`,
-                loading: 'lazy'
-            });
-            figure.appendChild(img);
-            gridEl.appendChild(figure);
-        });
+        }
     }
 
-    // Prefill treatment select when booking from this service
     const treatmentSelect = document.getElementById('treatment');
     if (treatmentSelect && service.slug === 'root-canal-treatments') {
         treatmentSelect.value = 'Root Canal Treatment';
     }
+};
+
+const hydrateServicePage = async () => {
+    if (!document.getElementById('serviceTitle')) return;
+
+    const slug = getSlug();
+    if (!slug) {
+        window.location.replace('/#services');
+        return;
+    }
+
+    const local = data.services.find((service) => service.slug === slug) || null;
+    const cached = peekServiceBySlug(slug);
+
+    // Prefer cached Sanity only when available; otherwise use local fallback
+    if (cached) {
+        paintService(cached);
+        getServiceBySlug(slug).catch((error) => {
+            console.error('Error warming service cache from Sanity:', error);
+        });
+        return;
+    }
+
+    if (local) {
+        paintService(local);
+        getServiceBySlug(slug).catch((error) => {
+            console.error('Error warming service cache from Sanity:', error);
+        });
+        return;
+    }
+
+    // CMS-only service with no local fallback and no cache yet
+    try {
+        const fresh = await getServiceBySlug(slug);
+        if (fresh) {
+            paintService(fresh);
+            return;
+        }
+    } catch (error) {
+        console.error('Error loading service from Sanity:', error);
+    }
+
+    window.location.replace('/#services');
 };
 
 document.addEventListener('DOMContentLoaded', hydrateServicePage);

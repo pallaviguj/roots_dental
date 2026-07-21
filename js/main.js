@@ -8,7 +8,7 @@ import { initializeCarousel } from './carousel.js';
 import './components.js';
 import './theme.js';
 import './cookies.js';
-import { getAllServices } from './sanity-client.js';
+import { getAllServices, peekAllServices } from './sanity-client.js';
 
 // Polyfill for requestIdleCallback
 window.requestIdleCallback = window.requestIdleCallback || function (cb, options) {
@@ -56,22 +56,7 @@ const setContact = (selector, attrs) => {
     });
 };
 
-// Populate Services (Sanity first, config.js fallback)
-const populateServices = async () => {
-    const grid = document.getElementById('servicesGrid');
-    if (!grid) return;
-
-    let services = [];
-    try {
-        services = await getAllServices();
-    } catch (error) {
-        console.error('Error loading services from Sanity:', error);
-    }
-
-    if (!services.length) {
-        services = data.services;
-    }
-
+const renderServiceCards = (grid, services) => {
     grid.innerHTML = '';
     services.forEach(service => {
         const card = createElement('a', {
@@ -94,6 +79,20 @@ const populateServices = async () => {
         card.appendChild(h3);
         card.appendChild(p);
         grid.appendChild(card);
+    });
+};
+
+// Services: render local config by default; Sanity only when already cached.
+// Background fetch warms the cache for the next visit without swapping the UI.
+const populateServices = () => {
+    const grid = document.getElementById('servicesGrid');
+    if (!grid) return;
+
+    const cached = peekAllServices();
+    renderServiceCards(grid, (cached && cached.length) ? cached : data.services);
+
+    getAllServices().catch((error) => {
+        console.error('Error warming services cache from Sanity:', error);
     });
 };
 
